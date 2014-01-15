@@ -1,0 +1,25 @@
+.page {
+	max-width: 1190px;
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+}
+.no-background {
+	background: none !important;
+}
+.box-shadow {
+		-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+.header-fixed-container {
+	max-width: 1190px;
+	width: 100%;	
+}
+.header-fixed-container {
+    border-bottom:0;
+}
+.header-fixed {
+	border-bottom: 1px solid #DDDDDD;
+}
+.top-header,.header,.home-content,.footer-info-container .footer-info,.footer-aditional {width: 100%;}

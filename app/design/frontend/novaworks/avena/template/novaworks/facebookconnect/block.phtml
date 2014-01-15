@@ -1,0 +1,51 @@
+<script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+window.fbAsyncInit = function() {
+	FB.init({appId: '<?php echo $this->getAppId()?>',             
+	    status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true});
+
+	FB.getLoginStatus(function(response) {
+	   if (response.status == 'connected') {
+	    <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $uid = $this->checkFbUser()):?>
+	      greet('<?php echo $uid?>');
+	    <?php endif?>
+	   }
+	});
+};
+(function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/<?php echo Mage::app()->getLocale()->getLocaleCode()?>/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);
+         }(document));
+
+function login(){
+	   document.location.href="<?php echo $this->getUrl('facebookconnect/customer/login')?>?referer=<?php echo Mage::helper('core')->urlEncode($this->helper('core/url')->getCurrentUrl())?>";
+	}
+	function logout(){
+	   document.location.href="<?php echo $this->getUrl('facebookconnect/customer/logout')?>";
+	}
+	function greet(id){
+	   FB.api('/me', function(response) {
+		var src = 'https://graph.facebook.com/'+id+'/picture';
+		$$('.welcome-msg')[0].insert('<img height="20" src="'+src+'"/>');
+	   });
+	}
+
+    function fblogin(){
+        FB.login(function(response) {
+
+           if (response.status == 'connected') {
+                login();
+            } else {
+                // user is not logged in
+                window.location.reload();
+            }
+        }, {scope:'email,publish_stream'});
+        return false;
+    }
+/*]]>*/
+</script>

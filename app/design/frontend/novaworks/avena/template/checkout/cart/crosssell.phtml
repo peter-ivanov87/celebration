@@ -1,0 +1,208 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$thumb_width 			=  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+$quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId); 
+$ajax_cart		 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId);
+$image_product_hover 	= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId);
+$_maxItemCount = 20;
+?>
+<?php
+/**
+ * Cart cross sell items template
+ *
+ * @see Mage_Checkout_Block_Cart_Crosssell
+ */
+?>
+<?php if($this->getItemCount()): ?>
+<script type="text/javascript">
+//<![CDATA[
+
+    
+    jQuery(window).load(function(){
+    	var width_doc = jQuery(document).width();
+    	
+        if(width_doc >300 && width_doc < 340){
+          jQuery('.box-collateral .slider-items').flexslider({
+			namespace: "",
+			animation: "slide",
+			easing: "easeInQuart",
+			animationSpeed: 300,
+			animationLoop: false,
+			slideshow: false,			
+			pauseOnHover: true,
+			controlNav: false,
+			itemWidth: 275,
+			itemMargin: 20,
+			controlsContainer: ".block-related-slider .nav-wrapper",
+			prevText: "<div><i class=\"icon-left-open-big\"></i></div>",
+			nextText: "<div><i class=\"icon-right-open-big\"></i></div>"
+          });
+        }
+    	
+        else if(width_doc >470 && width_doc < 510){
+          jQuery('.box-collateral .slider-items').flexslider({
+			namespace: "",
+			animation: "slide",
+			easing: "easeInQuart",
+			animationSpeed: 300,
+			animationLoop: false,
+			slideshow: false,			
+			pauseOnHover: true,
+			controlNav: false,
+			itemWidth: 210,
+			itemMargin: 20,
+			controlsContainer: ".block-related-slider .nav-wrapper",
+			prevText: "<div><i class=\"icon-left-open-big\"></i></div>",
+			nextText: "<div><i class=\"icon-right-open-big\"></i></div>"
+          });
+        }
+    	
+        else if(width_doc >760 && width_doc < 790){
+          jQuery('.box-collateral .slider-items').flexslider({
+			namespace: "",
+			animation: "slide",
+			easing: "easeInQuart",
+			animationSpeed: 300,
+			animationLoop: false,
+			slideshow: false,			
+			pauseOnHover: true,
+			controlNav: false,
+			itemWidth: 167,
+			itemMargin: 15,
+			controlsContainer: ".block-related-slider .nav-wrapper",
+			prevText: "<div><i class=\"icon-left-open-big\"></i></div>",
+			nextText: "<div><i class=\"icon-right-open-big\"></i></div>"
+          });
+        }
+    	
+    	else {
+          jQuery('.box-collateral .slider-items').flexslider({
+			namespace: "",
+			animation: "slide",
+			easing: "easeInQuart",
+			animationSpeed: 300,
+			animationLoop: false,
+			slideshow: false,			
+			pauseOnHover: true,
+			controlNav: false,
+			itemWidth: 176,
+			itemMargin: 20,
+			controlsContainer: ".cart-accordion-group .nav-wrapper",
+			prevText: "<div><i class=\"icon-left-open-big\"></i></div>",
+			nextText: "<div><i class=\"icon-right-open-big\"></i></div>"
+          });
+    	}
+    	
+    });
+	
+//]]>
+</script>
+    <div class="cart-accordion-group box-collateral box-up-sell">
+		<div class="cart-accordion-heading">
+			<a class="cart-accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseCrossel">
+		  		<?php echo $this->__('Based on your selection, you may be interested in the following items') ?>
+			</a>
+	  	</div>
+		<div id="collapseCrossell" class="accordion-body collapse" style="height: 0px; ">
+			<div class="cart-accordion-inner">
+				<div class="nav-wrapper slider-arrows1 slider-arrows1-top-right"></div>
+			    <div class="slider-items products-upsell" id="upsell-product-table">
+				    <ul id="upsell-products-slider" class="slides products-grid">
+				    <?php foreach ($this->getItems() as $_item): ?>
+			            <li class="item">
+				            <div class="products-grid-inner">
+				            	<?php include('labels.phtml')  ?>
+				                <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image">
+				                	<img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize($thumb_width,$thumb_height) ?>" width="<?php echo $thumb_width?>" height="<?php echo $thumb_height;?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />				                	
+				                </a>
+				            </div> 
+				            <div class="price-product-box"><?php echo Mage_Catalog_Block_Product::getPriceHtml($_item, true) ?></div>
+							<div class="rating-product-box">
+						        <?php
+						        	$_reviews = Mage::getModel('review/review')->getResourceCollection();              
+						          	$_reviews->addStoreFilter( Mage::app()->getStore()->getId() )  
+						                    ->addEntityFilter('product', $_item->getId())
+						                  	->addStatusFilter( Mage_Review_Model_Review::STATUS_APPROVED )  
+						                  	->setDateOrder()  
+						                 	->addRateVotes(); 
+						    
+						            $avg = 0; 
+						            $ratings = array(); 
+						            if (count($_reviews) > 0){
+						            foreach ($_reviews->getItems() as $_review): ?>
+						            <?php foreach( $_review->getRatingVotes() as $_vote ): ?>
+						                    <?php $ratings[] = $_vote->getPercent();   ?>
+						                <?php endforeach; ?>
+						            <?php endforeach;   
+						            $avg = array_sum($ratings)/count($ratings); 
+						            ?> 
+						     
+						        <div class="rating-box">  
+						          	<div class="rating" style="width: <?php echo ceil($avg) ; ?>%;"></div>  
+						        </div>					
+						    	<?php }?>
+						    </div>
+						    <div class="clear"></div>   
+				            <h3 class="product-name">
+				            	<a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
+				            </h3>
+				            <div class="descriptions-hidden">		
+								<div class="quick-act" id="quick-act-<?php echo $_item->getId()?>">            
+									
+									<?php if($quick_view): ?>
+									<div class="quickview-box">
+										<a class="quickview_small" href="<?php echo $this->getUrl('ajax/index/quickview',array('product_id'=>$_item->getId()));?>" data-id="<?php echo $_item->getId()?>"><?php echo $this->__('View')?></a> 
+									</div>
+									<?php endif;?>
+									
+									<?php if($ajax_cart):?> 	
+									<?php if ( !($_item->getTypeInstance(true)->hasRequiredOptions($_item) || $_item->isGrouped()) ): ?>
+									<div class="add-to-cart">
+								 		<a rel="tooltip" class="add_to_cart_small" onclick="ajaxcart(' <?php echo $this->helper('checkout/cart')->getAddUrl($_item) ?>','<?php echo $_item->getId()?>');"><?php echo $this->__('Add to Cart')?></a> 
+									</div>
+									<?php else:?>		
+									<div class="add-to-cart">
+								  	<a class="ajaxcart_colorbox add_to_cart_small" href="<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_item->getId()));?>"><?php echo $this->__('Add to Cart')?></a> 
+									</div>
+								 	<?php endif; ?> 
+									<?php else:?>
+									<div class="add-to-cart">
+								 	<a rel="tooltip" class="add_to_cart_small" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_item) ?>');"><?php echo $this->__('Add to Cart')?></a> 
+									</div>
+									<?php endif; ?> 
+									
+								</div>
+				            </div>
+				            
+			            </li>
+				    <?php endforeach; ?>
+				    </ul>
+				</div>
+			</div>
+		</div>
+    </div>
+<?php endif; ?>

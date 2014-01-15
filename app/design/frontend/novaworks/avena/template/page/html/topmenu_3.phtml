@@ -1,0 +1,63 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+$page = Mage::app()->getFrontController()->getRequest()->getRouteName();
+if ($page == 'cms'):
+    $is_home=(Mage::getSingleton('cms/page')->getIdentifier()==Mage::getStoreConfig('web/default/cms_home_page')) ? true :false;
+endif; 
+$menu_type		=	Mage::getStoreConfig('themeoptions_general/general_options/menu_type', $storeId);
+$menu_stay_on_top		=	Mage::getStoreConfig('themeoptions_general/general_options/menu_stay_on_top', $storeId);
+
+
+?>
+<?php $_menu = $this->getHtml('level-top') ?>
+<?php if($_menu): ?>
+<div id="<?php echo $menu_type ?>" class="nav-container<?php if($menu_stay_on_top): echo " stay-top"; endif;?>">
+	<div class="nav-inner hidden-tablet hidden-phone">
+    <ul id="nav">
+    	<!-- <li class="menu-logo"><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>"><img src="<?php echo $this->getSkinUrl('images/logo-small.png')?>" /></a></li> -->
+    	<li class="home<?php if ($is_home):?> active<?php endif;?>"><a href="<?php echo $this->getUrl('')?>"><span><?php echo $this->__('Home') ?></span></a></li>        
+        <?php echo $_menu ?>
+        <?php if (($block_custom_menu = $this->getLayout()->createBlock('cms/block')->setBlockId('block_custom_menu')->toHtml()) && $menu_type == 'wide-menu'): ?>
+        <li class="nav-custom-link level0 level-top parent"><a class="level-top" href="#"><span><?php echo Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('block_custom_menu')->getTitle(); ?></span></a>
+        <ul class="level0">
+	        <div class="header-nav-dropdown-wrapper">
+		        <?php echo $block_custom_menu;?>
+	        </div>
+        </ul>
+        </li>
+        <?php endif;?>
+    </ul>
+	</div> 
+</div>
+
+<?php endif ?>

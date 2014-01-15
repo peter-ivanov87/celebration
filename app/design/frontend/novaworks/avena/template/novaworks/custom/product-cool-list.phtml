@@ -1,0 +1,34 @@
+<?php
+$ajax_cart		 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+$image_product_hover 	= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId);
+$quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId);  
+$thumb_width =  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+$_products = $this->getProductList();
+?>
+<div class="product-cool-list-container">
+<div class="product-cool-list">
+	<ul class="slides-4">
+	 	<?php $i=0; foreach ($_products->getItems() as $_product): ?>
+	       	<li class="item-4">
+				<div class="nova-product-images"> 
+		            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+		                          
+						<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+					               
+		        	</a>
+					
+				</div>		
+	        </li>
+	    <?php endforeach; ?>
+	 </ul>
+</div>	<div class="clear"></div>
+	<div class="title-info">
+		<div class="title">
+			<h2><?php echo $this->getBlockTitle() ?></h2>
+		</div>
+		<div class="view-more">
+			<a href="<?php echo $this->getButton_link() ?>"><?php echo $this->getButton_title() ?></a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <NovaWorks_Custom>
+      <active>true</active>
+      <codePool>community</codePool>
+      <version>0.1.0</version>
+    </NovaWorks_Custom>
+  </modules>
+</config>

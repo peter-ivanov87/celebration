@@ -1,0 +1,196 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+$pageLayout=$this->getLayout()->getBlock('root')->getTemplate(); 
+$page = Mage::app()->getFrontController()->getRequest()->getRouteName();
+if ($page == 'cms'):
+    $is_home=(Mage::getSingleton('cms/page')->getIdentifier()== Mage::getStoreConfig('web/default/cms_home_page')) ? true :false;
+endif;  
+//var_dump($is_home);
+//die();
+$heading_font_url = str_replace(' ', '+',Mage::getStoreConfig('themeoptions_theming/theme_general/heading_font', $storeId));
+if(!$heading_font_url) {
+	$heading_font_url = "Lato";
+}
+$preset = Mage::getStoreConfig('themeoptions_theming/theme_presets/presets', $storeId);
+$media_path	   = Mage::getBaseUrl('media') . 'theming/';
+$background_image 		= Mage::getStoreConfig('themeoptions_theming/theme_presets/l_background_image', $storeId);
+$background_repeat 		= Mage::getStoreConfig('themeoptions_theming/theme_presets/l_background_repeat', $storeId);
+$background_attachment 	= Mage::getStoreConfig('themeoptions_theming/theme_presets/l_background_attachment', $storeId);
+$background_postition 	= Mage::getStoreConfig('themeoptions_theming/theme_presets/l_background_postition', $storeId);
+
+$responsive_layoyut					=	Mage::getStoreConfig('themeoptions_general/general_options/responsive_layout', $storeId);
+$homepage_gallery_status					=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/status', $storeId);
+$homepage_slideshow_type					=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/slideshow_type', $storeId);   
+$homepage_gallery_type						=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegalleryinfotype', $storeId);   
+
+$homepage_gallery_circular					=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_circular', $storeId);  
+$homepage_gallery_infinite					=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_infinite', $storeId);  
+$homegallery_products_carousel_scroll_items				=	intval(Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_scroll_items', $storeId)); 
+$homegallery_products_carousel_auto								=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_auto', $storeId); 
+$homegallery_products_carousel_easing							=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_easing', $storeId); 
+$homegallery_products_carousel_duration							=	intval(Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_duration', $storeId)); 
+$homegallery_products_carousel_pause							=	Mage::getStoreConfig('themeoptions_homepage/homepage_gallery/homegallery_products_carousel_pause', $storeId);  
+
+
+if($homepage_gallery_circular == 1 ) {
+	$homepage_gallery_circular = 'true';
+}else{
+	$homepage_gallery_circular = 'false';
+}
+if($homepage_gallery_infinite == 1 ) {
+	$homepage_gallery_infinite = 'true';
+}else{
+	$homepage_gallery_infinite = 'false';
+}
+if($homegallery_products_carousel_auto == 1 ) {
+	$homegallery_products_carousel_auto = 'true';
+}else{
+	$homegallery_products_carousel_auto = 'false';
+}
+if($homegallery_products_carousel_pause == 1 ) {
+	$homegallery_products_carousel_pause = 'true';
+}else{
+	$homegallery_products_carousel_pause = 'false';
+}
+function GoogleFont($name) {
+			if($name) {
+            	echo '<link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=' . $name . '" type="text/css" media="screen" />';
+            }
+}
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<?php if($responsive_layoyut):?>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php endif; ?>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<?php GoogleFont($heading_font_url); ?>
+
+<?php echo $this->getCssJsHtml() ?>
+<?php if($background_image):?>
+<style>
+body {
+	background-image: url(<?php echo $media_path.$background_image ?>);
+	background-repeat: <?php echo $background_repeat;?>;
+	background-attachment: <?php echo $background_attachment;?>;
+	background-position: <?php echo $background_postition;?>;
+}
+</style>
+<?php endif;?>
+<?php 
+$theme_layout 		= Mage::getStoreConfig('themeoptions_theming/theme_general/theme_layout', $storeId);
+if($theme_layout==2):
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/boxed-layout.css')?>" media="all" />
+<?php endif; ?>
+<?php if($responsive_layoyut):?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('bootstrap/css/bootstrap-responsive.css')?>" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/responsive.css')?>" media="all" />
+<?php endif; ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<script src="//use.edgefonts.net/open-sans.js"></script>
+<?php echo $this->getIncludes() ?>
+<?php if($pageLayout!='page/empty.phtml'):?>
+<?php 
+if (Mage::getStoreConfig('imagezoomconfig/general/zoomclound_enable')) {
+$css = '
+					<style type="text/css">
+						.cloud-zoom-lens {
+							border: '.Mage::getStoreConfig('imagezoomconfig/imagezoom_style_css/lens_border').'px solid '.Mage::getStoreConfig('imagezoomconfig/imagezoom_style_css/lens_border_color').';
+							margin:-'.Mage::getStoreConfig('imagezoomconfig/imagezoom_style_css/lens_border').'px;	/* Set this to minus the border thickness. */
+							background-color: '.Mage::getStoreConfig('imagezoomconfig/imagezoom_style_css/lens_background_color').';	
+						}
+						.cloud-zoom-big {
+							border: '.Mage::getStoreConfig('imagezoomconfig/imagezoom_style_css/zoom_window_border').'px solid '.Mage::getStoreConfig('imagezoomconfig/imagezoom_style_css/zoom_window_border_color').';
+						}
+					</style>
+				';
+echo $css;
+}
+?>	
+
+<?php endif; ?>
+<script>
+	 // DOM ready
+	 jQuery(function() {
+      jQuery(".dropdown-phone").change(function() {
+        window.location = jQuery(this).find("option:selected").val();
+      });
+	 
+	 });
+	</script>
+<?php
+$ajax_cart			= intval(Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId)); 
+$ajax_compare		= intval(Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_compare', $storeId)); 
+$ajax_wishlist		= intval(Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_wishlist', $storeId)); 
+?>
+<script type="text/javascript">
+jQuery(function() {
+<?php if($ajax_cart):?>
+	  jQuery('.mini-cart .remove-item').live('click', function () {
+    	deletecart(jQuery(this).attr('href'));
+    return false;
+	});	
+<?php endif; ?>
+<?php if($ajax_compare):?>
+    jQuery('.add_to_compare_small').live('click', function () {
+    	ajaxcompare(jQuery(this).attr('href'),jQuery(this).attr('data-id'));
+    return false;
+	});	
+    jQuery('.btn-compare-remove').live('click', function () {
+    	removeCompare(jQuery(this).attr('href'));
+    return false;
+	});	
+    jQuery('.btn-clear-all-compare').live('click', function () {
+    	clearCompare(jQuery(this).attr('href'));
+    return false;
+	});
+<?php endif; ?>
+<?php if($ajax_wishlist):?>
+    jQuery('.add_to_wishlist_small').live('click', function () {
+    	ajaxwishlist(jQuery(this).attr('href'),jQuery(this).attr('data-id'));
+    return false;
+	});
+<?php endif; ?>
+});
+</script>

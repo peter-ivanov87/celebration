@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+<default>
+        <reference name="head">
+        	<action method="addJs" ifconfig="themeoptions_general/general_options/gotop_button" ifvalue="1"><script>novaworks/jquery.ui.totop.min.js</script></action>
+        	<action method="addCss"><stylesheet>css/presets/_custom.less</stylesheet></action>
+        </reference>
+		<reference name="left">
+			<block type="cms/block" name="block.custom.slidebar.2" after="-">
+				<action method="setBlockId"><block_id>block_custom_slidebar_2</block_id></action>
+			</block>
+			<block type="cms/block" name="block.custom.slidebar.3" after="-">
+				<action method="setBlockId"><block_id>block_custom_slidebar_3</block_id></action>
+			</block>
+   		</reference>
+
+    </default>
+</layout>

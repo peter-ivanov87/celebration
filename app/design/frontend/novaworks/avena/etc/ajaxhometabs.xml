@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <ajaxhometabs_index_index>
+		<reference name="root">	
+			<block type="page/html" name="root" template="ajaxhometabs/ajaxhometabs.phtml" >
+				<block type="ajaxhometabs/list" name="list" template="ajaxhometabs/list.phtml" />
+			</block>
+		</reference>
+    </ajaxhometabs_index_index>
+</layout> 

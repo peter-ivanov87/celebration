@@ -1,0 +1,155 @@
+<?php
+$ajax_cart		 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+$image_product_hover 	= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId);
+$quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId);  
+$thumb_width =  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+$cat_ids = explode(",",$this->getCateoryID());
+foreach ($cat_ids as $cat_id) {
+//echo $this->getCategoryName($cat_id);
+}
+?>
+<div class="row-fluid home-list-title">
+	<div class="title-left">
+		<div class="filter-nav">
+			<ul id="filters" class="option-set clearfix" data-option-key="filter">
+				<?php
+				foreach ($cat_ids as $cat_id) {
+				if($cat_id == $this->getSelected()){
+					$selected = 'class="selected"';
+				}else{
+					$selected = '';
+				}
+				echo '<li><a data-filter=".filter-cat-'.$cat_id.'" href="#filter" '.$selected.'>'.$this->getCategoryName($cat_id).'</a></li>';
+				}
+				?>
+		    </ul>
+		</div>
+	</div>
+</div>
+<div class="row-fluid products-filter products-grid">	
+	<ul id="container-filter" class="products-grid">
+		<?php
+			foreach ($cat_ids as $cat_id):
+				$_products = $this->getProductList($cat_id);
+		?>	
+	 	<?php $i=0; foreach ($_products->getItems() as $_product): ?>
+	       	<li class="item filter-cat-<?php echo $cat_id?>">
+				<div class="nova-product-images"> 
+					<?php include('labels.phtml')  ?> 
+					
+		            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                    	<?php 
+			                if($image_product_hover) { ?>
+			                <div class="front margin-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></div>
+			                <?php
+			                 $_gallery = Mage::getModel('catalog/product') -> load($_product -> getId()) -> getMediaGalleryImages();
+			                 foreach ($_gallery as $_image ):
+			                 ?>
+			                 <div class="product-img-additional back margin-image">
+			                 <img src="<?php echo $this -> helper('catalog/image') -> init($_product, 'thumbnail', $_image -> getFile()) -> resize($thumb_width, $thumb_height);?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+			                 </div>
+			                 <?php
+									break;
+									endforeach;
+							?>
+							<?php
+							}else{
+							?>
+							 <div class="margin-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+							 </div>
+							<?php	
+							}
+						?>			               
+		        	</a>
+					
+				</div>
+				<div class="price-product-box"><?php echo Mage_Catalog_Block_Product::getPriceHtml($_product, true) ?></div>
+				<div class="rating-product-box">
+		            <?php
+                    	$_reviews = Mage::getModel('review/review')->getResourceCollection();              
+                      	$_reviews->addStoreFilter( Mage::app()->getStore()->getId() )  
+                                 ->addEntityFilter('product', $_product->getId())
+                              	 ->addStatusFilter( Mage_Review_Model_Review::STATUS_APPROVED )  
+                              	 ->setDateOrder()  
+                             	 ->addRateVotes(); 
+                
+                        $avg = 0; 
+                        $ratings = array(); 
+                        if (count($_reviews) > 0){
+                        foreach ($_reviews->getItems() as $_review): ?>
+                        <?php foreach( $_review->getRatingVotes() as $_vote ): ?>
+                                <?php $ratings[] = $_vote->getPercent();   ?>
+                            <?php endforeach; ?>
+                        <?php endforeach;   
+                        $avg = array_sum($ratings)/count($ratings); 
+                        ?> 
+                 
+	                    <div class="rating-box">  
+	                      	<div class="rating" style="width: <?php echo ceil($avg) ; ?>%;"></div>  
+	                    </div>					
+                    	<?php }
+                	?>
+                </div>
+	            <div class="clear"></div>
+	        	<h3 class="product-name">
+	        		<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a>
+	        	</h3>
+	            <div class="descriptions-hidden">		
+					<div class="quick-act" id="quick-act-<?php echo $_product->getId()?>">            
+						
+						<?php if($quick_view): ?>
+						<div class="quickview-box">
+							<a class="quickview_small" href="<?php echo $this->getUrl('ajax/index/quickview',array('product_id'=>$_product->getId()));?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
+						</div>
+						<?php endif;?>
+						
+						<?php if($ajax_cart):?> 	
+						<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ): ?>
+						<div class="add-to-cart">
+					 		<a rel="tooltip" class="add_to_cart_small" onclick="ajaxcart(' <?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>','<?php echo $_product->getId()?>');"><?php echo $this->__('Add to Cart')?></a> 
+						</div>
+						<?php else:?>	
+						<div class="add-to-cart">	
+					  		<a class="ajaxcart_colorbox add_to_cart_small" href="<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>"><?php echo $this->__('Add to Cart')?></a> 
+						</div>
+					 	<?php endif; ?> 
+						<?php else:?>
+						<div class="add-to-cart">	
+					 		<a rel="tooltip" class="add_to_cart_small" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>');"><?php echo $this->__('Add to Cart')?></a> 
+						</div>
+						<?php endif; ?> 
+						
+					</div>
+	            </div>	
+	            	
+	        </li>
+	    	<?php endforeach; ?>
+	    	<?php endforeach; ?>
+	 </ul>
+</div>		
+  		
+<script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS);?>novaworks/jquery.isotope.min.js"></script>
+<script type="text/javascript"> 
+	jQuery(window).load(function(){ 
+		// cache container
+		var $container = jQuery('#container-filter');
+		$default = jQuery('#filters').find('.selected').attr('data-filter'); 
+		// filter items when filter link is clicked
+		$container.isotope({ 
+		  	itemSelector : '.item',
+		  	filter: $default
+		 });
+		jQuery('#filters a').click(function(){
+		  var selector = jQuery(this).attr('data-filter');
+		  jQuery(this).parents('#filters').find('.selected').removeClass('selected');
+          jQuery(this).addClass('selected');
+		  $container.isotope({ 
+		  	itemSelector : '.item',
+		  	filter: selector
+		  });
+		  return false;
+		});
+
+	});
+</script>	

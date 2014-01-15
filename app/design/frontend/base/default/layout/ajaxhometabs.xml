@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    	<reference name="head">
+			<action method="addJs"><script>mw_js/jquery.js</script></action>
+			<action method="addJs"><script>mw_js/jquery_noconflict.js</script></action>
+    	</reference>
+    </default>
+    <ajaxhometabs_index_index>
+		<reference name="root">	
+			<block type="page/html" name="root" template="ajaxhometabs/ajaxhometabs.phtml" >
+				<block type="ajaxhometabs/list" name="list" template="ajaxhometabs/list.phtml"/>
+			</block>
+		</reference>
+		
+		<reference name="content">
+			<block type="ajaxhometabs/showTabs" name="showTabs" template="ajaxhometabs/showTabs.phtml"/>
+		</reference>
+    </ajaxhometabs_index_index>
+</layout> 

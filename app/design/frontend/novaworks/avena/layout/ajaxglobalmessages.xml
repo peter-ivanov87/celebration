@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="root">
+            <remove name="global_messages"/>
+        </reference>
+        
+        <reference name="after_body_start">
+            <block type="core/template" name="novaworks_ajaxglobalmessages" template="novaworks/ajaxglobalmessages.phtml" before="-" />
+        </reference>        
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/ajaxglobalmessages.css</stylesheet></action>
+        </reference>
+    </default>
+</layout>

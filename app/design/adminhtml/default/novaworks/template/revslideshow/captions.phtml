@@ -1,0 +1,305 @@
+<?php
+$upload_folder_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'revslideshow/';
+$formKey = Mage::getSingleton('core/session')->getFormKey();
+    /**
+     * Get the resource model
+     */
+    $resource = Mage::getSingleton('core/resource');
+     
+    /**
+     * Retrieve the read connection
+     */
+    $readConnection = $resource->getConnection('core_read');
+ 
+    /**
+     * Retrieve our table name
+     */
+    $table = $resource->getTableName('revslideshow_slideshow');
+     
+    /**
+     * Set the product ID
+     */
+    $slideshow_id  = $this->getRequest()->getParam('id');
+     
+    $query = 'SELECT * FROM ' . $table . ' WHERE slideshow_id = '
+             . (int)$slideshow_id;
+     
+    /**
+     * Execute the query and store the result in $sku
+     */
+    $data = $readConnection->fetchRow($query);
+    $slide_img =  $upload_folder_path.$data[image];
+
+
+?>
+<script>
+jQuery(function() {
+	jQuery("#layer_content_type").change(function() {
+    	// hide all brands first
+    	jQuery("#content_image").hide();
+    	jQuery("#content_video").hide();
+    	// val is something like #div1 or #div2
+    	var value = jQuery(this).val();
+    	// show the new selected one
+    	jQuery("#content_"+value).show();
+    });
+	if(jQuery('#video_radio_youtube').is(':checked')) {
+    	jQuery("#video_block_youtube").show();
+    };
+	jQuery("#video_radio_youtube").change(function() {
+		jQuery("#video_block_vimeo").hide();
+    	jQuery("#video_block_youtube").show();
+    });
+	jQuery("#video_radio_vimeo").change(function() {
+		jQuery("#video_block_youtube").hide();
+    	jQuery("#video_block_vimeo").show();
+    });
+	jQuery('#youtube_id').live('change', function(){
+		var embed = '<iframe width="'+jQuery('#youtube_width').val()+'" height="'+jQuery('#youtube_height').val()+'" src="http://www.youtube.com/embed/'+jQuery(this).val()+'?rel=0" frameborder="0" allowfullscreen></iframe>';
+		jQuery('#content').val(embed).change();
+	});
+	jQuery('#youtube_width').live('change', function(){
+		var embed = '<iframe width="'+jQuery(this).val()+'" height="'+jQuery('#youtube_height').val()+'" src="http://www.youtube.com/embed/'+jQuery('#youtube_id').val()+'?rel=0" frameborder="0" allowfullscreen></iframe>';
+		jQuery('#content').val(embed).change();
+	});
+	jQuery('#youtube_height').live('change', function(){
+		var embed = '<iframe width="'+jQuery('#youtube_width').val()+'" height="'+jQuery(this).val()+'" src="http://www.youtube.com/embed/'+jQuery('#youtube_id').val()+'?rel=0" frameborder="0" allowfullscreen></iframe>';
+		jQuery('#content').val(embed).change();
+	});
+	jQuery('#vimeo_id').live('change', function(){
+		var embed = '<iframe src="http://player.vimeo.com/video/'+jQuery(this).val()+'?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="'+jQuery('#vimeo_width').val()+'" height="'+jQuery('#vimeo_height').val()+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+		jQuery('#content').val(embed).change();
+	});
+	jQuery('#vimeo_width').live('change', function(){
+		var embed = '<iframe src="http://player.vimeo.com/video/'+jQuery('#vimeo_id').val()+'?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="'+jQuery(this).val()+'" height="'+jQuery('#vimeo_height').val()+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+		jQuery('#content').val(embed).change();
+	});
+	jQuery('#vimeo_height').live('change', function(){
+		var embed = '<iframe src="http://player.vimeo.com/video/'+jQuery('#vimeo_id').val()+'?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="'+jQuery('#vimeo_width').val()+'" height="'+jQuery(this).val()+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+		jQuery('#content').val(embed).change();
+	});
+});
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery('#photoimg').live('change', function(){
+		jQuery("#imageform").ajaxForm({
+			success: function(data)
+			{
+               jQuery('#content').val(data).change();
+            }	
+		}).submit();
+		
+	});
+});
+</script>
+<div id="shell">
+	<div id="hb-shell">
+		<div id="hb-top-wrap" class="hb-main-wrap">
+			<div id="hb-global-settings-wrap">
+				<h1>Slide Image</h1>
+				<div id="hb-map-wrap">
+				<img src="<?php echo $slide_img?>">
+			</div>			</div>
+		</div>
+		<div id="hb-main-wrap" class="hb-main-wrap">
+			<div id="hb-settings-wrap">
+				<h2><?php echo $this->__("Selected Layer Settings")?></h2>
+				<table>
+					<tr>
+						<td width="100"><?php echo $this->__("Layer style")?>: </td>
+						<td>
+							<select id="layer-style">
+								<option value="big_white">big_white</option>
+								<option value="big_orange">big_orange</option>
+								<option value="big_black">big_black</option>
+								<option value="medium_grey">medium_grey</option>
+								<option value="small_text">small_text</option>
+								<option value="medium_text">medium_text</option>
+								<option value="large_text">large_text</option>
+								<option value="very_large_text">very_large_text</option>
+								<option value="very_big_white">very_big_white</option>
+								<option value="very_big_black">very_big_black</option>
+								<option value="boxshadow">boxshadow</option>
+								<option value="black">black</option>
+								<option value="noshadow">noshadow</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="100">Animation: </td>
+						<td>
+<select name="layer_animation" id="layer-animation" class="">
+								<option selected="selected" value="fade">Fade</option>
+									<option value="sft">Short from Top</option>
+									<option value="sfb">Short from Bottom</option>
+									<option value="sfr">Short from Right</option>
+									<option value="sfl">Short from Left</option>
+									<option value="lft">Long from Top</option>
+									<option value="lfb">Long from Bottom</option>
+									<option value="lfr">Long from Right</option>
+									<option value="lfl">Long from Left</option>
+									<option value="randomrotate">Random Rotate</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="100">Easing: </td>
+						<td>
+						<select name="layer_easing" id="layer-easing" class="">
+								<option value="easeOutBack">easeOutBack</option>
+									<option value="easeInQuad">easeInQuad</option>
+									<option value="easeOutQuad">easeOutQuad</option>
+									<option value="easeInOutQuad">easeInOutQuad</option>
+									<option value="easeInCubic">easeInCubic</option>
+									<option value="easeOutCubic">easeOutCubic</option>
+									<option value="easeInOutCubic">easeInOutCubic</option>
+									<option value="easeInQuart">easeInQuart</option>
+									<option value="easeOutQuart">easeOutQuart</option>
+									<option value="easeInOutQuart">easeInOutQuart</option>
+									<option value="easeInQuint">easeInQuint</option>
+									<option value="easeOutQuint">easeOutQuint</option>
+									<option value="easeInOutQuint">easeInOutQuint</option>
+									<option value="easeInSine">easeInSine</option>
+									<option value="easeOutSine">easeOutSine</option>
+									<option value="easeInOutSine">easeInOutSine</option>
+									<option value="easeInExpo">easeInExpo</option>
+									<option selected="selected" value="easeOutExpo">easeOutExpo</option>
+									<option value="easeInOutExpo">easeInOutExpo</option>
+									<option value="easeInCirc">easeInCirc</option>
+									<option value="easeOutCirc">easeOutCirc</option>
+									<option value="easeInOutCirc">easeInOutCirc</option>
+									<option value="easeInElastic">easeInElastic</option>
+									<option value="easeOutElastic">easeOutElastic</option>
+									<option value="easeInOutElastic">easeInOutElastic</option>
+									<option value="easeInBack">easeInBack</option>
+									<option value="easeInOutBack">easeInOutBack</option>
+									<option value="easeInBounce">easeInBounce</option>
+									<option value="easeOutBounce">easeOutBounce</option>
+									<option value="easeInOutBounce">easeInOutBounce</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+					<td><?php echo $this->__("Speed")?></td>
+					<td><input id="layer-speed" name="layer_speed" value="" /></td>
+					</tr>
+					<tr>
+					<td><?php echo $this->__("Time")?></td>
+					<td><input id="time-start" name="time" value="" /></td>
+					</tr>
+					<tr>
+						<td><?php echo $this->__("Content Type")?>: </td>
+						<td>
+							<select id="layer_content_type" name="layer_content_type" class="">
+									<option value="text">Text</option>
+									<option value="image">Image</option>
+									<option value="video">Video</option>
+							</select>
+						</td>
+					</tr>	
+
+					<tr class="content_text" style="">
+						<td><?php echo $this->__("Content")?>: </td>
+						<td>
+							<textarea id="content" autocomplete="off"></textarea>
+						</td>
+					</tr>
+					
+					<tr id="content_image" class="content_image">
+						<td><?php echo $this->__("Image")?>: </td>
+						<td>
+							<form id="imageform" method="post" enctype="multipart/form-data" action='<?php echo Mage::helper("adminhtml")->getUrl("admin_revslideshow/adminhtml_slideshow/ajaxuploadthumb") ?>'>
+								<input type="file" name="photoimg" id="photoimg" />
+								<input name="form_key" value="<?php echo $formKey; ?>" type="hidden">
+							</form>
+						</td>
+					</tr>
+					<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+					<tr>
+						<td><?php echo $this->__("Delete")?>?</td>
+						<td><input type="button" id="delete" value="Delete Layer"></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="clear"></div>
+
+		</div>
+				<div id="content_video" class="video-finder">
+
+			<div class="choose-video-type">
+				<?php echo $this->__("Choose video type")?>:
+			</div>
+			
+			<label for="video_radio_youtube">Youtube</label>
+			<input checked="" id="video_radio_youtube" name="video_select" type="radio">
+			
+			<label for="video_radio_vimeo">Vimeo</label>
+			<input id="video_radio_vimeo" name="video_select" type="radio">
+<div class="video-select-block" id="video_block_youtube">
+		
+			<div class="video-title">
+				Enter Youtube ID:
+			</div>
+			
+			<input type="text" value="" id="youtube_id">
+		<div class="video_example">
+				example:  QohUdrgbD2k
+			</div>
+			<br/>
+			<div class="custom-field">
+			<label><?php echo $this->__("Width")?> </label>
+			<input type="text" value="300" style="width:30px" id="youtube_width"> px 
+			</div>
+			<div class="custom-field">
+			<label><?php echo $this->__("Height")?> </label>
+			<input type="text" value="200" style="width:30px" id="youtube_height"> px
+
+			</div>		
+			
+		</div>			
+<div class="video-select-block" id="video_block_vimeo">
+			<div class="video-title">
+				Enter Vimeo ID:
+			</div>
+			
+			<input type="text" value="" id="vimeo_id">
+			&nbsp;			
+			
+			<div class="video_example">
+				example:  62773137
+			</div>
+			<div class="custom-field">
+			<label><?php echo $this->__("Width")?> </label>
+			<input type="text" value="300" style="width:30px" id="vimeo_width"> px 
+			</div>
+			<div class="custom-field">
+			<label><?php echo $this->__("Height")?> </label>
+			<input type="text" value="200" style="width:30px" id="vimeo_height"> px
+
+			</div>	
+	
+		</div>
+					<div class="custom-field">
+			<label><?php echo $this->__("Auto Play")?> </label>
+			<input type="checkbox" name="layer_video_autoplay" class="inputCheckbox" id="layer_video_autoplay">
+			</div>				
+				</div>
+		<div class="hb-main-wrap" id="submit-wrap">
+		<div class="form-submit">
+			<form action="<?php echo Mage::helper("adminhtml")->getUrl("admin_revslideshow/adminhtml_slideshow/savecaptions/id/".$slideshow_id) ?>" method="post" enctype="multipart/form-data">
+			<input name="form_key" value="<?php echo $formKey; ?>" type="hidden">
+			<div style="display:none">
+			<textarea  class="ndd-invisible" id="spots-json" name="json"><?php echo $data[json]?></textarea>
+			</div>
+			<button id="result" style="padding:20px;float:left;" type="submit" title="Save"><span><span><span>Save</span></span></span></button>
+			</form>
+		</div>
+		</div>			
+		</div>
+	</div>
+	
+	
+</div>
+

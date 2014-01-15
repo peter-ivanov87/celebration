@@ -1,0 +1,74 @@
+<?php
+$ajax_cart		 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+$image_product_hover 	= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId);
+$quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId);  
+$thumb_width =  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+$_products = $this->getProductList();
+?>
+   <div class="row-fluid">
+    <h2 class="title"><?php echo $this->getBlockTitle() ?></h2>
+   </div>
+   <?php $i=0; foreach ($_products->getItems() as $_product): ?>
+   <div class="row-fluid container">
+    <div class="span4">
+     <div class="nova-product-images"> 
+               <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                             <?php 
+                   if($image_product_hover) { ?>
+                   <div class="front margin-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></div>
+                   <?php
+                    $_gallery = Mage::getModel('catalog/product') -> load($_product -> getId()) -> getMediaGalleryImages();
+                    foreach ($_gallery as $_image ):
+                    ?>
+                    <div class="product-img-additional back margin-image">
+                    <img src="<?php echo $this -> helper('catalog/image') -> init($_product, 'thumbnail', $_image -> getFile()) -> resize($thumb_width, $thumb_height);?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                    </div>
+                    <?php
+         break;
+         endforeach;
+       ?>
+       <?php
+       }else{
+       ?>
+        <div class="margin-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+        </div>
+       <?php 
+       }
+       ?>                  
+            </a>
+     </div>
+    </div>
+    <div class="span8 padding-left">
+     <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h3>
+      <?php echo Mage_Catalog_Block_Product::getPriceHtml($_product, true) ?>
+		            <div class="clear"></div>	
+		            <div class="rating-product-box">
+			            <?php
+	                    $_reviews = Mage::getModel('review/review')->getResourceCollection();              
+	                      $_reviews->addStoreFilter( Mage::app()->getStore()->getId() )  
+	                                ->addEntityFilter('product', $_product->getId())
+	                              ->addStatusFilter( Mage_Review_Model_Review::STATUS_APPROVED )  
+	                              ->setDateOrder()  
+	                              ->addRateVotes(); 
+                    
+                            $avg = 0; 
+                            $ratings = array(); 
+                            if (count($_reviews) > 0){
+                            foreach ($_reviews->getItems() as $_review): ?>
+                            <?php foreach( $_review->getRatingVotes() as $_vote ): ?>
+                                    <?php $ratings[] = $_vote->getPercent();   ?>
+                                <?php endforeach; ?>
+                            <?php endforeach;   
+                            $avg = array_sum($ratings)/count($ratings); 
+                            ?> 
+                     
+                    <div class="rating-box">  
+                      <div class="rating" style="width: <?php echo ceil($avg) ; ?>%;"></div>  
+                    </div>					
+                    <?php }?>
+                    </div>
+		            <div class="clear"></div>	
+    </div>
+   </div>
+   <?php endforeach; ?>

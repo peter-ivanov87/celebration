@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <NovaWorks_Ajaxglobalmessages>
+            <version>1.0.0</version>
+        </NovaWorks_Ajaxglobalmessages>
+    </modules>
+    
+    <frontend>
+        <layout>
+            <updates>
+                <novaworks_ajaxglobalmessages>
+                    <file>ajaxglobalmessages.xml</file>
+                </novaworks_ajaxglobalmessages>
+            </updates>
+        </layout>
+    </frontend>
+</config>

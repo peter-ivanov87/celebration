@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout>    
+<default>
+        <reference name="head">
+        	<action method="addJs" ifconfig="imagezoomconfig/general/zoomclound_enable" ifvalue="1"><script>novaworks/cloud-zoom.1.0.2.js</script></action>
+        	<action method="addCss" ifconfig="imagezoomconfig/general/zoomclound_enable" ifvalue="1"><stylesheet>css/imagezoom.css</stylesheet></action>       	
+        </reference>
+    </default>
+	<catalog_product_view>
+		<reference name="product.info.media">
+			<action method="setTemplate" ifconfig="imagezoomconfig/general/zoomclound_enable">
+				<template>novaworks/imagezoom/media.phtml</template>
+			</action>
+		</reference>
+	</catalog_product_view>
+	<review_product_list>
+		<reference name="product.info.media">
+			<action method="setTemplate" ifconfig="imagezoomconfig/general/zoomclound_enable">
+				<template>novaworks/imagezoom/media.phtml</template>
+			</action>
+		</reference>
+	</review_product_list>
+	<catalog_product_view translate="label">
+        <reference name="head">
+			<action method="addJs" ifconfig="imagezoomconfig/general/zoomclound_enable"><script>corlletelab/imagezoom/product_override.js</script></action>
+        </reference>
+    </catalog_product_view>
+</layout>

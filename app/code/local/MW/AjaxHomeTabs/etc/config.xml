@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   MW
+ * @package    MW_AjaxHomeTabs
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MW_AjaxHomeTabs>
+            <version>1.2.5</version>
+        </MW_AjaxHomeTabs>
+    </modules>
+    <frontend>
+        <routers>
+            <ajaxhometabs>
+                <use>standard</use>
+                <args>
+                    <module>MW_AjaxHomeTabs</module>
+                    <frontName>ajaxhometabs</frontName>
+                </args>
+            </ajaxhometabs>
+        </routers>
+        <layout>
+            <updates>
+                <ajaxhometabs>
+                    <file>ajaxhometabs.xml</file>
+                </ajaxhometabs>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+    			<ajaxhometabs_admin>
+    				<use>admin</use>
+    				<args>
+    					<module>MW_AjaxHomeTabs</module>
+    					<frontName>ajaxhometabs_admin</frontName>
+    				</args>
+    			</ajaxhometabs_admin>
+        </routers>
+    </admin>
+	<adminhtml>
+		<!--<menu>
+			<ajaxhometabs module="ajaxhometabs">
+				<title>AjaxHomeTabs</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="ajaxhometabs">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>ajaxhometabs/adminhtml_ajaxhometabs</action>
+					</items>
+				</children>
+			</ajaxhometabs>
+		</menu>
+		-->
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<AsiaConnect_AjaxHomeTabs>
+							<title>AjaxHomeTabs Module</title>
+							<sort_order>10</sort_order>
+						</AsiaConnect_AjaxHomeTabs>
+						 <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <ajaxhometabs translate="title" module="ajaxhometabs">
+                                        <title>Customers Section</title>
+                                        <sort_order>50</sort_order>
+                                    </ajaxhometabs>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<ajaxhometabs>
+					<file>ajaxhometabs.xml</file>
+				</ajaxhometabs>
+			</updates>
+		</layout>
+		
+    </adminhtml> 
+    <global>
+        <models>
+            <ajaxhometabs>
+                <class>MW_AjaxHomeTabs_Model</class>
+                <resourceModel>ajaxhometabs_mysql4</resourceModel>
+            </ajaxhometabs>
+            <ajaxhometabs_mysql4>
+                <class>MW_AjaxHomeTabs_Model_Mysql4</class>
+                <entities>
+                    <ajaxhometabs>
+                        <table>ajaxhometabs</table>
+                    </ajaxhometabs>
+                </entities>
+            </ajaxhometabs_mysql4>
+        </models>
+        <resources>
+            <ajaxhometabs_setup>
+                <setup>
+                    <module>MW_AjaxHomeTabs</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ajaxhometabs_setup>
+            <ajaxhometabs_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ajaxhometabs_write>
+            <ajaxhometabs_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ajaxhometabs_read>
+        </resources>
+        <blocks>
+            <ajaxhometabs>
+                <class>MW_AjaxHomeTabs_Block</class>
+            </ajaxhometabs>
+			
+			<!--
+			<catalog>
+				<rewrite>
+					<product_list>MW_AjaxHomeTabs_Block_Product_List</product_list>
+				</rewrite>
+			</catalog>
+			-->
+		
+			
+        </blocks>
+        <helpers>
+            <ajaxhometabs>
+                <class>MW_AjaxHomeTabs_Helper</class>
+            </ajaxhometabs>
+        </helpers>
+		<events>
+			<controller_front_init_before>
+	            	<observers>
+	                    <ajaxhometabs>
+	                        <type>singleton</type>
+	                        <class>ajaxhometabs/observer</class>
+	                        <method>checkLicense</method>
+	                    </ajaxhometabs>
+	                </observers>
+			</controller_front_init_before>    
+		</events>
+    </global>
+	<default>
+		<ajaxhometabs>
+			<tabgeneral>
+				<default_limit_grid>5</default_limit_grid>
+				<default_limit_list>5</default_limit_list>
+				<grid_number_columns>3</grid_number_columns>
+				<allow_cache>0</allow_cache>
+			</tabgeneral>
+		
+			<topfeature>
+				<custom_label>Featured</custom_label>
+				<feature_catalog></feature_catalog>
+				<order_display>1</order_display>
+			</topfeature>
+			
+			
+			<topbestsell>
+				<custom_label>Top Sellers</custom_label>
+				<order_display>3</order_display>
+			</topbestsell>
+			
+			<toprate>
+				<custom_label>Top Rated</custom_label>
+				<order_display>4</order_display>
+			</toprate>
+			
+			<topreview>
+				<custom_label>Top Reviewed</custom_label>
+				<order_display>5</order_display>
+			</topreview>
+			
+			<topnewest>
+				<custom_label>New Products</custom_label>
+				<order_display>2</order_display>
+			</topnewest>
+			
+			<topwish>
+				<custom_label>Top Wishlist</custom_label>
+				<order_display>6</order_display>
+			</topwish>
+			
+			
+			<custom1>
+				<custom_label></custom_label>
+				<custom_catalog></custom_catalog>
+				<order_display>7</order_display>
+			</custom1>
+			
+			<custom2>
+				<custom_label></custom_label>
+				<custom_catalog></custom_catalog>
+				<order_display>8</order_display>
+			</custom2>
+		</ajaxhometabs>
+	</default>
+</config>

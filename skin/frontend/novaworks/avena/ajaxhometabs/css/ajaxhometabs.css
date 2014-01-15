@@ -1,0 +1,262 @@
+#ajaxmenu #ajaxnav li {
+  float:left;
+  text-align:left;
+}
+#ajaxmenu #ajaxnav li a {
+  color:#a0a0a0;
+  display:block;
+  float:left;
+  border:none;
+  text-decoration:none;
+  transition-duration:200ms;
+  -moz-transition-duration:200ms;
+  -webkit-transition-duration:200ms;
+  -o-transition-duration:200ms;
+}
+#ajaxmenu #ajaxnav li a:hover {
+  text-decoration:none;
+  transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
+  -moz-transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
+  -webkit-transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
+  -o-transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
+}
+#ajaxmenu #ajaxnav li a span {
+  display:block;
+  white-space:nowrap;
+}
+#ajaxmenu #ajaxnav li ul a span { white-space:normal; }
+#ajaxmenu #ajaxnav > li {
+	display:inline-block;
+}
+#ajaxmenu #ajaxnav > li > a {
+	color:#333;
+	display:block;
+	font-family:'Open Sans', sans-serif;
+	font-size:13px;
+	line-height:50px;
+	padding:0 15px;
+	letter-spacing: .5px;
+}
+#ajaxmenu #ajaxnav > li.parent:hover > a, #ajaxmenu #ajaxnav > li.parent.active > a { color:#ffffff; }
+#ajaxmenu #ajaxnav > li.parent.active > a { color:#4cb8a1; }
+#ajaxmenu #ajaxnav > li:hover > a {
+  background:#4cb8a1;
+  color:#ffffff !important;
+}
+#ajaxmenu #ajaxnav > li.active > a {
+	color:#4cb8a1 !important;
+
+}
+#ajaxmenu #ajaxnav > li.active > a:hover { color:#ffffff !important; }
+#ajaxmenu #ajaxnav > li:hover > a {
+  position:relative;
+  z-index:999999;
+}
+#ajaxmenu #ajaxnav > li > a span { text-transform:none; }
+#ajaxmenu #ajaxnav > li.parent:hover > a span, #ajaxmenu #ajaxnav > li.parent.active > a span { display:block; }
+#ajaxmenu #ajaxnav > li:hover > a span, #ajaxmenu #ajaxnav > li.active > a span { display:block; }
+#ajaxmenu #ajaxnav ul.level0 {
+	border:1px solid #4cb8a1;
+	display:none;
+	left:0;
+	margin:0;
+	max-width:920px;
+	padding:18px 2%;
+	position:absolute;
+	top:50px;
+	width:100%;
+	z-index:99999;
+	background-color: #E8FBF5;
+}
+#ajaxmenu #ajaxnav div ul {
+  position:static;
+  width:auto;
+  border:none;
+}
+#ajaxmenu #ajaxnav ul.level0 > li {
+  float:left;
+  margin-right:15px;
+  padding-right:15px;
+}
+#ajaxmenu #ajaxnav ul.level0 > li > a {
+	font-family:'Open Sans', sans-serif;
+	font-size:13px;
+	color:#4cb8a1;
+	line-height:14px;
+}
+#ajaxmenu #ajaxnav ul li a { float:none; }
+#ajaxmenu #ajaxnav ul li a:hover { color:#4cb8a1; }
+#ajaxmenu #ajaxnav ul li.parent {
+  background:url("../images/icon-left-menu.png") no-repeat scroll 0 5% transparent;
+  padding:0 5px 0 15px;
+}
+#ajaxmenu #ajaxnav ul ul, #ajaxmenu #ajaxnav ul div { position:static !important; }
+#ajaxmenu #ajaxnav ul ul { padding-top:5px; }
+#ajaxmenu #ajaxnav ul ul li {
+  float:none;
+  margin:0;
+  list-style:none;
+  line-height:25px;
+}
+#ajaxmenu #ajaxnav ul ul li a:hover { text-decoration:underline; }
+#ajaxmenu #ajaxnav ul.level2 { padding:5px 0 5px 8px; }
+#ajaxmenu #ajaxnav ul.level2 a {
+  color:#4cb8a1;
+  font-size:11px;
+  line-height:15px;
+}
+#ajaxmenu #ajaxnav ul.level0 > li.menu-content {
+  float:none;
+  width:inherit;
+  margin-right:0;
+  margin-left:0;
+  margin-bottom:0;
+}
+#ajaxmenu #ajaxnav li > ul.shown-sub, #ajaxmenu #ajaxnav li > div.shown-sub { left:0; }
+#ajaxmenu #ajaxnav #ajaxmenu #ajaxnav-custom-link > a { cursor:default; }
+#ajaxmenu #ajaxnav .header-nav-dropdown-wrapper {
+  margin:0 0 20px;
+  padding:0;
+  border:0;
+  display:block !important;
+  list-style:disc;
+}
+#ajaxmenu #ajaxnav .header-nav-dropdown-wrapper li {
+  background:url("../images/icon-left-menu.png") no-repeat scroll 0 50% transparent;
+  padding:0 5px 0 15px;
+  margin-right:2.5%;
+}
+#ajaxmenu #ajaxnav .header-nav-dropdown-wrapper li.last { margin-right:0; }
+#ajaxmenu #ajaxnav .header-nav-dropdown-wrapper p {
+  margin:10px 0;
+  color:#999999;
+}
+#ajaxmenu #ajaxnav .header-nav-dropdown-wrapper .heading {
+  margin:10px 0;
+  color:#333333;
+}
+#default-menu #ajaxnav li {
+  position:relative;
+  text-align:left;
+  line-height:normal;
+}
+#default-menu #ajaxnav li.over { z-index:998; }
+#default-menu #ajaxnav a, #default-menu #ajaxnav a:hover {
+  display:block;
+  text-decoration:none;
+}
+#default-menu #ajaxnav > li:hover > a {
+  background:#eea00c;
+  color:#ffffff !important;
+}
+#default-menu #ajaxnav span {
+  display:block;
+  cursor:pointer;
+  white-space:nowrap;
+}
+#default-menu #ajaxnav li ul span { white-space:normal; }
+#default-menu #ajaxnav li {
+  float:left;
+  font-size:18px;
+}
+#default-menu #ajaxnav li a { line-height:50px; }
+#default-menu #ajaxnav li.active a { color:#eea00c; }
+#default-menu #ajaxnav li a {
+  color:#ffffff;
+  font-family:'Open Sans', sans-serif;
+  font-size:14px;
+  float:left;
+  padding:0 24px;
+  text-transform:uppercase;
+}
+#default-menu #ajaxnav li.over a, #default-menu #ajaxnav li a:hover { color:#ee1c35; }
+#default-menu #ajaxnav li ul li a {
+  border:0 !important;
+  margin-bottom:0;
+}
+#default-menu #ajaxnav ul {
+  background:#ffffff;
+  border:#878787 solid 1px;
+  border-top:none;
+  margin:0;
+  padding:0;
+}
+#default-menu #ajaxnav ul li, #default-menu #ajaxnav ul li.active {
+  float:none;
+  margin:0;
+  font-size:12px;
+}
+#default-menu #ajaxnav ul li.last { padding-bottom:0; }
+#default-menu #ajaxnav ul li { border-bottom:1px solid #e9e9e9; }
+#default-menu #ajaxnav ul a, #default-menu #ajaxnav ul li a, #default-menu #ajaxnav ul a:hover {
+  float:none;
+  padding:0 0 0 24px;
+  background:none !important;
+  font-family:Arial, Helvetica, sans-serif;
+  line-height:50px;
+}
+#default-menu #ajaxnav ul li a { color:#818181 !important; }
+#default-menu #ajaxnav ul	li a:hover {
+  background:#f6f6f6 !important;
+  color:#ee1c35 !important;
+}
+#default-menu #ajaxnav ul li.active a {
+  font-family:Arial, Helvetica, sans-serif;
+  color:#ee1c35 !important;
+}
+#default-menu #ajaxnav ul.level1 {
+  background:#ffffff;
+  left:216px !important;
+  position:absolute;
+  top:-1px !important;
+  width:100%;
+  z-index:999;
+}
+#default-menu #ajaxnav ul, #default-menu #ajaxnav div {
+  position:absolute;
+  width:12em;
+  top:50px;
+  left:0;
+  border:1px solid #e9e9e9;
+  border-top-color:0;
+  z-index:999;
+}
+#default-menu #ajaxnav div ul {
+  position:static;
+  width:auto;
+  border:none;
+  z-index:999;
+}
+#default-menu #ajaxnav ul ul, #default-menu #ajaxnav ul div { top:5px; }
+#default-menu #ajaxnav li.active ul li a { font-family:Arial, Helvetica, sans-serif !important; }
+#default-menu #ajaxnav ul li.active ul li a { color:#818181 !important; }
+#default-menu #ajaxnav ul li.active ul li a:hover { color:#9b0e11 !important; }
+#default-menu #ajaxnav li ul.shown-sub, #default-menu #ajaxnav li div.shown-sub {
+  left:0;
+  z-index:999;
+}
+#default-menu #ajaxnav li .shown-sub ul.shown-sub, #default-menu #ajaxnav li .shown-sub li div.shown-sub { left:100px; }
+ #default-menu #ajaxnav li.over a, #default-menu #ajaxnav li a:hover, #default-menu #ajaxnav li.active a, .sorter .sort-by ul li a.active, #shopping-cart-table .cart-price, .sorter .limiter ul li a.active, .special-price .price, .block .regular-price, .block .regular-price .price, .regular-price .price, .footer-info-container .footer-info .contact-us span, .products-list .desc a.link-learn, #shopping-cart-table .icon-edit:hover, #shopping-cart-table .icon-trash:hover, .sidebar-bottom a:hover, #toTop:hover i { color:#4cb8a1; }
+.note-msg{display:block;margin-top:10px;}
+	
+/* Override of styles.css (line 777), avoid width
+*******************************************************************/
+.col2-left-layout .products-grid, .col2-right-layout .products-grid{ margin: 0 auto; width: auto;}
+#content .products-grid li.item {padding-top:none;}
+	
+	
+/* LOADING INDICATOR
+*******************************************************************/
+#loading-mask {/*position: relative;left: 50%;float:left;*/
+	color:#d85909;font-size:1.1em;font-weight:bold;text-align:center;z-index:500;width:300px;
+	margin:0 auto;padding-top: 35px;position:absolute;
+    }
+#loading-mask .loader {
+	width:120px;padding:15px 60px;background:#fff4e9;border:2px solid #f1af73;
+    color:#d85909;font-weight:bold;text-align:center;z-index:10000;margin:0 auto;
+}
+#loading{ 
+	background: url("../images/loading.gif") no-repeat; width: 220px;height:19px;float:left;display:none;
+	margin:0 auto;position:relative;left:150px;
+}
+    

@@ -1,0 +1,67 @@
+#ajax_global_messages {
+    position: relative;
+    z-index: 9999;
+}
+#ajax_global_messages_close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    z-index: 10000;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #666;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration: none;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.messages {
+	text-align: center;
+}
+.messages,
+.messages ul {
+	list-style: none !important;
+}
+.messages ul {
+	background: none;
+}
+.messages,
+.messages li,
+.messages ul,
+.messages ul li,
+.messages li li {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.messages li.error-msg,
+.messages li.success-msg,
+.messages li.note-msg,
+.messages li.notice-msg {
+    border: none !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    padding: 10px 35px !important;
+    min-height: 22px !important;
+    background-position: 13px 13px !important;
+    background-repeat: no-repeat !important;
+    
+}
+.messages li.error-msg {
+	background-image: url(../../images/i_msg-error.gif);
+}
+.messages li.note-msg,
+.messages li.notice-msg {
+    background-image: url(../../images/i_msg-note.gif);
+}
+.messages li.success-msg {
+    background-image: url(../../images/i_msg-success.gif);
+}
+.note-msg,
+.notice-msg {
+	color: #4bb8a1;
+}

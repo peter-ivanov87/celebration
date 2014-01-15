@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <installer_adminhtml_installerform_index>
+        <update handle="installer_installerform_index"/>
+        <reference name="content">
+            <block type="adminhtml/template" name="myform" template="installer/installerform.phtml"/>
+        </reference>
+    </installer_adminhtml_installerform_index>
+</layout>

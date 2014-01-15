@@ -1,0 +1,39 @@
+<?php 
+	$sale = false;
+	$new_label = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/new_product_label', $storeId);
+	$new_position = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/new_product_label_position', $storeId);
+	$sale_label = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/sale_product_label', $storeId);
+	$sale_position = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/sale_product_label_position', $storeId);
+	if ($new_label)
+	{
+		$specialPrice = number_format($_product->getFinalPrice(), 2);
+		$regularPrice = number_format($_product->getPrice(), 2);
+		if ($specialPrice != $regularPrice){
+	       	$sale = true;
+		}
+	}
+    
+	$new = false;
+	if ($sale_label)
+	{
+        $now = date("Y-m-d H:m:s");   
+        $newFromDate = $_product->getNewsFromDate();
+        $newToDate = $_product->getNewsToDate();                                               
+        if($newFromDate < $now && $newToDate > $now){
+            $new = true;
+        }
+	}
+    
+    if($new){
+        ?>
+            <div class="nova-product-label nova-new-label"><?php echo $this->__('New') ?></div>
+            
+        <?php
+    }
+    
+    if($sale){
+        ?>
+            <div class="nova-product-label nova-sale-label"><?php echo $this->__('Sale') ?></div>
+        <?php
+    }
+?>

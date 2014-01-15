@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">  
+    <catalog_product_view translate="label">
+    	<reference name="content">
+    		<reference name="product.info">
+    			<reference name="product.info.tabs">
+    			    <action ifconfig="novaworks_productvideo/settings/status" ifvalue="1" method="addTab" translate="title" module="productvideo"><alias>productvideos</alias><title>Videos</title><block>productvideo/video</block><template>novaworks/productvideo/video.phtml</template></action>
+    			</reference>
+    		</reference>
+    	</reference>
+    </catalog_product_view>
+
+</layout>

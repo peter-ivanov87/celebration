@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <NovaWorks_OneClickInstaller>
+            <version>1.0.0</version>
+        </NovaWorks_OneClickInstaller>
+    </modules>
+    
+    <global>
+        <models>
+            <installer>
+                <class>NovaWorks_OneClickInstaller_Model</class>
+                <resourceModel>installer_mysql4</resourceModel>
+            </installer>
+            <installer_mysql4>
+                <class>NovaWorks_OneClickInstaller_Model_Mysql4</class>
+            </installer_mysql4>
+        </models>
+        <blocks>
+            <installer>
+                <class>NovaWorks_OneClickInstaller_Block</class>
+            </installer>
+        </blocks>
+        <helpers>
+            <installer>
+                <class>NovaWorks_OneClickInstaller_Helper</class>
+            </installer>  
+        </helpers>
+    </global>
+    
+    <admin>
+        <routers>
+            <installer>
+                <use>admin</use>
+                <args>
+                    <module>NovaWorks_OneClickInstaller</module>
+                    <frontName>installer</frontName>
+                </args>
+            </installer>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <translate>
+            <modules>
+                <mage_adminhtml>
+                    <files>
+                        <installer>NovaWorks_OneClickInstaller.csv</installer>
+                    </files>
+                </mage_adminhtml>
+            </modules>
+        </translate>
+        
+        <menu>
+			<novaworks>
+				<title>NovaWorks</title>
+				<sort_order>100</sort_order>               
+				<children>
+					<index translate="title" module="installer">
+                        <title>One Click Installer</title>
+                        <action>installer/adminhtml_installerForm</action>
+					</index>
+					<settings translate="title">
+						<title>Settings</title>
+						<action>adminhtml/system_config/edit/section/themeoptions_general</action>
+						<sort_order>30</sort_order>
+					</settings>													
+				</children>						
+			</novaworks>
+        </menu>
+        
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <installer_adminform>
+                                    <title>One Click Installer</title>
+                                </installer_adminform>
+                            </children>
+                        </catalog>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        
+        <layout>
+            <updates>
+                <installer>
+                    <file>installer.xml</file>
+                </installer>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

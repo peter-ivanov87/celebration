@@ -1,0 +1,56 @@
+/********** Mobile Navigation > */
+/* ======================================================================================= */
+#nav {
+	max-width: 720px;
+	width: 100%;
+}
+.mobi-nav{ 
+    padding:10px;
+    margin: 0 auto;
+    width: 90%;
+}
+.mobi-nav h1 {
+    background: #111;
+    font-size: 16px;
+    line-height: 47px;
+    text-transform: uppercase;  
+    font-weight: normal;  
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+}
+.mobi-nav h1 span {
+    color: #FFFFFF;
+    float: left;
+    padding-left: 10px;
+}
+.mobi-nav h1 a.nav-box {
+    background: url("../images/common.png") no-repeat scroll 0 -361px transparent;
+    float: right;
+    font-size: 0;
+    height: 22px;
+    margin-top: 13px;
+    width: 27px;
+    padding-right:10px;
+}
+#mobi-nav-content {}
+.accordion { list-style-type: none; padding: 0; margin: 0 0 30px; }
+.accordion ul { padding: 0; margin: 0; float: left; display: block; width: 100%; }
+.accordion li { background: #fff; cursor: pointer; list-style-type: none; padding: 0; margin: 0; float: left; display: block; width: 100%; position:relative;}
+.accordion li.active > em.open-close {
+    background: url("../images/common.png") no-repeat scroll 2px -427px transparent;
+}
+.accordion li div { padding: 20px; background: #aef; display: block; clear: both; float: left; width: 360px;}
+.accordion em.open-close {
+    background: url("../images/common.png") no-repeat scroll 2px -392px transparent;
+    padding: 8px 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.accordion a { text-decoration: none; border-bottom: 1px solid #F0F0F0; font-size:12px; text-transform:uppercase;padding: 8px 10px; display: block; cursor: pointer; text-align:left;}
+.accordion em{margin-right:10px;}
+.accordion ul a{font-size:11px;}
+.accordion li ul li { background: #F0F0F0; }
+.block-inner-menu { margin-top: 20px; width: 100% !important;}
+.block-inner-menu h4 {font-size: 11px; font-weight: normal;}

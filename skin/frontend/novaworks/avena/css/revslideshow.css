@@ -1,0 +1,71 @@
+/**
+ * @category    NovaWorks
+ * @package     NovaWorks_RevSlideshow
+ * @license     http://novaworks.net
+ * @author      Dzung Nova <dzung@novaworks.vn>
+ */
+.fullwidthbanner-container {
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    max-height: 660px !important;
+    width: 100% !important;
+    margin-bottom: 20px;
+}
+.fullwidthbanner-container .fullwidthabnner {
+    position: relative;
+    width: 100% !important;
+    max-height: 660px !important;
+}
+.fixedbanner-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    position: relative;
+    width: 960px;
+    margin-bottom: 20px;
+}
+.fixedbanner-container .fixedbanner {
+	height: 550px;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+}
+.responsivebanner-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    position: relative;
+    width: 960px;
+    margin-bottom: 20px;
+}
+.responsivebanner {
+	height: 450px;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+}
+  /*	THE MEDIA CHOOSER TO SET DIFFERENT SIZES OF THE CONTAINER DEPENDING ON THE SCREEN SIZE    */
+   @media only screen and (min-width: 768px) and (max-width: 960px) {
+ 		  .responsivebanner-container, .responsivebanner			{	width:760px; height:349px;}
+
+
+
+
+   }
+
+   @media only screen and (min-width: 480px) and (max-width: 767px) {
+		   .responsivebanner-container, .responsivebanner		{	width:480px; height:220px;	}
+
+
+
+
+   }
+
+   @media only screen and (min-width: 0px) and (max-width: 479px) {
+			.responsivebanner-container, .responsivebanner		{	width:320px;height:147px;	}
+
+
+
+
+   }

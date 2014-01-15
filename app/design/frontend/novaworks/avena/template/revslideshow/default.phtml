@@ -1,0 +1,139 @@
+<?php
+$status					=	Mage::getStoreConfig('revslideshow/general/enabled', $storeId);
+$slider_type			=	Mage::getStoreConfig('revslideshow/general/slider_type', $storeId);
+$slider_width			=	Mage::getStoreConfig('revslideshow/general/slider_width', $storeId);
+$slider_height			=	Mage::getStoreConfig('revslideshow/general/slider_height', $storeId);
+$slider_delay			=	Mage::getStoreConfig('revslideshow/general/slider_delay', $storeId);
+$hide_thumbs			=	Mage::getStoreConfig('revslideshow/navigation/hide_thumbs', $storeId);
+$shuffle_mode			=	Mage::getStoreConfig('revslideshow/general/shuffle_mode', $storeId);
+if($shuffle_mode) {
+	$shuffle_mode = "on";
+}else {
+	$shuffle_mode = "off";
+}
+
+$thumbnails_width			=	Mage::getStoreConfig('revslideshow/thumbnails/thumbnails_width', $storeId);
+$thumbnails_height			=	Mage::getStoreConfig('revslideshow/thumbnails/thumbnails_height', $storeId);
+$thumbnails_amount			=	Mage::getStoreConfig('revslideshow/thumbnails/thumbnails_amount', $storeId);
+
+$navigation_type			=	Mage::getStoreConfig('revslideshow/navigation/navigation_type', $storeId);
+$navigation_arrows			=	Mage::getStoreConfig('revslideshow/navigation/navigation_arrows', $storeId);
+$navigation_style			=	Mage::getStoreConfig('revslideshow/navigation/navigation_style', $storeId);
+
+$touch					=	Mage::getStoreConfig('revslideshow/general/touch', $storeId);
+if($touch) {
+	$touch = "on";
+}else {
+	$touch = "off";
+}
+$stop_on_hover			=	Mage::getStoreConfig('revslideshow/general/stop_on_hover', $storeId);
+if($stop_on_hover) {
+	$stop_on_hover = "on";
+}else {
+	$stop_on_hover = "off";
+}
+$navigaion_align_hor			=	Mage::getStoreConfig('revslideshow/navigation/navigaion_align_hor', $storeId);
+$navigaion_align_vert			=	Mage::getStoreConfig('revslideshow/navigation/navigaion_align_vert', $storeId);
+$navigaion_offset_hor			=	Mage::getStoreConfig('revslideshow/navigation/navigaion_offset_hor', $storeId);
+$navigaion_offset_vert			=	Mage::getStoreConfig('revslideshow/navigation/navigaion_offset_vert', $storeId);
+
+$leftarrow_align_hor			=	Mage::getStoreConfig('revslideshow/navigation/leftarrow_align_hor', $storeId);
+$leftarrow_align_vert			=	Mage::getStoreConfig('revslideshow/navigation/leftarrow_align_vert', $storeId);
+$leftarrow_offset_hor			=	Mage::getStoreConfig('revslideshow/navigation/leftarrow_offset_hor', $storeId);
+$leftarrow_offset_vert			=	Mage::getStoreConfig('revslideshow/navigation/leftarrow_offset_vert', $storeId);
+
+$rightarrow_align_hor			=	Mage::getStoreConfig('revslideshow/navigation/rightarrow_align_hor', $storeId);
+$rightarrow_align_vert			=	Mage::getStoreConfig('revslideshow/navigation/rightarrow_align_vert', $storeId);
+$rightarrow_offset_hor			=	Mage::getStoreConfig('revslideshow/navigation/rightarrow_offset_hor', $storeId);
+$rightarrow_offset_vert			=	Mage::getStoreConfig('revslideshow/navigation/rightarrow_offset_vert', $storeId);
+$data = $this->getSlideshows();
+?>
+<?php if($status):?>
+<?php
+if($slider_type==1){
+	$_class="fixedbanner";
+}elseif($slider_type==2){
+	$_class="responsivebanner";
+}elseif($slider_type==3){
+	$_class="fullwidthbanner";
+}
+?>
+			<div class="<?php echo $_class?>-container">
+					<div class="<?php echo $_class?>" style="max-height:<?php echo $slider_height?>px">
+						<ul>
+							<?php foreach ($data as $item): ?>
+							<li data-transition="<?php echo $item->getData('slide_transition');?>"<?php if($item->getData('slide_url')):?> data-link="<?php echo $item->getData('slide_url');?>"<?php if($item->getData('slide_target')):?> data-target="_blank"<?php endif;?><?php endif;?> data-slotamount="<?php echo $item->getData('slot_amount');?>" data-masterspeed="<?php echo $item->getData('transition_duration');?>"<?php if($item->getData('delay')):?> data-delay="<?php echo $item->getData('delay');?>"<?php endif;?><?php if($navigation_type=='thumb'):?> data-thumb="<?php echo $this->getSkinUrl('images/timthumb.php');?>?src=<?php echo $item->getImageUrl()?>&w=<?php echo $thumbnails_width?>&h=<?php echo $thumbnails_height?>"<?php endif;?>>
+										<img src="<?php echo $item->getImageUrl()?>">
+										<?php $layer = $item->getLayer();?>
+										<?php foreach ($layer as $caption): ?>
+										<div class="caption <?php echo $caption->settings->layer_style?> <?php echo $caption->settings->layer_animation?>"
+											 data-x="<?php echo round($caption->x)?>"
+											 data-y="<?php echo round($caption->y)?>"
+											 data-speed="<?php echo $caption->settings->layer_speed?>"
+											 data-start="<?php echo $caption->time?>"
+											 data-easing="<?php echo $caption->settings->layer_easing?>"
+											 <?php if($caption->settings->auto_video):?>data-autoplay="true"<?php endif;?>><?php echo $caption->settings->content?></div>
+										<?php endforeach;?>
+							</li>
+							<?php endforeach;?>
+
+												</ul>
+
+
+
+						<div class="tp-bannertimer tp-bottom"></div>
+					</div>
+				</div>
+		<script>
+			var api;
+			jQuery(document).ready(function() {
+				 api =  jQuery('.<?php echo $_class?>').revolution(
+								{
+									delay:<?php echo $slider_delay?>,
+									startwidth:<?php echo $slider_width?>,
+									startheight:<?php echo $slider_height?>,
+									hideThumbs:<?php echo $hide_thumbs?>,
+									
+									thumbWidth:<?php echo $thumbnails_width?>,
+						            thumbHeight:<?php echo $thumbnails_height?>,
+						            thumbAmount:<?php echo $thumbnails_amount?>,
+						            
+						            navigationType:"<?php echo $navigation_type?>",
+						            navigationArrows:"<?php echo $navigation_arrows?>",
+						            navigationStyle:"<?php echo $navigation_style?>",	
+						            
+						            touchenabled:"<?php echo $touch?>",
+						            onHoverStop:"<?php echo $stop_on_hover?>",		
+						            
+									navigationHAlign:"<?php echo $navigaion_align_hor?>",
+									navigationVAlign:"<?php echo $navigaion_align_vert?>",
+									navigationHOffset:<?php echo $navigaion_offset_hor?>,
+									navigationVOffset:<?php echo $navigaion_offset_vert?>,
+									
+
+									soloArrowLeftHalign:"<?php echo $leftarrow_align_hor?>",
+									soloArrowLeftValign:"<?php echo $leftarrow_align_vert?>",
+									soloArrowLeftHOffset:<?php echo $leftarrow_offset_hor?>,
+									soloArrowLeftVOffset:<?php echo $leftarrow_offset_vert?>,
+			
+									soloArrowRightHalign:"<?php echo $rightarrow_align_hor?>",
+									soloArrowRightValign:"<?php echo $rightarrow_align_vert?>",
+									soloArrowRightHOffset:<?php echo $rightarrow_offset_hor?>,
+									soloArrowRightVOffset:<?php echo $rightarrow_offset_vert?>,
+									
+							            					            
+						            shuffle:"<?php echo $shuffle_mode?>",					         
+									shadow:0
+									<?php if($slider_type==3) { ?>						
+									,fullWidth:"on"	
+									<?php }else{ ?>
+									,fullWidth:"off"
+									<?php }?>
+								});
+			api.bind("revolution.slide.onloaded",function (e) {
+            	jQuery('.tp-leftarrow.tparrows.default').append('<i class="icon-left-open-big"></i>');
+            	jQuery('.tp-rightarrow.tparrows.default').append('<i class="icon-right-open-big"></i>');
+            })
+			});
+		</script>
+<?php endif;?>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <NovaWorks_Ajax>
+            <active>true</active>
+            <codePool>community</codePool>
+        </NovaWorks_Ajax>
+    </modules>
+</config> 

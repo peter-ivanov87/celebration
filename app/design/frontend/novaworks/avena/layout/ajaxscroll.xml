@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_category_default>
+		<reference name="head">
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/jquery.infinitescroll.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/text" name="infinitescroll2_config">
+				<action method="setText">
+					<text><![CDATA[<script type="text/javascript" src="/infinitescroll2/js"></script>]]></text>
+				</action>
+			</block>
+		</reference>
+	</catalog_category_default>
+
+	<catalog_category_layered>
+		<reference name="head">
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/jquery.infinitescroll.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/text" name="infinitescroll2_config"> 
+				<action method="setText">
+					<text><![CDATA[<script type="text/javascript" src="/infinitescroll2/js"></script>]]></text>
+				</action>
+			</block>
+		</reference>
+	</catalog_category_layered>
+
+    <catalogsearch_result_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/jquery.infinitescroll.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/text" name="infinitescroll2_config"> 
+				<action method="setText">
+					<text><![CDATA[<script type="text/javascript" src="/infinitescroll2/js"></script>]]></text>
+				</action>
+			</block>
+		</reference>
+    </catalogsearch_result_index>
+	
+	<catalogsearch_advanced_index>
+		<reference name="head">
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/jquery.infinitescroll.min.js</name>
+			</action>
+			<action method="addItem" ifconfig="themeoptions_general/prodcuts_list_page/ajax_scroll" ifvalue="1">
+				<type>js</type>
+				<name>novaworks/behaviors/infinitescroll-magento.js</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/text" name="infinitescroll2_config"> 
+				<action method="setText">
+					<text><![CDATA[<script type="text/javascript" src="/infinitescroll2/js"></script>]]></text>
+				</action>
+			</block>
+		</reference>
+	</catalogsearch_advanced_index>
+	
+</layout>

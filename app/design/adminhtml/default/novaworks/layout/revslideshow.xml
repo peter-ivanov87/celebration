@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<layout>
+	<revslideshow_default>
+		<reference name="head">
+			<action method="addCss"><css>revslideshow.css</css></action>
+                <action method="addCss"><stylesheet>css/settings.css</stylesheet></action>
+                <action method="addCss"><stylesheet>css/layerpot.css</stylesheet></action>
+
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/template" name="revslideshow.getCode" template="revslideshow/getcode.phtml" />
+		</reference>	
+	</revslideshow_default>
+	
+	<revslideshow_admin_adminhtml_group_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="revslideshow"><title>RevSlideshow Manage</title></action>
+		</reference>
+		<reference name="content">
+			<block type="revslideshow/adminhtml_group" name="groups" />
+		</reference>
+	</revslideshow_admin_adminhtml_group_index>
+	
+	<revslideshow_admin_adminhtml_group_edit>
+		<update handle="revslideshow_default" />
+		<reference name="left">
+			<block type="revslideshow/adminhtml_group_edit_tabs" name="group.tabs" />
+		</reference>
+		<reference name="content">
+			<block type="revslideshow/adminhtml_group_edit" name="groups" />
+		</reference>
+	</revslideshow_admin_adminhtml_group_edit>
+	
+	<revslideshow_admin_adminhtml_slideshow_index>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="revslideshow"><title>RevSlideshow Manage</title></action>
+		</reference>
+		<reference name="content">
+			<block type="revslideshow/adminhtml_slideshow" name="slideshow" />
+		</reference>
+	</revslideshow_admin_adminhtml_slideshow_index>
+	
+	<revslideshow_admin_adminhtml_slideshow_edit>
+		<update handle="revslideshow_default" />
+		<reference name="left">
+			<block type="revslideshow/adminhtml_slideshow_edit_tabs" name="slideshows.tabs" />
+		</reference>
+		<reference name="content">
+			<block type="revslideshow/adminhtml_slideshow_edit" name="slideshows" />
+		</reference>
+	</revslideshow_admin_adminhtml_slideshow_edit>
+	
+	<revslideshow_admin_adminhtml_slideshow_slidecaptions>
+		<update handle="revslideshow_default" />
+		<reference name="content">
+			<block type="core/template" name="revslideshow.captions" template="revslideshow/captions.phtml" />
+		</reference>
+	</revslideshow_admin_adminhtml_slideshow_slidecaptions>	
+</layout>

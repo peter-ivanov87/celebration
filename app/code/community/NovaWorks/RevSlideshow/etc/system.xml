@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <novaworks translate="label">
+            <label>NovaWorks Theme</label>
+            <sort_order>200</sort_order>
+        </novaworks>
+	</tabs>
+    <sections>
+        <revslideshow translate="label" module="revslideshow">
+            <label>RevSlideshow</label>
+            <tab>novaworks</tab>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<general>
+            		<label>General Settings</label>
+            		<sort_order>1</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>
+            		<fields>
+						<enabled>
+            				<label>Enabled</label>
+            				<frontend_type>select</frontend_type>
+            				<source_model>adminhtml/system_config_source_yesno</source_model>
+            				<sort_order>1</sort_order>
+            				<show_in_default>1</show_in_default>
+            				<show_in_website>1</show_in_website>
+            				<show_in_store>1</show_in_store>
+						</enabled>
+				        <slider_type translate="label">
+					        <label>Slider Type</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/slidertype</source_model>
+					        <sort_order>2</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </slider_type>
+				        <slider_width translate="label">
+					        <label>Slider Width (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>3</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </slider_width>
+				        <slider_height translate="label">
+					        <label>Slider Height (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>4</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </slider_height>
+				        <slider_delay translate="label">
+					        <label>Slider Delay</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>5</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </slider_delay>
+				        <touch translate="label">
+					        <label>Touch Enabled</label>
+					        <frontend_type>radios</frontend_type>
+					        <source_model>adminhtml/system_config_source_yesno</source_model>
+					        <sort_order>6</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </touch>
+				        <stop_on_hover translate="label">
+					        <label>Stop On Hover</label>
+					        <frontend_type>radios</frontend_type>
+					        <source_model>adminhtml/system_config_source_yesno</source_model>
+					        <sort_order>7</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </stop_on_hover>
+				        <shuffle_mode translate="label">
+					        <label>Shuffle Mode</label>
+					        <frontend_type>radios</frontend_type>
+					        <source_model>adminhtml/system_config_source_yesno</source_model>
+					        <sort_order>8</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </shuffle_mode>
+            		</fields>
+            	</general>
+            	<navigation>
+            		<label>Navigation Settings</label>
+            		<sort_order>2</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>
+            		<fields>
+				        <navigation_type translate="label">
+					        <label>Navigation Type</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/navigationtype</source_model>
+					        <sort_order>1</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Display type of the navigation bar</comment>
+				        </navigation_type>
+				        <navigation_arrows translate="label">
+					        <label>Navigation Type</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/navigationarrows</source_model>
+					        <sort_order>2</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Display position of the Navigation Arrows (By navigation Type Thumb arrows always centered or none visible)</comment>
+				        </navigation_arrows>
+				        <navigation_style translate="label">
+					        <label>Navigation Style</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/navigationstyle</source_model>
+					        <sort_order>3</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Look of the navigation bullets (If you choose navbar, we recommend to choose Navigation Arrows to With Bullet)</comment>
+				        </navigation_style>
+				        <navigaion_always_on translate="label">
+					        <label>Always Show Navigation</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>adminhtml/system_config_source_yesno</source_model>
+					        <sort_order>4</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Always show the navigation and the thumbnails.</comment>
+				        </navigaion_always_on>
+				        <hide_thumbs translate="label">
+					        <label>Hide Navitagion After (ms)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>5</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Time after that the Navigation and the Thumbs will be hidden(Default: 200 ms)</comment>
+				        </hide_thumbs>
+				        <navigaion_align_hor translate="label">
+					        <label>Navigation Horizontal Align</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/halign</source_model>
+					        <sort_order>6</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Horizontal Align of Bullets / Thumbnails</comment>
+				        </navigaion_align_hor>
+				        <navigaion_align_vert translate="label">
+					        <label>Navigation Vertical Align</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/valign</source_model>
+					        <sort_order>7</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Vertical Align of Bullets / Thumbnails</comment>
+				        </navigaion_align_vert>
+				        <navigaion_offset_hor translate="label">
+					        <label>Navigation Horizontal Offset (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>8</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Offset from current Horizontal position of Bullets / Thumbnails negative and positive direction</comment>
+				        </navigaion_offset_hor>
+			        <navigaion_offset_vert translate="label">
+					        <label>Navigation Vertical Offset (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>9</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Offset from current Vertical position of Bullets / Thumbnails negative and positive direction</comment>
+				        </navigaion_offset_vert>
+						<!-- arrow left-->
+				        <leftarrow_align_hor translate="label">
+					        <label> Left Arrow Horizontal Align</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/halign</source_model>
+					        <sort_order>10</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Horizontal Align of left Arrow (only if arrow is not next to bullets)</comment>
+				        </leftarrow_align_hor>
+				        <leftarrow_align_vert translate="label">
+					        <label>Left Arrow Vertical Align</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/valign</source_model>
+					        <sort_order>11</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Vertical Align of left Arrow (only if arrow is not next to bullets)</comment>
+				        </leftarrow_align_vert>
+				        <leftarrow_offset_hor translate="label">
+					        <label>Left Arrow Horizontal Offset (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>12</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Offset from current Horizontal position of of left Arrow  negative and positive direction</comment>
+				        </leftarrow_offset_hor>
+			        <leftarrow_offset_vert translate="label">
+					        <label>Left Arrow Vertical Offset (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>13</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Offset from current Vertical position of of left Arrow negative and positive direction</comment>
+				        </leftarrow_offset_vert>
+				        <!-- arrow right -->
+				        <rightarrow_align_hor translate="label">
+					        <label> Right Arrow Horizontal Align</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/halign</source_model>
+					        <sort_order>14</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Horizontal Align of right Arrow (only if arrow is not next to bullets)</comment>
+				        </rightarrow_align_hor>
+				        <rightarrow_align_vert translate="label">
+					        <label>Right Arrow Vertical Align</label>
+					        <frontend_type>select</frontend_type>
+					        <source_model>revslideshow/valign</source_model>
+					        <sort_order>15</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Vertical Align of right Arrow (only if arrow is not next to bullets)</comment>
+				        </rightarrow_align_vert>
+				        <rightarrow_offset_hor translate="label">
+					        <label>Right Arrow Horizontal Offset (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>16</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Offset from current Horizontal position of of right Arrow  negative and positive direction</comment>
+				        </rightarrow_offset_hor>
+			        <rightarrow_offset_vert translate="label">
+					        <label>Left Arrow Vertical Offset (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>17</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>Offset from current Vertical position of of right Arrow negative and positive direction</comment>
+				        </rightarrow_offset_vert>
+
+            		</fields>
+            	</navigation>
+            	<thumbnails>
+            		<label>Thumbnails Settings</label>
+            		<sort_order>3</sort_order>
+            		<show_in_default>1</show_in_default>
+            		<show_in_website>1</show_in_website>
+            		<show_in_store>1</show_in_store>
+            		<fields>
+				        <thumbnails_width translate="label">
+					        <label>Thumbnails Width (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>3</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </thumbnails_width>
+				        <thumbnails_height translate="label">
+					        <label>Thumbnails Height (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>4</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+				        </thumbnails_height>
+				        <thumbnails_amount translate="label">
+					        <label>Thumbnails Amount (px)</label>
+					        <frontend_type>text</frontend_type>
+					        <sort_order>5</sort_order>
+					        <show_in_default>1</show_in_default>
+					        <show_in_website>1</show_in_website>
+					        <show_in_store>1</show_in_store>
+					        <comment>The amount of the Thumbs visible same time </comment>
+				        </thumbnails_amount>
+            		</fields>
+            	</thumbnails>
+            </groups>
+        </revslideshow>
+    </sections>
+</config>

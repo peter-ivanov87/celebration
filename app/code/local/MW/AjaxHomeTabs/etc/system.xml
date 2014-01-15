@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<config>
+  <tabs>
+        <mageworld translate="label" module="ajaxhometabs">
+            <label>Mage World</label>
+            <sort_order>300</sort_order>
+        </mageworld>
+  </tabs>	
+	<sections>
+        <ajaxhometabs translate="label" module="ajaxhometabs">
+            <label>Ajax Home Tabs</label>
+            <tab>mageworld</tab>
+			
+            <frontend_type>text</frontend_type>
+            <sort_order>90</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <tabgeneral translate="label">
+                    <label>General Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <allow_tabs translate="label">
+                            <label>Displayed Tabs</label>
+                            <frontend_type>multiselect</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListTab</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_tabs>
+						<default_tab translate="label comment">
+							<label>Default Tab</label>
+							<comment>Choose tab will loaded first.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListTab</source_model>
+							<sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</default_tab>
+						
+						<default_limit_grid translate="label">
+                            <label>Default Total Products on Grid View</label>
+							<comment>Default limit show product number in mode Grid view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_limit_grid>
+						<default_limit_list translate="label">
+                            <label> Default Total Products on List View</label>
+							<comment>Default limit show product number in mode List view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_limit_list>
+						<grid_number_columns translate="label comment">
+							<label>Number Columns Grid View</label>
+							<comment>When in mode grid, show number column. Default: 3.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</grid_number_columns>
+						<allow_cache>
+							<label>Cache time</label>
+							<comment>Time unit is minute. Zero for no cache.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</allow_cache>
+                    </fields>
+                </tabgeneral>
+				<topbestsell translate="label">
+					<label>Top Sellers</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<custom_label translate="label comment">
+							<label>Custom Label</label>
+							<comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</topbestsell>
+				<toprate translate="label">
+					<label>Top Rated</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<custom_label translate="label comment">
+							<label>Custom Label</label><comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</toprate>
+				<topreview translate="label">
+					<label>Top Reviewed</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<custom_label translate="label comment">
+							<label>Custom Label</label><comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</topreview>
+				<topnewest translate="label">
+					<label>New Products</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<custom_label translate="label comment">
+							<label>Custom Label</label><comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</topnewest>
+				<topwish translate="label">
+					<label>Top Wishlist</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						<custom_label translate="label comment">
+							<label>Custom Label</label><comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</topwish>
+				<topfeature translate="label">
+					<label>Featured</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						 <feature_catalog translate="label comment">
+                            <label>Featured Category ID</label>
+							<comment>Insert number catalog id you want to select. For example, catalog Household Items(ID:20), status: inactive.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </feature_catalog>
+						<custom_label translate="label comment">
+							<label>Custom Label</label><comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</topfeature>
+				<custom1>
+					<label>Custom Tab 1</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>8</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						 <catalog_id translate="label comment">
+                            <label>Category ID</label>
+							<comment>Insert number catalog id you want to select. For example, catalog Household Items(ID:20), status: inactive.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </catalog_id>
+						<custom_label translate="label comment">
+							<label>Custom Label</label><comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</custom1>
+				<custom2>
+					<label>Custom Tab 2</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>9</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+						 <catalog_id translate="label comment">
+                            <label>Category ID</label>
+							<comment>Insert number catalog id you want to select.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </catalog_id>
+						<custom_label translate="label comment">
+							<label>Custom Label</label>
+							<comment>Custom new label name for your tab.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</custom_label>
+						<view_mode translate="label">
+                            <label>View Mode</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>ajaxhometabs/config_source_ListMode</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_mode>
+						 <limit_view translate="label">
+                            <label>Total Products to Show</label>
+							<comment>Insert limit number product to view.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </limit_view>
+						<order_display>
+							<label>Order Display</label>
+							<comment>Order Display follow this setting.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</order_display>
+					</fields>
+				</custom2>
+			</groups>
+        </ajaxhometabs>
+   
+ </sections>
+</config>

@@ -1,0 +1,95 @@
+<script type="text/javascript">
+<!--		
+	function showLoading(){
+		$('loading-mask').show();
+	}
+
+	function confirmUninstall(){
+		var answer = confirm("Are you sure you want to permanently uninstall NovaWorks Theme?");
+		if (answer){
+			showLoading();
+			form = document.getElementById('edit_form');
+			form.action = document.getElementById('uninstall_action').value;
+			form.submit();		
+		}
+		else  {
+			return false;
+		}
+	}
+//-->
+</script>	
+	
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+<?php			
+				
+		$is_installed = false;
+		
+		$stores = Mage::getSingleton('adminhtml/system_store')->getStoreOptionHash();
+        foreach ($stores as $store_id => $name) {
+			$param = Mage::getStoreConfig('design/package/name', $store_id);
+			if ($param == 'novaworks'){
+				$is_installed = true;
+			}
+        }
+		
+		
+		$title = 'NovaWorks Theme Installation Management';
+		
+		if (!$is_installed){
+			$title = 'One-click Install Maxxi Theme';
+		} 		
+?>
+        <tr>
+            <td><h3><?php echo $this->__($title)?></h3></td>
+            <td class="a-right">
+<?php		
+		if ($is_installed){		 
+?>
+			<button onclick="javascript:confirmUninstall();" class="scalable delete" type="button"><span>Uninstall</span></button>
+			
+<?php		
+		} 
+?>
+			<button onclick="showLoading();editForm.submit();" class="scalable save" type="button"><span>One Click Install</span></button>
+						
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="entry-edit">
+
+    <form id="edit_form" name="edit_form" method="post" action="<?php echo $this->getUrl('*/*/install')?>">		
+		<input name="uninstall_action" id="uninstall_action" type="hidden" value="<?php echo $this->getUrl('*/*/uninstall')?>" />		
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />		
+<?php
+		$form = new Varien_Data_Form();
+
+        $fieldset = $form->addFieldset('general', array('legend'=>Mage::helper('core')->__('General Settings')));
+        
+        
+		$fieldset->addField('store_id', 'select', array(
+			'label'    => Mage::helper('core')->__('Store View'),
+			'title'    => Mage::helper('core')->__('Store View'),
+			'values'   => Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(false, true),
+			'name'     => 'store_id',
+			'required' => true,
+		));
+		$fieldset->addField('install_block', 'select', array(
+			'label'    => Mage::helper('core')->__('Install Static Blocks'),
+			'title'    => Mage::helper('core')->__('Install Static Blocks'),
+			'values'   => array('Dont use demo content','Use Demo content'),
+			'name'     => 'install_block',
+			'required' => true,
+		));          
+        $form->setFieldNameSuffix('design');
+		echo $form->getHtml();
+		
+?>
+    </form>	
+</div>
+
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+</script>
