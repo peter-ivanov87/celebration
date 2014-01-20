@@ -1,0 +1,42 @@
+<div class="category-products">
+    <ul class="products-grid2">
+    <?php
+        $_categories=$this->getCurrentChildCategories();
+        if($_categories->count()):
+        $categorycount = 0;
+        foreach ($_categories as $_category):
+        if($_category->getIsActive()):
+            $cur_category=Mage::getModel('catalog/category')->load($_category->getId());
+            $layer = Mage::getSingleton('catalog/layer');
+            $layer->setCurrentCategory($cur_category);
+            $catName = $this->getCurrentCategory()->getName();
+            
+            if ($categorycount == 0){
+                    $class = "first";
+            }
+             elseif ($categorycount == 3){
+               $class = "last";
+            }
+            else{
+                $class = "";
+            }
+     ?>
+        <li class="item2 <?=$class?>">
+            
+        <a href="<?php echo $_category->getURL() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>"><img src="<?php echo  $cur_category->getImageUrl();  ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>" /></a>
+       <div class="subcat-title"><a href="<?php echo $_category->getURL() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a></div>
+        </li>
+    <?php
+        endif;
+        if($categorycount == 2){
+        $categorycount = 0;
+        echo "</ul>\n\n<ul class=\"products-grid2\">";
+        }
+        else{
+        $categorycount++;
+        }
+        endforeach;
+        endif;
+    ?>
+    </ul>
+</div>

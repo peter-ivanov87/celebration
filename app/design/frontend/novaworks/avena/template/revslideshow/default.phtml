@@ -47,9 +47,11 @@ $rightarrow_align_vert			=	Mage::getStoreConfig('revslideshow/navigation/rightar
 $rightarrow_offset_hor			=	Mage::getStoreConfig('revslideshow/navigation/rightarrow_offset_hor', $storeId);
 $rightarrow_offset_vert			=	Mage::getStoreConfig('revslideshow/navigation/rightarrow_offset_vert', $storeId);
 $data = $this->getSlideshows();
+
 ?>
 <?php if($status):?>
 <?php
+
 if($slider_type==1){
 	$_class="fixedbanner";
 }elseif($slider_type==2){

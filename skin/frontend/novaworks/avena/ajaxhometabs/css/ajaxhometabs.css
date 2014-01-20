@@ -13,13 +13,30 @@
   -webkit-transition-duration:200ms;
   -o-transition-duration:200ms;
 }
-#ajaxmenu #ajaxnav li a:hover {
+/*#ajaxmenu #ajaxnav li a:hover {
   text-decoration:none;
   transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
   -moz-transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
   -webkit-transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
   -o-transition:color 450ms ease-in-out, background-color 450ms ease-in-out;
 }
+*/
+#ajaxmenu #ajaxnav li:hover{ 
+   border-color: #2f3031;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 0 3px 0;
+}
+  #ajaxmenu #ajaxnav li.active {
+      border-color: #2f3031;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 0 3px 0;
+  }
+#ajaxmenu #ajaxnav li.active a:hover{
+    border-style: none;
+}
+
 #ajaxmenu #ajaxnav li a span {
   display:block;
   white-space:nowrap;
@@ -27,6 +44,7 @@
 #ajaxmenu #ajaxnav li ul a span { white-space:normal; }
 #ajaxmenu #ajaxnav > li {
 	display:inline-block;
+        border-bottom: 3px solid rgb(244,244,244);
 }
 #ajaxmenu #ajaxnav > li > a {
 	color:#333;
@@ -40,14 +58,14 @@
 #ajaxmenu #ajaxnav > li.parent:hover > a, #ajaxmenu #ajaxnav > li.parent.active > a { color:#ffffff; }
 #ajaxmenu #ajaxnav > li.parent.active > a { color:#4cb8a1; }
 #ajaxmenu #ajaxnav > li:hover > a {
-  background:#4cb8a1;
-  color:#ffffff !important;
+  //background:#4cb8a1;
+  color:#363636 !important;
 }
 #ajaxmenu #ajaxnav > li.active > a {
-	color:#4cb8a1 !important;
+	color:#363636 !important;
 
 }
-#ajaxmenu #ajaxnav > li.active > a:hover { color:#ffffff !important; }
+#ajaxmenu #ajaxnav > li.active > a:hover { color:#363636 !important; }
 #ajaxmenu #ajaxnav > li:hover > a {
   position:relative;
   z-index:999999;

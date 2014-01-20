@@ -120,6 +120,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      */
     public function loginAction()
     {
+        
         if ($this->_getSession()->isLoggedIn()) {
             $this->_redirect('*/*/');
             return;
@@ -136,11 +137,12 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      */
     public function loginPostAction()
     {
+        
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*/');
             return;
         }
-
+        
         if ($this->_getSession()->isLoggedIn()) {
             $this->_redirect('*/*/');
             return;
@@ -149,6 +151,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
 
         if ($this->getRequest()->isPost()) {
             $login = $this->getRequest()->getPost('login');
+            
             if (!empty($login['username']) && !empty($login['password'])) {
                 try {
                     $session->login($login['username'], $login['password']);

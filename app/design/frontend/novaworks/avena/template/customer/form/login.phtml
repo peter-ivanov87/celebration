@@ -62,6 +62,7 @@
 	                    <div class="login-box">
 		                    <p class="account"><?php echo $this->__('If you have an account with us, please log in.') ?></p>
 		                    <ul class="form-list">
+                                        <input type="hidden" name="form_key" value="<? echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
 		                        <li>
 		                            <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
 		                            <div class="input-box">

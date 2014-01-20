@@ -45,7 +45,9 @@
     
 
     <td align="left" valign="top" style="font-size:11px; padding:3px 9px; border-bottom:1px dotted #CCCCCC;">
-        <strong style="font-size:11px;"><a href="<?php echo $link_url; ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></strong>
+        <strong style="font-size:11px;"><?php echo $this->escapeHtml($_item->getName()) ?><br/>
+            <a href="<?php echo $link_url; ?>">Start Download</a>
+        </strong>
         <?php if ($this->getItemOptions()): ?>
         <dl style="margin:0; padding:0;">
             <?php foreach ($this->getItemOptions() as $option): ?>

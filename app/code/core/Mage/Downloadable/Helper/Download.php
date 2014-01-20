@@ -136,6 +136,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
                     . 'User-Agent: Magento ver/' . Mage::getVersion() . "\r\n"
                     . 'Connection: close' . "\r\n"
                     . "\r\n";
+            
                 fwrite($this->_handle, $headers);
 
                 while (!feof($this->_handle)) {
@@ -160,6 +161,7 @@ class Mage_Downloadable_Helper_Download extends Mage_Core_Helper_Abstract
                 }
 
                 if (!isset($this->_urlHeaders['code']) || $this->_urlHeaders['code'] != 200) {
+                    
                     Mage::throwException(Mage::helper('downloadable')->__('An error occurred while getting the requested content. Please contact the store owner.'));
                 }
             }
