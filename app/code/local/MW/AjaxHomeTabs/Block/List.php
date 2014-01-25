@@ -229,15 +229,24 @@ class MW_AjaxHomeTabs_Block_List extends Mage_Catalog_Block_Product_List
                             ->setPageSize($limit);
             $productId=array();
             
-            foreach($_productCollection as $object){
-                $productId[]=$object->getId();
+            foreach($_productCollection->getItems() as $key=>$object){
+                $_product=Mage::getModel('catalog/product')->load($object->getId());                
+                
+                if ($_product->getId()) { //valid ID
+                    
+                   $productId[]=$object->getId();
+                }
+                else{
+                    $_productCollection->removeItemByKey($key);
+                }
+               
                 
           //    var_dump($product->ordered_qty);
               /*if(!isset($parentProducts[$parents[0]]))
                   $parentProducts[$parents[0]]=0;
               $parentProducts[$parents[0]] += (int)$product->ordered_qty;*/
             }
-            //var_dump($productId);
+        
             return $_productCollection;
             
             

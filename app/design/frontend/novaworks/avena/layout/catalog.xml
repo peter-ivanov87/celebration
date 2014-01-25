@@ -217,6 +217,12 @@ Product view
                         <block>catalog/product_view_attributes</block>
                         <template>catalog/product/view/instructions.phtml</template>
                     </action>
+                    <action method="addTab" translate="title" module="catalog">
+                        <alias>Related_Products</alias>
+                        <title>Related Products</title>
+                        <block>catalog/product_view_randomproducts</block>
+                        <template>catalog/product/view/random_products.phtml</template>
+                    </action>
                     <block type="tag/product_list" name="product_tag_list" before="-" template="tag/list.phtml">
                         <block type="page/html_wrapper" name="product.tag.list.list.before" as="list_before" translate="label">
                             <label>Tags List Before</label>

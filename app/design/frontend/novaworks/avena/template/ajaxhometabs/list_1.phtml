@@ -4,21 +4,29 @@
     //var_dump($this->gettabtype());die;
    // echo $_productCollection->getSelect();die;
     $_helper = $this->helper('catalog/output');	
+    $image_product_hover = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId); 
+    $ajax_cart		 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+ $quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId); 
+   $thumb_width=500;
+   $thumb_height=500;
 ?>
 <?php if(!count($_productCollection)):  ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
 <div class="category-products">
     
-    <?php // List mode ?>
+    
     <?php if(Mage::getStoreConfig('ajaxhometabs/'.$this->gettabtype().'/view_mode')=='list'): ?>
     <?php $_iterator = 0; ?>
     <ol class="products-list" id="products-list">
     <?php foreach ($_productCollection as $_product): ?>		
-		<?php if($this->gettabtype()=='topbestsell'){
+		<?php 
+                
+                if($this->gettabtype()=='topbestsell'){
 			
 				$productid=null;
 			$configurableProduct = Mage::getModel('catalog/product_type_configurable');
+                                
 				$parentIdArray = $configurableProduct->getParentIdsByChild($_product->getProductId());
 				    
 				    //if simple product belong to configurable product
@@ -31,7 +39,7 @@
 					};
 					}else      
        				$productid=$_product->getProductId();
-			
+			        
 			
 			if($productid!= null)
 			$_product=Mage::getModel('catalog/product')->load($productid);
@@ -42,8 +50,40 @@
 		};
 		?>
         <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
-            <?php // Product Image ?>
-            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+            <?php // Product Image var_dump
+            ?>
+            <div class="nova-product-images">
+                <?php include('view/labels.phtml')  ?> 
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                       <?php 
+                        if($image_product_hover) { ?>
+                        <div class="front">
+                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                        </div>
+                        <?php
+                         $_gallery = Mage::getModel('catalog/product') -> load($_product -> getId()) -> getMediaGalleryImages();
+                         foreach ($_gallery as $_image ):
+                         ?>
+                         <div class="product-img-additional back">
+                         <img src="<?php echo $this -> helper('catalog/image') -> init($_product, 'thumbnail', $_image -> getFile()) -> resize($thumb_width, $thumb_height);?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                         </div>
+                         <?php
+                                        break;
+                                        endforeach;
+                        ?>
+                        <?php
+                        }else{
+                        ?>
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+
+                        <?php	
+                        }
+                        ?>
+                                                
+                
+                </a>
+            </div>
+            
             <?php // Product description ?>
             <div class="product-shop">
                 <div class="f-fix">
@@ -84,10 +124,13 @@
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $_columnCount = $this->getColumnCount(); ?>
     <?php $i=0; foreach ($_productCollection as $_product): ?>
-    				<?php if($this->gettabtype()=='topbestsell'){
+    				<?php
+                                
+                                
+                                if($this->gettabtype()=='topbestsell'){
 			
 				$productid=null;
-			$configurableProduct = Mage::getModel('catalog/product_type_configurable');
+			       $configurableProduct = Mage::getModel('catalog/product_type_configurable');
 				$parentIdArray = $configurableProduct->getParentIdsByChild($_product->getProductId());
 				    
 				    //if simple product belong to configurable product
@@ -101,7 +144,8 @@
 					}else      
        				$productid=$_product->getProductId();
 			
-			
+			     
+                               
 			if($productid!= null)
 			$_product=Mage::getModel('catalog/product')->load($productid);
 			
@@ -113,27 +157,74 @@
         <?php if ($i++%$_columnCount==0): ?>
         <ul class="products-grid">
         <?php endif ?>
+       
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
-                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                
+                    <div class="nova-product-images">
+                        <?php include('view/labels.phtml')  ?> 
+                     <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                       <?php 
+                        if($image_product_hover) { ?>
+                        <div class="front">
+                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                        </div>
+                        <?php
+                         $_gallery = Mage::getModel('catalog/product') -> load($_product -> getId()) -> getMediaGalleryImages();
+                         foreach ($_gallery as $_image ):
+                         ?>
+                         <div class="product-img-additional back">
+                         <img src="<?php echo $this -> helper('catalog/image') -> init($_product, 'thumbnail', $_image -> getFile()) -> resize($thumb_width, $thumb_height);?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                         </div>
+                         <?php
+                                        break;
+                                        endforeach;
+                        ?>
+                        <?php
+                        }else{
+                        ?>
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+
+                        <?php	
+                        }
+                        ?>
+                                                
+                
+                </a>
+            </div>
+                
+                
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php //endif; ?>
-                <?php echo $this->getPriceHtml($_product, true) ?>
-                <div class="actions">
-                    <?php if($_product->isSaleable()): ?>
-                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-                    <?php else: ?>
-                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                    <?php endif; ?>
-                    <ul class="add-to-links">
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                        <?php endif; ?>
-                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
-                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
+                <div class="price-product-box"><?php echo $this->getPriceHtml($_product, true) ?></div>
+                
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                <div class="descriptions-hidden">		
+                    <div class="quick-act" id="quick-act-<?php echo $_product->getId()?>">            
+
+                            <?php if($quick_view): ?>
+                            <div class="quickview-box">
+                                    <a class="quickview_small" href="<?php echo $this->getUrl('ajax/index/quickview',array('product_id'=>$_product->getId()));?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
+                            </div>
+                            <?php endif;?>
+
+                            <?php if($ajax_cart):?> 	
+                            <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ): ?>
+                            <div class="add-to-cart">
+                                    <a rel="tooltip" class="add_to_cart_small" onclick="ajaxcart(' <?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>','<?php echo $_product->getId()?>');"><?php echo $this->__('Add to Cart')?></a> 
+                            </div>
+                            <?php else:?>
+                            <div class="add-to-cart">	
+                                    <a class="ajaxcart_colorbox add_to_cart_small" href="<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>"><?php echo $this->__('Add to Cart')?></a> 
+                            </div>
+                            <?php endif; ?> 
+                            <?php else:?>
+                            <div class="add-to-cart">
+                                    <a rel="tooltip" class="add_to_cart_small" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>');"><?php echo $this->__('Add to Cart')?></a> 
+                            </div>
+                            <?php endif; ?> 
+
+                    </div>
+              </div>
             </li>
         <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
         </ul>
