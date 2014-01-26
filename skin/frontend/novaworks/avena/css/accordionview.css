@@ -1,0 +1,1572 @@
+/**
+ * JE FAQPro package
+ * @author J-Extension <contact@jextn.com>
+ * @link http://www.jextn.com
+ * @copyright (C) 2010 - 2011 J-Extension
+ * @license GNU/GPL, see LICENSE.php for full license.
+**/
+
+div#je-faqpro ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul,li,h1,h2,h3,h4,h5,h6,th,td,p,a {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset,img {
+	border: 0;
+}
+
+li {
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+.padded {
+	padding: 10px;
+	clear: both;
+	zoom: 1;
+}
+/* ---- css for template styles ----- */
+.yui-skin-sam .yui-accordionview div.yui-accordion-content {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+.yui-skin-sam .hidden {
+	visibility: hidden;
+	position: absolute;
+	left: -9999px;
+}
+
+.yui-skin-sam .almosthidden {
+	position: absolute;
+	z-index: -10;
+}
+
+.yui-skin-sam ul.yui-accordionview ul.yui-accordionview {
+    zoom: 1;
+}
+/* ---------------------------------------- STYLES STARTED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 1 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu1  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #A3A3A3 solid;
+	padding: 5px 5px 10px 30px;
+	height:15px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+	background: url(../images/style1/sprite.png) repeat-x;
+	background-position: 0 -1500px;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu1 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+	background-position: 0 -1300px;
+}
+
+.yui-skin-sam ul#mymenu1 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background-position: 0 -1400px;
+	border-color: #243356;
+	border-bottom: 1px #243356 solid;
+	color: #fff;
+}
+
+.yui-skin-sam ul#mymenu1 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background-position: 0 -1400px;
+}
+
+.yui-skin-sam ul#mymenu1 .yui-accordion-content {
+	border-left: 1px #A3A3A3 solid;
+	border-right: 1px #A3A3A3 solid;
+	border-bottom: 1px #A3A3A3 solid;
+	background: #EDF5FF;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu1 .yui-accordion-toggle .leftimage {
+	background:url("../images/style1/j_arrow.png") no-repeat 5px 50%;
+	display:block;
+	height:15px;
+	left:0.5em;
+	position:absolute;
+	top:30%;
+	width:14px;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu1 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style1/j_arrow_down.png") no-repeat 5px 50%;
+	display:block;
+	height:14px;
+	left:0.5em;
+	position:absolute;
+	top:25%;
+	width:14px;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+ul#mymenu1 li.yui-accordion-panel {
+	padding : 3px;
+}
+
+.yui-skin-sam ul#mymenu21 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 14px 5px 8px 55px;
+	height: 19px;
+	font-weight: bold;
+	color: #040404;
+	text-decoration: none;
+}
+/* ----------------------------------------- STYLE - 1 ENDED --------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 2 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu2 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #CCCCCC solid;
+	padding: 5px 5px 5px 30px;
+
+	min-height:15px;
+	height:auto !important;
+	height : 15px;
+
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+
+	text-align : justify;
+	background:url("../images/style2/j_arrow.png") no-repeat 10px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu2 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+	background:url("../images/style2/j_arrow.png") no-repeat 10px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+.yui-skin-sam ul#mymenu2 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-bottom: 1px #FFFFFF solid;
+	color: #000;
+}
+.yui-skin-sam ul#mymenu2 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style2/j_arrow_down.png") no-repeat 10px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu2 .yui-accordion-content {
+	border-left: 1px #CCCCCC solid;
+	border-right: 1px #CCCCCC solid;
+	border-bottom: 1px #CCCCCC solid;
+	background: #ffffff;
+	
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu2 li.yui-accordion-panel {
+	background: #F6F6F6;
+	margin-bottom : 10px;
+	margin-right: 20px;
+}
+
+/* ---------------------------------------- STYLE - 2 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 3 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu3 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #B194B0 solid;
+	padding: 5px 5px 5px 30px;
+
+	min-height:15px;
+	height:auto !important;
+	height : 15px;
+
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+
+	text-align : justify;
+	background:url("../images/style3/top.jpg") no-repeat 5px 50% ;
+}
+
+.yui-skin-sam ul#mymenu3 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+	background:url("../images/style3/top.jpg") no-repeat 5px 50% ;
+}
+.yui-skin-sam ul#mymenu3 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-bottom: 1px #B194B0 solid;
+	color: #fff;
+	background:url("../images/style3/bot.jpg") no-repeat 5px 50% ;
+}
+.yui-skin-sam ul#mymenu3 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style3/bot.jpg") no-repeat 5px 50% ;
+}
+
+.yui-skin-sam ul#mymenu3 .yui-accordion-content {
+	border-left: 1px #EDE6EE solid;
+	border-right: 1px #EDE6EE solid;
+	border-bottom: 1px #EDE6EE solid;
+	background: #EDE6EE;
+    _zoom: 1;
+}
+
+
+.yui-skin-sam ul#mymenu3 li.yui-accordion-panel {
+	background: #B194B0;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 3 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 4 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu4 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 7px 5px 12px 30px;
+	height: 18px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background:url("../images/style4/bg.png") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu4 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu4 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style4/bg.png") repeat-x;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu4 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style4/bg.png") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu4 .yui-accordion-content {
+	background: #D4DFE5;
+	color : #000105;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu4 .yui-accordion-toggle .leftimage {
+	background:url("../images/style4/star1.png") no-repeat 5px 50%;
+	display:block;
+	height:18px;
+	left:0;
+	position:absolute;
+	top:27%;
+	width:22px;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu4 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style4/star2.png") no-repeat 5px 50%;
+	display:block;
+	height:18px;
+	left:0;
+	position:absolute;
+	top:27%;
+	width:22px;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu4 span.rightimage {
+	background:url("../images/style4/right.png") no-repeat right 2px;
+	display:block;
+	height:37px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:11px;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu4 span.leftround {
+	background:url("../images/style4/left.png") no-repeat left 2px;
+	display:block;
+	height:37px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:11px;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+
+ul#mymenu4 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 4 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 5 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu5  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #48AD11 solid;
+	padding: 8px 5px 11px 30px;
+	height:15px;
+	font-weight: bold;
+	color: #000500;
+	text-decoration: none;
+	background: url(../images/style5/top.png) repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu5 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu5 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-color: #48AD11;
+	border-bottom: 1px #48AD11 solid;
+	color: #000500;
+}
+.yui-skin-sam ul#mymenu5 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background: url(../images/style5/top.png) repeat-x;
+}
+
+.yui-skin-sam ul#mymenu5 .yui-accordion-content {
+	border-left: 1px #E1F6D5 solid;
+	border-right: 1px #E1F6D5 solid;
+	border-bottom: 1px #E1F6D5 solid;
+	background: #E1F6D5;
+	color : #000205;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu5 .yui-accordion-toggle .leftimage {
+	background:url("../images/style5/icon.png") no-repeat 5px 50% ;
+	display:block;
+	height:21px;
+	left:0;
+	position:absolute;
+	top:25%;
+	width:26px;
+}
+
+.yui-skin-sam ul#mymenu5 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style5/icon.png") no-repeat 5px 50%;
+	display:block;
+	height:21px;
+	left:0;
+	position:absolute;
+	top:25%;
+	width:26px;
+}
+
+ul#mymenu5 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 5 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 6 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu6  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #E0EAF4 solid;
+	padding: 8px 5px 8px 35px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+
+	font-weight: bold;
+	color: #0D1114;
+	text-decoration: none;
+	background:url("../images/style6/icon.png") no-repeat scroll 5px 50%;
+	cursor: pointer;
+
+	text-align : justify;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu6 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu6 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-color: #E0EAF4;
+	border-bottom: 1px #E0EAF4 solid;
+	color: #0D1114;
+}
+.yui-skin-sam ul#mymenu6 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style6/icon.png") no-repeat scroll 5px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu6 .yui-accordion-content {
+	border-left: 1px #E0EAF4 solid;
+	border-right: 1px #E0EAF4 solid;
+	border-bottom: 1px #E0EAF4 solid;
+	background: #E0EAF4;
+	color : #000107;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu6 li.yui-accordion-panel {
+	background: url(../images/style6/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 6 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 7 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu7  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #F5F1E6 solid;
+	padding: 8px 5px 8px 35px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+
+	font-weight: bold;
+	color: #080405;
+	text-decoration: none;
+	cursor: pointer;
+
+	text-align : justify;
+	background:url("../images/style7/icon.jpg") no-repeat 5px 50% ;
+}
+
+.yui-skin-sam ul#mymenu7 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu7 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-color: #F5F1E6;
+	border-bottom: 1px #F5F1E6 solid;
+	color: #080405;
+}
+.yui-skin-sam ul#mymenu7 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style7/icon.jpg") no-repeat 5px 50% ;
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu7 .yui-accordion-content {
+	border-left: 1px #F9F9F7 solid;
+	border-right: 1px #F9F9F7 solid;
+	border-bottom: 1px #F9F9F7 solid;
+	background: #F9F9F7;
+	color : #000000;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu7 li.yui-accordion-panel {
+	background: url(../images/style7/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 7 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 8 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu8  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #F0F0F0 solid;
+	padding: 8px 5px 8px 30px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+
+	font-weight: bold;
+	color: #010101;
+	text-decoration: none;
+	cursor: pointer;
+
+	text-align : justify;
+	background:url("../images/style8/icon.png") no-repeat 5px 50%;
+}
+
+.yui-skin-sam ul#mymenu8 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu8 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style8/icon_down.png") no-repeat 5px 50%;
+	border-color: #F0F0F0;
+	border-bottom: 1px #F0F0F0 solid;
+	color: #010101;
+}
+.yui-skin-sam ul#mymenu8 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style8/icon_down.png") no-repeat 5px 50%;
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu8 .yui-accordion-content {
+	border-left: 1px #EFEFEF solid;
+	border-right: 1px #EFEFEF solid;
+	border-bottom: 1px #EFEFEF solid;
+	background: #EFEFEF;
+	color : #010101;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu8 li.yui-accordion-panel {
+	background: url(../images/style8/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 8 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 9 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu9 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 7px 5px 12px 30px;
+	height: 18px;
+	font-weight: bold;
+	color: #654B18;
+	text-decoration: none;
+	background:url("../images/style9/top_middle.png") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu9 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu9 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style9/top_middle.png") repeat-x;
+	color: #654B18;
+}
+.yui-skin-sam ul#mymenu9 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style9/top_middle.png") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu9 .yui-accordion-content {
+	background: #FDF1D9;
+	color : #000102;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu9 .yui-accordion-toggle .leftimage {
+	background:url("../images/style9/icon.png") no-repeat scroll 5px 50% transparent;
+	display:block;
+	height:11px;
+	left:3px;
+	position:absolute;
+	top:35%;
+	width:22px;
+}
+
+.yui-skin-sam ul#mymenu9 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style9/icon.png") no-repeat scroll 5px 50% transparent;
+	display:block;
+	height:11px;
+	left:3px;
+	position:absolute;
+	top:35%;
+	width:22px;
+}
+
+.yui-skin-sam ul#mymenu9 span.rightimage {
+	background:url("../images/style9/top_right.png") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu9 span.leftround {
+	background:url("../images/style9/top_left.png") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu9 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 9 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 10 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu10  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #F0F0F0 solid;
+	padding: 8px 5px 8px 33px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+	text-align : justify;
+
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+
+	background:url("../images/style10/icon.png") no-repeat 5px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align: justify;
+}
+
+.yui-skin-sam ul#mymenu10 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu10 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-color: #F0F0F0;
+	background:url("../images/style10/icon_down.png") no-repeat 5px 50%;
+	border-bottom: 1px #F0F0F0 solid;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu10 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style10/icon_down.png") no-repeat 5px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu10 .yui-accordion-content {
+	border-left: 1px #E7E7E7 solid;
+	border-right: 1px #E7E7E7 solid;
+	border-bottom: 1px #E7E7E7 solid;
+	background: #E7E7E7;
+	color : #000000;
+	font-size:12px;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu10 li.yui-accordion-panel {
+	background: url(../images/style10/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 10 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 11 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu11 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 8px 5px 10px 40px;
+	height: 18px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background:url("../images/style11/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu11 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu11 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style11/top.jpg") repeat-x;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu11 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style11/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu11 .yui-accordion-content {
+	background: #FBE9E9;
+	color : #080000;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu11 .yui-accordion-toggle .leftimage {
+	background:url("../images/style11/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:23px;
+	left:3px;
+	position:absolute;
+	top:20%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu11 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style11/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:23px;
+	left:3px;
+	position:absolute;
+	top:20%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu11 span.rightimage {
+	background:url("../images/style11/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu11 span.leftround {
+	background:url("../images/style11/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu11 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 11 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 12 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu12 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 6px 5px 10px 40px;
+	height: 18px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background:url("../images/style12/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu12 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu12 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style12/top.jpg") repeat-x;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu12 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style12/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu12 .yui-accordion-content {
+	background: #F4F4F4;
+	color : #000000;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu12 .yui-accordion-toggle .leftimage {
+	background:url("../images/style12/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:23px;
+	left:3px;
+	position:absolute;
+	top:16%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu12 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style12/icon_down.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:23px;
+	left:3px;
+	position:absolute;
+	top:16%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu12 span.rightimage {
+	background:url("../images/style12/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu12 span.leftround {
+	background:url("../images/style12/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu12 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 12 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 13 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu13 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 8px 5px 10px 35px;
+	height: 18px;
+	font-weight: bold;
+	color: #26211B;
+	text-decoration: none;
+	background:url("../images/style13/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu13 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu13 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style13/top.jpg") repeat-x;
+	color: #26211B;
+}
+.yui-skin-sam ul#mymenu13 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style13/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu13 .yui-accordion-content {
+	background: #EAE4D4;
+	color : #040000;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu13 .yui-accordion-toggle .leftimage {
+	background:url("../images/style13/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:23px;
+	left:3px;
+	position:absolute;
+	top:18%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu13 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style13/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:23px;
+	left:3px;
+	position:absolute;
+	top:18%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu13 span.rightimage {
+	background:url("../images/style13/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu13 span.leftround {
+	background:url("../images/style13/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu13 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 13 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 14 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu14 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 7px 5px 11px 30px;
+	height: 18px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background:url("../images/style14/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu14 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu14 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style14/top.jpg") repeat-x;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu14 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style14/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu14 .yui-accordion-content {
+	background: #F0F9DE;
+	color : #000100;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu14 .yui-accordion-toggle .leftimage {
+	background:url("../images/style14/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:16px;
+	left:3px;
+	position:absolute;
+	top:25%;
+	width:22px;
+}
+
+.yui-skin-sam ul#mymenu14 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style14/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:16px;
+	left:3px;
+	position:absolute;
+	top:25%;
+	width:22px;
+}
+
+.yui-skin-sam ul#mymenu14 span.rightimage {
+	background:url("../images/style14/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu14 span.leftround {
+	background:url("../images/style14/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu14 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 14 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 15 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu15 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 8px 5px 10px 35px;
+	height: 18px;
+	font-weight: bold;
+	color: #000002;
+	text-decoration: none;
+	background:url("../images/style15/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu15 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu15 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style15/top.jpg") repeat-x;
+	color: #000002;
+}
+.yui-skin-sam ul#mymenu15 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style15/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu15 .yui-accordion-content {
+	background: #DEF1ED;
+	color : #000000;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu15 .yui-accordion-toggle .leftimage {
+	background:url("../images/style15/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:14px;
+	left:3px;
+	position:absolute;
+	top:33%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu15 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style15/icon_down.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:28px;
+	left:3px;
+	position:absolute;
+	top:15%;
+	width:32px;
+}
+
+.yui-skin-sam ul#mymenu15 span.rightimage {
+	background:url("../images/style15/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu15 span.leftround {
+	background:url("../images/style15/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu15 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 15 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 16 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu16  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #CEB80D solid;
+	padding: 8px 5px 8px 35px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+	text-align : justify;
+
+	font-weight: bold;
+	color: #000002;
+	text-decoration: none;
+	cursor: pointer;
+
+	background:url("../images/style16/icon.png") no-repeat 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu16 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu16 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	border-color: #CEB80D;
+	border-bottom: 1px #CEB80D solid;
+	color: #000002;
+}
+.yui-skin-sam ul#mymenu16 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style16/icon.png") no-repeat 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu16 .yui-accordion-content {
+	border-left: 1px #FCF8D5 solid;
+	border-right: 1px #FCF8D5 solid;
+	border-bottom: 1px #FCF8D5 solid;
+	background: #FCF8D5;
+	color : #000000;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu16 li.yui-accordion-panel {
+	background: url(../images/style16/top.jpg) repeat-x #F2DD46;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 16 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 17 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu17  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #F1E9E8 solid;
+	padding: 8px 5px 9px 35px;
+
+	min-height:19px;
+	height:auto !important;
+	height:19px;
+	text-align : justify;
+
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+
+	background:url("../images/style17/icon.png") no-repeat 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu17 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu17 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style17/icon_down.png") no-repeat 7px 50%;
+	border-color: #F1E9E8;
+	border-bottom: 1px #F1E9E8 solid;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu17 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style17/icon_down.png") no-repeat 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu17 .yui-accordion-content {
+	border-left: 1px #F1E9E8 solid;
+	border-right: 1px #F1E9E8 solid;
+	border-bottom: 1px #F1E9E8 solid;
+	background: #EDDDDE;
+	color : #524E4D;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu17 li.yui-accordion-panel {
+	background: url(../images/style17/top.jpg) repeat-x #5A0000;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 17 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 18 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu18 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 7px 5px 12px 38px;
+	height: 16px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background:url("../images/style18/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu18 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu18 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style18/top.jpg") repeat-x;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu18 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style18/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu18 .yui-accordion-content {
+	background: #F3DAED;
+	color : #090909;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu18 .yui-accordion-toggle .leftimage {
+	background:url("../images/style18/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:3px;
+	position:absolute;
+	top:13%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu18 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style18/icon_down.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:3px;
+	position:absolute;
+	top:13%;
+	width:32px;
+}
+
+.yui-skin-sam ul#mymenu18 span.rightimage {
+	background:url("../images/style18/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu18 span.leftround {
+	background:url("../images/style18/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu18 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 18 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 19  ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu19 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 8px 5px 10px 35px;
+	height: 18px;
+	font-weight: bold;
+	color: #3F2205;
+	text-decoration: none;
+	background:url("../images/style19/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu19 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu19 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style19/top.jpg") repeat-x;
+	color: #3F2205;
+}
+.yui-skin-sam ul#mymenu19 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style19/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu19 .yui-accordion-content {
+	background: #E6ECF8;
+	color : #2C2D2F;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu19 .yui-accordion-toggle .leftimage {
+	background:url("../images/style19/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:3px;
+	position:absolute;
+	top:13%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu19 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style19/icon_down.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:3px;
+	position:absolute;
+	top:13%;
+	width:32px;
+}
+
+.yui-skin-sam ul#mymenu19 span.rightimage {
+	background:url("../images/style19/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu19 span.leftround {
+	background:url("../images/style19/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu19 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 19 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 20 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu20  a.yui-accordion-toggle {
+	display: block;
+	padding: 8px 7px 9px 35px;
+	height:19px;
+	text-align : justify;
+	font-weight: bold;
+	color: #1E2025;
+	text-decoration: none;
+	background: url(../images/style20/top.jpg) repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu20 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu20 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style20/top.jpg") repeat-x;
+	color: #1E2025;
+}
+.yui-skin-sam ul#mymenu20 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style20/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu20 .yui-accordion-content {
+	background:#E6ECF8;
+	color : #1E2025;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu20 .yui-accordion-toggle .leftimage {
+	background:url("../images/style20/icon.png") no-repeat 5px 50% ;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:3px;
+	position:absolute;
+	top:13%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu20 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style20/icon_down.png") no-repeat 5px 50% ;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:3px;
+	position:absolute;
+	top:13%;
+	width:32px;
+}
+
+.yui-skin-sam ul#mymenu20 span.rightimage {
+	background:url("../images/style20/right.jpg") no-repeat right 2px;
+	display:block;
+	height:38px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu20 span.leftround {
+	background:url("../images/style20/left.jpg") no-repeat left 2px ;
+	display:block;
+	height:38px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu20 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 20 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 21 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu21 li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 10px 5px 12px 55px;
+	height: 19px;
+	font-weight: bold;
+	color: #040404;
+	text-decoration: none;
+	background:url("../images/style21/top.jpg") repeat-x;
+	position: relative;
+	cursor: pointer;
+}
+
+.yui-skin-sam ul#mymenu21 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu21 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style21/top.jpg") repeat-x;
+	color: #040404;
+}
+.yui-skin-sam ul#mymenu21 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style21/top.jpg") repeat-x;
+}
+
+.yui-skin-sam ul#mymenu21 .yui-accordion-content {
+	background:#F6F8F7;
+	color : #040404;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu21 .yui-accordion-toggle .leftimage {
+	background:url("../images/style21/icon.png") no-repeat scroll 5px 50% transparent;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:15px;
+	position:absolute;
+	top:19%;
+	width:28px;
+}
+
+.yui-skin-sam ul#mymenu21 .yui-accordion-toggle.active .leftimage {
+	background:url("../images/style21/icon.png") no-repeat scroll 5px 50% transparent;
+
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	display:block;
+	height:25px;
+	left:15px;
+	position:absolute;
+	top:19%;
+	width:32px;
+}
+
+.yui-skin-sam ul#mymenu21 span.rightimage {
+	background:url("../images/style21/right.jpg") no-repeat scroll right 2px transparent;
+	display:block;
+	height:43px;
+	right:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+.yui-skin-sam ul#mymenu21 span.leftround {
+	background:url("../images/style21/left.jpg") no-repeat scroll left 2px transparent;
+	display:block;
+	height:43px;
+	left:-1px;
+	position:absolute;
+	top:-2px;
+	width:91px;
+}
+
+ul#mymenu21 li.yui-accordion-panel {
+	padding : 3px;
+}
+/* ---------------------------------------- STYLE - 21 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 22 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu22  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #E0EAF4 solid;
+	padding: 10px 5px 8px 35px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+
+	font-weight: bold;
+	color: #0D1114;
+	text-decoration: none;
+	background:url("../images/style22/icon.png") no-repeat scroll 7px 50%;
+	cursor: pointer;
+
+	text-align : justify;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu22 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu22 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style22/icon_down.png") no-repeat scroll 7px 50%;
+	color: #0D1114;
+}
+.yui-skin-sam ul#mymenu22 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style22/icon_down.png") no-repeat scroll 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu22 .yui-accordion-content {
+	border-left: 1px #E0EAF4 solid;
+	border-right: 1px #E0EAF4 solid;
+	border-bottom: 1px #E0EAF4 solid;
+	background: #E0EAF4;
+	color : #000107;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu22 li.yui-accordion-panel {
+	background: url(../images/style22/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 22 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 23 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu23  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	border: 1px #C9E785 solid;
+	padding: 10px 5px 8px 35px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background:url("../images/style23/icon.png") no-repeat scroll 7px 50%;
+	cursor: pointer;
+
+	text-align : justify;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu23 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu23 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style23/icon.png") no-repeat scroll 7px 50%;
+	color: #fff;
+}
+.yui-skin-sam ul#mymenu23 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style23/icon.png") no-repeat scroll 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu23 .yui-accordion-content {
+	border-left: 1px #C9E785 solid;
+	border-right: 1px #C9E785 solid;
+	border-bottom: 1px #C9E785 solid;
+	background: #F0F9DE;
+	color : #000107;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu23 li.yui-accordion-panel {
+	background: url(../images/style23/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 23 ENDED ----------------------------------------------------------- */
+
+/* ---------------------------------------- STYLE - 24 ----------------------------------------------------------- */
+.yui-skin-sam ul#mymenu24  li.yui-accordion-panel a.yui-accordion-toggle {
+	display: block;
+	padding: 10px 5px 8px 35px;
+
+	min-height:15px;
+	height:auto !important;
+	height:15px;
+
+	font-weight: bold;
+	color : #2C2D2F;
+	text-decoration: none;
+	background:url("../images/style24/icon.png") no-repeat scroll 7px 50%;
+	cursor: pointer;
+
+	text-align : justify;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+}
+
+.yui-skin-sam ul#mymenu24 li.yui-accordion-panel a.yui-accordion-toggle:hover {
+}
+.yui-skin-sam ul#mymenu24 li.yui-accordion-panel a.yui-accordion-toggle.active {
+	background:url("../images/style24/icon_down.png") no-repeat scroll 7px 50%;
+	color : #2C2D2F;
+}
+.yui-skin-sam ul#mymenu24 li.yui-accordion-panel a.yui-accordion-toggle.active:hover {
+	background:url("../images/style24/icon_down.png") no-repeat scroll 7px 50%;
+	behavior: url("components/com_jefaqpro/assets/iepngfix/iepngfix.htc");
+	text-align : justify;
+}
+
+.yui-skin-sam ul#mymenu24 .yui-accordion-content {
+	background:#E6ECF8;
+	color : #2C2D2F;
+    _zoom: 1;
+}
+
+.yui-skin-sam ul#mymenu24 li.yui-accordion-panel {
+	background: url(../images/style24/top.jpg) repeat;
+	margin-bottom : 10px;
+}
+/* ---------------------------------------- STYLE - 24 ENDED ----------------------------------------------------------- */
+
+/* -------------------------------- STYLES ENDED ---------------------------------------------------------------------- */
+
+.yui-skin-sam ul.submenu li a:hover {
+	background: #b3d4ff;
+}
+.yui-skin-sam ul.submenu li a:visited, .yui-skin-sam .yui-accordionview li.yui-accordion-panel a.link:visited {
+	color: #777;
+}
+
+.yui-skin-sam .yui-accordionview li.yui-accordion-panel a.yui-accordion-toggle:focus {
+	 text-decoration: none;
+}
+.yui-skin-sam .yui-accordionview li.yui-accordion-panel a.yui-accordion-toggle.activepanel {
+	text-decoration: none;
+}
+/* ---- template styles end ----- */

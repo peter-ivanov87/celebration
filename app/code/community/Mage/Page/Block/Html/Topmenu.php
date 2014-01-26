@@ -66,7 +66,7 @@ class Mage_Page_Block_Html_Topmenu extends Mage_Core_Block_Template
 	        $this->_menu->setChildrenWrapClass($childrenWrapClass);
 	
 	        $html = $this->_getHtml($this->_menu, $childrenWrapClass);
-	
+
 	        Mage::dispatchEvent('page_block_html_topmenu_gethtml_after', array(
 	            'menu' => $this->_menu,
 	            'html' => $html

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Zeon Solutions, Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Zeon Solutions License
+ * that is bundled with this package in the file LICENSE_ZE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.zeonsolutions.com/license/
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@zeonsolutions.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * versions in the future. If you wish to customize this extension for your
+ * needs please refer to http://www.zeonsolutions.com for more information.
+ *
+ * @category    Zeon
+ * @package     Zeon_Faq
+ * @copyright   Copyright (c) 2012 Zeon Solutions, Inc. All Rights Reserved.(http://www.zeonsolutions.com)
+ * @license     http://www.zeonsolutions.com/license/
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <zextension translate="title">
+                        <title>Zeon Extensions</title>
+                        <sort_order>200</sort_order>
+                        <children>
+                            <zeon_faq translate="title" module="zeon_faq">
+                                <title>Faq</title>
+                                <sort_order>100</sort_order>
+                                <children>
+                                    <faq_list translate="title" module="zeon_faq">
+                                        <title>Manage Faq</title>
+                                        <sort_order>10</sort_order>
+                                    </faq_list>
+                                    <faq_category translate="title" module="zeon_faq">
+                                        <title>Manage Faq Categories</title>
+                                        <sort_order>20</sort_order>
+                                    </faq_category>
+                                    <faq_settings>
+                                        <title>Manage Faq Settings</title>
+                                        <sort_order>30</sort_order>
+                                    </faq_settings>
+                                </children>
+                            </zeon_faq>
+                        </children>
+                    </zextension>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <zextension translate="title">
+                                        <title>Zeon Extensions</title>
+                                    </zextension>
+                                    <zeon_faq>
+                                        <title>Zeon Extensions - Faq Settings Section</title>
+                                    </zeon_faq>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <zextension translate="title">
+            <title>Zeon Extensions</title>
+            <sort_order>90</sort_order>
+            <children>
+                <zeon_faq translate="title" module="zeon_faq">
+                    <title>Faq</title>
+                    <sort_order>100</sort_order>
+                    <children>
+                        <faq_list translate="title" module="zeon_faq">
+                            <title>Manage Faq</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/faq_list</action>
+                            <depends>
+                                <module>Zeon_Faq</module>
+                                <config>zeon_faq/general/is_enabled</config>
+                            </depends>
+                        </faq_list>
+                        <faq_category module="zeon_faq">
+                            <title>Manage Faq Categories</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/faq_category</action>
+                            <depends>
+                                <module>Zeon_Faq</module>
+                                <config>zeon_faq/general/is_enabled</config>
+                            </depends>
+                        </faq_category>
+                        <faq_settings module="zeon_faq">
+                            <title>Manage Faq Settings</title>
+                            <sort_order>30</sort_order>
+                            <action>adminhtml/system_config/edit/section/zeon_faq</action>
+                        </faq_settings>
+                    </children>
+                </zeon_faq>
+            </children>
+        </zextension>
+    </menu>
+</config>

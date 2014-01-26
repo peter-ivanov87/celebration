@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="root">
+            <reference name="top.links">
+                <action method="addLink" translate="label title">
+                    <label>Video Gallery</label>
+                    <url>videogallery</url>  <!-- can use full url also -->
+                    <title>Video Gallery</title>
+                    <prepare>true</prepare> <!-- set true if adding base url param -->
+                    <urlParams helper="core/url/getHomeUrl"/> <!-- base url - thanks @Russ! -->
+                    <position>1</position>
+                    <liParams/>
+                    <aParams>class="top-link-about-us"</aParams>
+                    <beforeText></beforeText>
+                    <afterText></afterText>
+                </action>
+             </reference>
+        </reference>
+    </default>
+  <videogallery_index_index>
+  <reference name="root">
+      <action method="setTemplate">
+        <template>page/1column.phtml</template>
+      </action>
+    </reference>
+    <reference name="content">
+      <block type="videogallery/videogallery" name="videogallery_list" template="videogallery/videogallerylist.phtml"/>
+    </reference>
+  </videogallery_index_index>
+  <videogallery_index_category>
+    <reference name="root">
+      <action method="setTemplate">
+        <template>page/1column.phtml</template>
+      </action>
+    </reference>
+    <reference name="content">
+      <block type="videogallery/videogallery" name="videogallery" template="videogallery/videogallery.phtml" />
+    </reference>
+  </videogallery_index_category>
+</layout>

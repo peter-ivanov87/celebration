@@ -1,0 +1,21 @@
+dl.faq-items dt {
+	text-transform: none;
+	margin-bottom: 10px;
+	font-size: 16px;
+	padding: 8px 8px 8px 30px;
+	background-image: url('toggle-plus.png');
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	color: #333;
+	cursor:pointer;
+	background-color: #cfcfcf;
+	border-radius:4px;
+}
+dl.faq-items dt:hover {
+	color: #0489B7;
+}
+dl.faq-items dt.active{
+	background-image: url('toggle-minus.png') !important;
+	background-position: 10px center;
+	background-repeat: no-repeat;
+}

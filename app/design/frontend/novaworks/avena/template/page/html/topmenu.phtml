@@ -49,13 +49,16 @@ $menu_stay_on_top		=	Mage::getStoreConfig('themeoptions_general/general_options/
         <?php echo $_menu ?>
         <?php if (($block_custom_menu = $this->getLayout()->createBlock('cms/block')->setBlockId('block_custom_menu')->toHtml()) && $menu_type == 'wide-menu'): ?>
         <li class="nav-custom-link level0 level-top parent"><a class="level-top" href="#"><span><?php echo Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('block_custom_menu')->getTitle(); ?></span></a>
-        <ul class="level0">
-	        <div class="header-nav-dropdown-wrapper">
-		        <?php echo $block_custom_menu;?>
-	        </div>
-        </ul>
+            <ul class="level0">
+                    <div class="header-nav-dropdown-wrapper">
+                            <?php echo $block_custom_menu;?>
+                    </div>
+            </ul>
         </li>
         <?php endif;?>
+        <li class="nav-custom-link level0 level-top parent">
+            <a class="level-top" href="faq"><span>Faqs</span></a>            
+        </li>
     </ul>
 	</div> 
 <div class="mobi-nav visible-tablet visible-phone">

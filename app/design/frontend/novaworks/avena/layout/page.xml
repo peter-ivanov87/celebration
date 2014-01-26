@@ -48,18 +48,19 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>varien/menu.js</script></action>
                 <action method="addJs"><script>mage/translate.js</script></action>
                 <action method="addJs"><script>mage/cookies.js</script></action>
-								<action method="addJs"><script>novaworks/jquery-1.7.1.min.js</script></action>
-								<action method="addJs"><script>novaworks/jquery-noconflict.js</script></action>
-								<action method="addJs"><script>novaworks/jquery.easing.1.3.js</script></action>
-								<action method="addJs"><script>novaworks/jquery.transit.min.js</script></action>
-								<action method="addJs"><script>novaworks/bootstrap.min.js</script></action>
-								<action method="addJs"><script>novaworks/bootbox.min.js</script></action>
-								<action method="addJs"><script>novaworks/jquery.accordion.js</script></action>
-								<action method="addJs"><script>novaworks/superfish.js</script></action>
-								<action method="addJs"><script>novaworks/flexslider/jquery.flexslider-min.js</script></action>
-								<action method="addJs"><script>novaworks/retina.js</script></action>
-								<action method="addJs"><script>novaworks/novaworks.js</script></action>
-								<action method="addItem"><type>skin_js</type><name>lib/colorbox/jquery.colorbox-min.js</name><params/></action>
+                <action method="addJs"><script>novaworks/jquery-1.7.1.min.js</script></action>
+                <action method="addJs"><script>novaworks/jquery-noconflict.js</script></action>
+                <action method="addJs"><script>novaworks/jquery.easing.1.3.js</script></action>
+                <action method="addJs"><script>novaworks/jquery.transit.min.js</script></action>
+                <action method="addJs"><script>novaworks/bootstrap.min.js</script></action>
+                <action method="addJs"><script>novaworks/bootbox.min.js</script></action>
+                <action method="addJs"><script>novaworks/jquery.accordion.js</script></action>
+                <action method="addJs"><script>novaworks/superfish.js</script></action>
+                <action method="addJs"><script>novaworks/flexslider/jquery.flexslider-min.js</script></action>
+                <action method="addJs"><script>novaworks/retina.js</script></action>
+                <action method="addJs"><script>novaworks/novaworks.js</script></action>
+                
+                <action method="addItem"><type>skin_js</type><name>lib/colorbox/jquery.colorbox-min.js</name><params/></action>
                 <block type="page/js_cookie" name="js_cookies" template="page/js/cookie.phtml"/>
 				
 						              
@@ -68,6 +69,7 @@ Default layout, loads most of the pages
                 <action method="addCss"><stylesheet>fontello/css/fontello.css</stylesheet></action>
                 <action method="addCss"><stylesheet>fontello/css/animation.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/menu.css</stylesheet></action>
+                
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 8</if></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>

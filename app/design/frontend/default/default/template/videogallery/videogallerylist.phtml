@@ -1,0 +1,85 @@
+<?php
+$baseurl=$this->getUrl('');
+$model_data = Mage::getModel('videogallery/videogallery')->getCollection();
+$results = $model_data->getData();
+$collection=Mage::getModel('videogallery/videogallery')->getCollection()->addFieldToSelect('videogallery_category');
+$collection->getSelect()->distinct(true);
+$categorys = $collection->getData();
+?>
+
+<div class="col-left sidebar">
+  <div class="block">
+    <div class="block-title">Video Category</div>
+    <div class="block-content">
+      <ul style="padding:10px">
+        <li><a href="<?php echo $baseurl."videogallery/"; ?>" class="active">All Videos</a></li>
+        <?php foreach($categorys as $category): ?>
+        <li><a href="<?php echo $baseurl."videogallery/index/category/id/".$category['videogallery_category']; ?>"><?php echo $category['videogallery_category']; ?></a></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  </div>
+</div>
+<div style="width:75%; float:right;">
+  <div class="page-title category-title">
+    <h1>Videos Gallery</h1>
+  </div>
+  <?php
+$count = count($results);
+if($count==0){
+?>
+  <p class="note-msg">There are no videos matching the selection.</p>
+  <?php
+}
+$i = 0;
+$j = 0;
+foreach($results as $result):
+$i++;
+$j++;
+$id=$result['videogallery_id'];
+$videogallery=Mage::getModel("videogallery/videogallery")->load($id);
+if($videogallery!=$videogallery['videogallery_id']):
+
+parse_str( parse_url( $videogallery['videogallery_url'], PHP_URL_QUERY ) );
+$videoid = $v;
+$videoname = $videogallery['name'];
+?>
+  <?php if($i == 1): ?>
+  <div id="thumbs" class="navigation video_gallery">
+    <div id="video_frame_cont">
+      <iframe id="mainvideo" width="655" height="311" src="http://www.youtube-nocookie.com/embed/<?php echo $videoid; ?>?wmode=opaque&rel=0&autohide=1&showinfo=0&autoplay=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <ul class="clearfix thumbs noscript">
+      <?php endif;?>
+      <li class="<?php if($j == 1): ?>first<?php elseif($j == 2): $j = 0; ?>last<?php endif;?>" style="display:inline;float:left;margin:0px 5px 5px;width:315px;" onclick="selectvideo('<?php echo $videoid; ?>')"> <img style="cursor:pointer;"  src="<?php echo $this->getImageresize($videogallery['image'],'big',315,141);?>" width="315" height="141" title="<?php echo $videogallery['name']; ?>" />
+        <div class="play_btn">
+          <?php /*?><img src="<?php echo $this->getSkinUrl('images/video_play_btn.png') ?>" alt="" /><?php */?>
+        </div>
+        <h2 class="product-name" style="height: 35px; overflow: hidden;"><a title="<?php echo $videoname; ?>"><?php echo $videoname; ?></a></h2>
+      </li>
+      <?php endif;?>
+      <?php if($i == $count): ?>
+    </ul>
+  </div>
+  <?php endif;?>
+  <?php endforeach; ?>
+</div>
+<script type="text/javascript" charset="utf-8">
+function scrollToElement(pageElement) {    
+    var positionX = 0,         
+        positionY = 0;    
+
+    while(pageElement != null){        
+        positionX += pageElement.offsetLeft;        
+        positionY += pageElement.offsetTop;        
+        pageElement = pageElement.offsetParent;        
+        window.scrollTo(positionX, positionY);    
+    }
+}
+function selectvideo(id) {
+	var main_image = document.getElementById("mainvideo");
+	main_image.src = 'http://www.youtube-nocookie.com/embed/'+id+'?wmode=opaque&rel=0&autohide=1&showinfo=0&autoplay=1';
+	var video_frame_cont = document.getElementById("video_frame_cont");
+	scrollToElement(video_frame_cont);
+};
+</script>

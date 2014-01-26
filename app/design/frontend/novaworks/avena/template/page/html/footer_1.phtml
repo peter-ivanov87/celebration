@@ -1,0 +1,133 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+ require  ('tmhOAuth.php');
+ require  ('tmhUtilities.php');
+ $twitter_account	=	Mage::getStoreConfig('themeoptions_general/general_options/your_twitter_account', $storeId);
+ $consumer_key		=	Mage::getStoreConfig('themeoptions_general/general_options/your_twitter_consumer_key', $storeId);
+ $consumer_secret	=	Mage::getStoreConfig('themeoptions_general/general_options/your_twitter_consumer_secret', $storeId);
+ $user_token		=	Mage::getStoreConfig('themeoptions_general/general_options/your_twitter_access_token', $storeId);
+ $user_secret		=	Mage::getStoreConfig('themeoptions_general/general_options/your_twitter_access_token_secret', $storeId);
+
+
+
+
+ $tmhOAuth = new tmhOAuth(array(
+  'consumer_key'    => $consumer_key,
+  'consumer_secret' => $consumer_secret,
+  'user_token'      => $user_token,
+  'user_secret'     => $user_secret,
+  'curl_ssl_verifypeer'   => false,
+));
+
+$code = $tmhOAuth->request('GET', $tmhOAuth->url('1.1/statuses/user_timeline'), array(
+  'include_entities' => '1',
+  'include_rts'      => '1',
+  'screen_name'      => $twitter_account,
+  'count'            => 2,
+));
+ $fb_url						=	Mage::getStoreConfig('themeoptions_general/general_options/your_fb_url', $storeId);
+ $gotop_button			=	Mage::getStoreConfig('themeoptions_general/general_options/gotop_button', $storeId);
+?>
+<script type="text/javascript" charset="utf-8">
+	jQuery(function(jQuery) {
+		jQuery('.left-block-inner').flexslider({
+			namespace: "left-block-inner-",
+			animation: "slide",
+			easing: "easeInQuart",
+			animationSpeed: 300,
+			animationLoop: true,
+			slideshow: true,			
+			pauseOnHover: true,
+			directionNav: false,             //Boolean: Create navigation for previous/next navigation? (true/false)
+			controlNav: true,
+			itemWidth: 270,
+			move: 1
+		});
+	});
+</script>	
+<div class="footer-container">
+	<div class="footer-aditional">
+		<div class="row-fluid mg-pd">
+			<div class="span6 info">
+				<div class="row-fluid">
+			    	<?php if ($aditional_footer_left = $this->getLayout()->createBlock('cms/block')->setBlockId('aditional_footer_left')->toHtml()): ?>
+				    	<?php echo $aditional_footer_left; ?>
+				    <?php endif;?>				
+				</div>
+                            
+			</div>
+                        <?php 
+                            print $this->getLayout()->createBlock("newsletter/subscribe")->setTemplate("newsletter/subscribe.phtml")->toHtml();
+                        ?>
+                        
+					
+			<div class="span3 rss">
+				<?php if($fb_url):?>
+					<h4>RSS</h4>
+					<div id="fb-root">
+						<script>(function(d, s, id) {
+						  	var js, fjs = d.getElementsByTagName(s)[0];
+						  	if (d.getElementById(id)) return;
+						  	js = d.createElement(s); js.id = id;
+						  	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=129137010571421";
+						  	fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));
+						</script>
+					
+						<div class="fb-like-box" data-href="<?php echo $fb_url?>" data-show-faces="true" data-colorscheme="dark" data-stream="false" data-header="false"></div>	
+					</div>
+				<?php endif?>		
+			</div>
+		</div>
+	</div>
+</div>
+<div class="copyright-footer">
+	<div class="row-fluid footer">	    
+    	<div class="span6">
+	    	<div class="footer-left">
+	    		<?php echo $this->getChildHtml('footer_links') ?>
+	    		<div class="clear"></div>
+	    		<address>© 2014 Celebration Templates.com | Site design by <a href="http://www.creativemediaweb.com">Creative Media Web</a></address>
+	    	</div>
+    	</div>
+    	<div class="span6">		
+    		<?php if ($block_footer_right = $this->getLayout()->createBlock('cms/block')->setBlockId('block_footer_right')->toHtml()): ?>	
+		    	<div class="footer-right">	    		
+					<?php echo $block_footer_right; ?>					
+		    	</div> 
+	    	<?php endif;?>
+    	</div>
+    </div>
+</div>
+<?php
+if($gotop_button):
+?>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery().UItoTop({ easingType: 'easeOutQuart',text:'<i class="icon-up-open"></i>' });		
+});
+</script>
+<?php endif;?>

@@ -1,0 +1,77 @@
+<?php
+/**
+ * Zeon Solutions, Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Zeon Solutions License
+ * that is bundled with this package in the file LICENSE_ZE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.zeonsolutions.com/license/
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@zeonsolutions.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * versions in the future. If you wish to customize this extension for your
+ * needs please refer to http://www.zeonsolutions.com for more information.
+ *
+ * @category    Zeon
+ * @package     Zeon_Faq
+ * @copyright   Copyright (c) 2012 Zeon Solutions, Inc. All Rights Reserved.(http://www.zeonsolutions.com)
+ * @license     http://www.zeonsolutions.com/license/
+ */
+?>
+<?php
+/**
+ * Faq list template
+ *
+ * @see Zeon_Faq_Block_List
+ */
+?>
+<?php
+    $_faqCollection=$this->getCollection();
+    $processor = Mage::helper('zeon_faq')->getBlockTemplateProcessor();
+?>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+<div class="page-title">
+<?php if($categoryId = $this->getRequest()->getParam('category_id')): ?>
+<?php $categoryTitle = Mage::getResourceModel('zeon_faq/category')->getFaqCategoryTitleById($categoryId); ?>
+    <h1><?php echo $this->__('Frequently Asked Questions - ') ?><?php echo $this->htmlEscape($categoryTitle) ?></h1>
+<?php elseif ($this->getRequest()->getParam('mfaq')):?>
+    <h1><?php echo $this->__('Most Frequently Asked Questions') ?></h1>
+<?php else: ?>
+    <h1><?php echo $this->__('Frequently Asked Questions') ?></h1>
+<?php endif; ?>
+</div>
+<?php echo $this->getChildHtml('faq_search_form') ?>
+<?php echo $this->getPagerHtml(); ?>
+<?php if(!$_faqCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no faq matching the selection.') ?></p>
+<?php else: ?>
+<div class="std" id="std">
+    <?php foreach ($_faqCollection as $_faq): ?>
+    <h3><?php echo $this->htmlEscape($_faq->getTitle()) ?></h3>
+    <div>
+        <?php echo $processor->filter($_faq->getDescription()) ?>
+    </div>
+    <?php endforeach; ?>
+   
+</div>
+<?php endif; ?>
+<?php echo $this->getPagerHtml(); ?>
+
+ <script>
+     var tmp=jQuery.noConflict(true);
+  tmp(function() {
+    tmp( "#std" ).accordion({
+      collapsible: true
+    });
+  });
+  </script>

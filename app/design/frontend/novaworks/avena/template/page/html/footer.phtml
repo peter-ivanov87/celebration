@@ -84,20 +84,18 @@ $code = $tmhOAuth->request('GET', $tmhOAuth->url('1.1/statuses/user_timeline'), 
                         ?>
                         
 					
-			<div class="span3 facebook">
+			<div class="span3 rss">
 				<?php if($fb_url):?>
-					<h4>FACEBOOK</h4>
+					<h4>RSS</h4>
 					<div id="fb-root">
-						<script>(function(d, s, id) {
-						  	var js, fjs = d.getElementsByTagName(s)[0];
-						  	if (d.getElementById(id)) return;
-						  	js = d.createElement(s); js.id = id;
-						  	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=129137010571421";
-						  	fjs.parentNode.insertBefore(js, fjs);
-							}(document, 'script', 'facebook-jssdk'));
-						</script>
-					
-						<div class="fb-like-box" data-href="<?php echo $fb_url?>" data-show-faces="true" data-colorscheme="dark" data-stream="false" data-header="false"></div>	
+                                            <?php 
+                                            $filter = new Mage_Widget_Model_Template_Filter();
+                                            $_widget = $filter->filter('{{widget type="feedreader/sidebar" uri="http://www.celebrationtemplates.com/blog/feed/rss/" '
+                                                    . 'item_count="5" template="feedreader/sidebar.phtml" title="FeedReader" page_id="1"}}');
+                                            
+                                            echo $_widget;
+                                            ?>
+						
 					</div>
 				<?php endif?>		
 			</div>
