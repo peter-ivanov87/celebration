@@ -1,0 +1,42 @@
+<?php
+	$rss = Mage::getModel('orange_rss/rss');
+	$posts = $rss->data();
+?>
+<?php if($rss->isActive()): ?>
+<div class="block">
+	<div class="block-title">
+		<strong><span><?php echo $rss->getTitle() ?></span></strong>
+	</div>
+	<div class="block-content block-rss">
+		<?php if($posts && count($posts)): ?>
+			<?php foreach($posts['entries'] as $post): ?>
+				<div class="post">
+					<?php if($_title = $post['title']): ?>
+						<div class="title">
+							<?php if($_link = $post['link']): ?>
+								<a href="<?php echo $_link ?>"><?php echo $post['title'] ?></a>
+							<?php else: ?>
+								<?php echo $post['title'] ?>
+							<?php endif ?>
+						</div>
+					<?php endif ?>
+					<?php if($rss->showDate()): ?>
+						<?php if($_date = $post['dateModified']): ?>
+							<div class="date">
+								<?php echo date('d.m.Y', $_date->getTimestamp()) ?>
+							</div>
+						<?php endif ?>
+					<?php endif ?>
+					<?php if($rss->showContent()): ?>
+					<div class="content">
+						<?php echo strip_tags($post['description']) ?>
+					</div>
+					<?php endif ?>
+				</div>
+			<?php endforeach ?>
+		<?php else: ?>
+			<p class="empty"><?php echo $this->__('No posts found.') ?></p>
+		<?php endif ?>
+	</div>
+</div>
+<?php endif ?>

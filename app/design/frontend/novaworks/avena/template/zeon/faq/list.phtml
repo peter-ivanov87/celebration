@@ -35,10 +35,11 @@
     $_faqCollection=$this->getCollection();
     $processor = Mage::helper('zeon_faq')->getBlockTemplateProcessor();
 ?>
- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
+ <link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/faq/ui.css') ?>">
+  <script src="<?php echo $this->getSkinUrl('js/faq/jquery-1.9.1.js') ?>"></script>
+  <script src="<?php echo $this->getSkinUrl('js/faq/jquery-ui.js') ?>"></script>
+  
+ <link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/faq/custom.css') ?>">
   
 <div class="page-title">
 <?php if($categoryId = $this->getRequest()->getParam('category_id')): ?>

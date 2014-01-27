@@ -55,10 +55,11 @@ abstract class Flagbit_FeedReader_Block_Abstract extends Mage_Core_Block_Templat
                 
 		if (is_null($feed)) {
 			$uri = $this->getData('uri');
-                         
+                         var_dump($uri);
+                        
 			if (!is_null($uri)) {
 				try {
-					$feed = Zend_Feed::import($uri);
+					$feed = Zend_Feed_Reader::import($uri);
 					$this->setData('feed', $feed);
 				}
 				catch (Zend_Http_Client_Exception $e) {
