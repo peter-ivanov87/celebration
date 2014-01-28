@@ -69,12 +69,14 @@ class Mage_Catalog_Block_Product_View_Randomproducts extends Mage_Catalog_Block_
         $count=4;
         if ($count>$collection->getSize())
             $count=$collection->getSize();
+        else if ($count==$collection->getSize())
+            $count=$count-1;
         
         $randomProductIds=array();
         $collectionIds=$collection->getAllIds();
         
         
-        for ($i=0; $i<$count-1; ){ // $count-1 : exclude self product
+        for ($i=0; $i<$count; ){ // $count-1 : exclude self product
             $rnd=rand(0,$collection->getSize()-1);
             if ($productId==$collectionIds[$rnd]){
                 continue;

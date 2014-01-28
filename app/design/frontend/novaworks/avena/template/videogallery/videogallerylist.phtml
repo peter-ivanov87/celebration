@@ -6,8 +6,8 @@ $collection=Mage::getModel('videogallery/videogallery')->getCollection()->addFie
 $collection->getSelect()->distinct(true);
 $categorys = $collection->getData();
 ?>
-
-<div class="col-left sidebar">
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/videogallery/videogallery.css') ?>">
+<div class="col-left sidebar videogalleryleft" >
   <div class="block">
     <div class="block-title">Video Category</div>
     <div class="block-content">
@@ -51,11 +51,12 @@ $videoname = $videogallery['name'];
     </div>
     <ul class="clearfix thumbs noscript">
       <?php endif;?>
-      <li class="<?php if($j == 1): ?>first<?php elseif($j == 2): $j = 0; ?>last<?php endif;?>" style="display:inline;float:left;margin:0px 5px 5px;width:315px;" onclick="selectvideo('<?php echo $videoid; ?>')"> <img style="cursor:pointer;"  src="<?php echo $this->getImageresize($videogallery['image'],'big',315,141);?>" width="315" height="141" title="<?php echo $videogallery['name']; ?>" />
+      <li class="<?php if($j == 1): ?>first<?php elseif($j == 2): $j = 0; ?>last<?php endif;?>"  onclick="selectvideo('<?php echo $videoid; ?>')"> 
+            <img style="cursor:pointer;"  src="<?php echo $this->getImageresize($videogallery['image'],'big',190,130);?>"  title="<?php echo $videogallery['name']; ?>" />
         <div class="play_btn">
           <?php /*?><img src="<?php echo $this->getSkinUrl('images/video_play_btn.png') ?>" alt="" /><?php */?>
         </div>
-        <h2 class="product-name" style="height: 35px; overflow: hidden;"><a title="<?php echo $videoname; ?>"><?php echo $videoname; ?></a></h2>
+        <h2 class="product-name" style="overflow: hidden;"><a title="<?php echo $videoname; ?>"><?php echo $videoname; ?></a></h2>
       </li>
       <?php endif;?>
       <?php if($i == $count): ?>

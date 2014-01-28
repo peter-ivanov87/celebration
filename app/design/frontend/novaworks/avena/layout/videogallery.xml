@@ -3,18 +3,7 @@
     <default>
         <reference name="root">
             <reference name="top.links">
-                <action method="addLink" translate="label title">
-                    <label>Video Gallery</label>
-                    <url>videogallery</url>  <!-- can use full url also -->
-                    <title>Video Gallery</title>
-                    <prepare>true</prepare> <!-- set true if adding base url param -->
-                    <urlParams helper="core/url/getHomeUrl"/> <!-- base url - thanks @Russ! -->
-                    <position>1</position>
-                    <liParams/>
-                    <aParams>class="top-link-about-us"</aParams>
-                    <beforeText></beforeText>
-                    <afterText></afterText>
-                </action>
+                
              </reference>
         </reference>
     </default>
