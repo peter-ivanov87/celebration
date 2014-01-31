@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addCss"><stylesheet>css/rssreader.css</stylesheet></action>
+		</reference>
+		<!-- PLEASE ADD YOUR CODE BELOW -->
+		
+    </default>
+</layout>

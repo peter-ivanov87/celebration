@@ -88,12 +88,14 @@ $code = $tmhOAuth->request('GET', $tmhOAuth->url('1.1/statuses/user_timeline'), 
 				<?php if($fb_url):?>
 					<h4>RSS</h4>
 					<div id="fb-root">
+                                            
                                             <?php 
-                                            $filter = new Mage_Widget_Model_Template_Filter();
-                                            $_widget = $filter->filter('{{widget type="feedreader/sidebar" uri="http://www.celebrationtemplates.com/blog/feed/rss/" '
+                                          /*  $filter = new Mage_Widget_Model_Template_Filter();
+                                            $_widget = $filter->filter('{{widget type="feedreader/sidebar" uri="http://www.celebrationtemplates.com/blog/feed/" '
                                                     . 'item_count="5" template="feedreader/sidebar.phtml" title="FeedReader" page_id="1"}}');
                                             
-                                            echo $_widget;
+                                            echo $_widget;*/
+                                      
                                             ?>
 						
 					</div>

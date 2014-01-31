@@ -230,9 +230,10 @@ class Zend_Feed_Reader
         $client->resetParameters();
         $client->setHeaders('If-None-Match', null);
         $client->setHeaders('If-Modified-Since', null);
+        		
         $client->setUri($uri);
         $cacheId = 'Zend_Feed_Reader_' . md5($uri);
-
+        
         if (self::$_httpConditionalGet && $cache) {
             $data = $cache->load($cacheId);
             if ($data) {
@@ -266,6 +267,7 @@ class Zend_Feed_Reader
                     $cache->save($response->getHeader('Last-Modified'), $cacheId.'_lastmodified');
                 }
             }
+          
             return self::importString($responseXml);
         } elseif ($cache) {
             $data = $cache->load($cacheId);
@@ -281,13 +283,16 @@ class Zend_Feed_Reader
             $cache->save($responseXml, $cacheId);
             return self::importString($responseXml);
         } else {
+            
             $response = $client->request('GET');
+          
             if ($response->getStatus() !== 200) {
                 #require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('Feed failed to load, got response code ' . $response->getStatus());
             }
             $reader = self::importString($response->getBody());
             $reader->setOriginalSourceUri($uri);
+            print_r($reader);
             return $reader;
         }
     }

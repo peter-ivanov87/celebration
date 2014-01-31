@@ -98,7 +98,7 @@ class Zeon_Faq_Block_List extends Mage_Core_Block_Template
         parent::_prepareLayout();
  
         $pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
-        $pager->setAvailableLimit(array(5=>5,10=>10,20=>20,'all'=>'all'));
+        $pager->setAvailableLimit(array(10=>10,20=>20,'all'=>'all'));
         $pager->setCollection($this->getCollection());
         $this->setChild('pager', $pager);
         $this->getCollection()->load();

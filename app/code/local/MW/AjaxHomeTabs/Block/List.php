@@ -172,26 +172,31 @@ class MW_AjaxHomeTabs_Block_List extends Mage_Catalog_Block_Product_List
 	
 	public function topFeatured($limit){
 		$this->feature_tab =  Mage::getStoreConfig('ajaxhometabs/topfeature/feature_catalog');
+                //var_dump($this->feature_tab);
+                //die();
 		(empty($this->feature_tab) || !is_numeric($this->feature_tab)) ? 0 : $this->feature_tab; 
 			$visibility = array(
                       Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
                       Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
                   );
 				  
-			$collection = Mage::getModel('catalog/product')
-					->getCollection()
-					->addAttributeToSelect('*')
-					->addAttributeToFilter('visibility',$visibility)
-					->addCategoryFilter(Mage::getModel('catalog/category')->load($this->feature_tab))
-					->addStoreFilter($this->getStore())
-					->addMinimalPrice()
+		
+                        $collection = Mage::getModel('catalog/product')
+                                ->getCollection()
+                                ->addAttributeToSort()
+                                ->addAttributeToSelect('*')
+                                ->addAttributeToFilter('visibility',$visibility)
+                                ->addCategoryFilter(Mage::getModel('catalog/category')->load($this->feature_tab))
+                                ->addStoreFilter($this->getStore())
+                                ->addMinimalPrice()
 					->addFinalPrice()
-					->setPageSize($limit)
-					->load()
-					;
+					->setPageSize($limit);
+                  
 				$collection->getSelect()
-						->join(array('ccp'=>'catalog_category_product'), 'e.entity_id = ccp.product_id')
-						->where('category_id='.$this->feature_tab);
+                                        ->order(new Zend_Db_Expr('RAND()'));
+						//->join(array('ccp'=>'catalog_category_product'), 'e.entity_id = ccp.product_id')
+                                            	//->where('category_id='.$this->feature_tab);
+                               //$collection->load();
 					
 			return $collection;
 	}

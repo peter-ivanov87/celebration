@@ -52,6 +52,7 @@ class Mage_Downloadable_Block_Customer_Products_List extends Mage_Core_Block_Tem
         if (empty($purchasedIds)) {
             $purchasedIds = array(null);
         }
+        
         $purchasedItems = Mage::getResourceModel('downloadable/link_purchased_item_collection')
             ->addFieldToFilter('purchased_id', array('in' => $purchasedIds))
             ->addFieldToFilter('status',

@@ -7021,3 +7021,7 @@ a.youtube, a.inline { }
 
 
 .pager .limiter select{ width: 50px;}
+
+.video_gallery_txt{
+    margin-bottom: 10px;
+}

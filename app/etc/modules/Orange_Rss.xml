@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <Orange_Rss>
-            <active>true</active>
-            <codePool>community</codePool>
-        </Orange_Rss>
-    </modules>
-</config>

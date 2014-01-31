@@ -24,6 +24,9 @@ $categorys = $collection->getData();
   <div class="page-title category-title">
     <h1>Videos Gallery</h1>
   </div>
+  <div class="video_gallery_txt">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('video_gallery_message')->toHtml() ?>
+  </div>
   <?php
 $count = count($results);
 if($count==0){

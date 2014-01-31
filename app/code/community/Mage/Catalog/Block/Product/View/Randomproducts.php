@@ -66,9 +66,9 @@ class Mage_Catalog_Block_Product_View_Randomproducts extends Mage_Catalog_Block_
             ->addCategoryFilter($category)            
             ->addAttributeToFilter('type_id','configurable');        
     
-        $count=4;
+        $count=8;
         if ($count>$collection->getSize())
-            $count=$collection->getSize();
+            $count=$collection->getSize()-1;
         else if ($count==$collection->getSize())
             $count=$count-1;
         

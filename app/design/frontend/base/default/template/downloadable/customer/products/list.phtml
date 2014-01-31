@@ -60,7 +60,7 @@
                 <tr>
                     <?php 
                     //echo $_item->getProduct()."->";
-                   
+               
                     $product=Mage::getModel('catalog/product')->load($_item->getProductId());
                     $links=Mage::getModel('downloadable/product_type')->getLinks( $product )  ;
                     $link_url="#";

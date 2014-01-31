@@ -166,7 +166,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
         if (!Mage::helper('downloadable')->getIsShareable($linkPurchasedItem)) {
             
             $customerId = $this->_getCustomerSession()->getCustomerId();
-            if (!$customerId) {
+      /*      if (!$customerId) {
                 $product = Mage::getModel('catalog/product')->load($linkPurchasedItem->getProductId());              
                 if ($product->getId()) {
                     $notice = Mage::helper('downloadable')->__('Please log in to download your product or purchase <a href="%s">%s</a>.', $product->getProductUrl(), $product->getName());
@@ -179,13 +179,14 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
                     array('_secure' => true)
                 );
                 return ;
-            }
+            }*/
             $linkPurchased = Mage::getModel('downloadable/link_purchased')->load($linkPurchasedItem->getPurchasedId());
             
-            if ($linkPurchased->getCustomerId() != $customerId) {
+        /*    if ($linkPurchased->getCustomerId() != $customerId) {
                 $this->_getCustomerSession()->addNotice(Mage::helper('downloadable')->__("Requested link does not exist."));
-                return $this->_redirect('*/customer/products');
-            }
+                return $this->_redirect('*customer/products');
+                  //  return $this->_redirect('customer/products');
+            }*/
         }
         $downloadsLeft = $linkPurchasedItem->getNumberOfDownloadsBought()
             - $linkPurchasedItem->getNumberOfDownloadsUsed();
@@ -210,7 +211,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
             try {
                 $this->_processDownload($resource, $resourceType);
                 $linkPurchasedItem->setNumberOfDownloadsUsed($linkPurchasedItem->getNumberOfDownloadsUsed() + 1);
-
+                
                 if ($linkPurchasedItem->getNumberOfDownloadsBought() != 0 && !($downloadsLeft - 1)) {
                     $linkPurchasedItem->setStatus(Mage_Downloadable_Model_Link_Purchased_Item::LINK_STATUS_EXPIRED);
                 }

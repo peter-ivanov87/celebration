@@ -1,0 +1,45 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_RSSReader
+ * @copyright  Copyright (c) 2009 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+?>
+
+<?php if ($articles = $this->getFeed()):?>
+	<div class="aw_rss_reader">
+	<?php if ($this->feed_title):?>
+		<h3><?php echo $this->feed_title;?></h3>
+	<?php endif;?>
+
+	<?php foreach ($articles as $article_id => $article): ?>
+		<p class="title">
+		<?php if ($this->enableLinks()):?>
+			<a href="<?php echo $article['link'];?>" target="_blank"><?php echo $article['title'];?></a>
+		<?php else:?>
+			<?php echo $article['title'];?>
+		<?php endif;?>
+		</p>
+
+		<?php if ($this->showDate()):?>
+			<p class="date"><?php echo $article['dateTime'];?></p>
+		<?php endif;?>
+
+		<?php if ($this->showSummary()):?>
+			<p class="summary"><?php echo $article['description'];?></p>
+		<?php endif;?>
+
+	<?php endforeach; ?>
+	</div>
+<?php unset($articles); ?>
+<?php endif;?>

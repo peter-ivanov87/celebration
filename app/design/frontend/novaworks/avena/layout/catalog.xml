@@ -218,8 +218,16 @@ Product view
                         <template>catalog/product/view/instructions.phtml</template>
                     </action>
                     <action method="addTab" translate="title" module="catalog">
-                        <alias>Related_Products</alias>
-                        <title>Related Products</title>
+                        <alias>Related Products</alias>
+                        <title>Related Products</title>                        
+                        <block>catalog/product_list_related</block>
+                        <template>catalog/product/list/related.phtml</template>
+                      
+                    </action>
+                       
+                    <action method="addTab" translate="title" module="catalog">
+                        <alias>You May Also Like</alias>
+                        <title>You May Also Like</title>
                         <block>catalog/product_view_randomproducts</block>
                         <template>catalog/product/view/random_products.phtml</template>
                     </action>
@@ -267,10 +275,7 @@ Product view
                     <action method="append"><block>product.info.options.wrapper</block></action>
                     <action method="append"><block>product.info.options.wrapper.bottom</block></action>
                 </block>
-                <block type="catalog/product_list_related" name="related_products" template="catalog/product/list/related.phtml">
-                    <action method="setColumnCount"><columns>5</columns></action>
-                    <action method="setItemLimit"><type>related</type><limit>20</limit></action>                
-                </block>                 
+                            
                 <block type="catalog/product_list_upsell" name="upsell_products" template="catalog/product/list/upsell.phtml">
                     <action method="setColumnCount"><columns>5</columns></action>
                     <action method="setItemLimit"><type>upsell</type><limit>20</limit></action>                

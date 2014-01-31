@@ -22,23 +22,40 @@
  * @package     base_default
  * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * 
+ * This file is for configurable products
  */
 ?>
 <?php $_item = $this->getItem() ?>
 <?php $_order = $this->getItem()->getOrder() ?>
 <?php
 
- $sku=$this->getSku($_item);
- $simple_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $sku);
+  $product_type=$_item->getData('product_type');
+ 
+  if ($product_type=="configurable"){
+      $childItems=$this->getItem()->getChildrenItems();
+      foreach($childItems as $childItem){
+      
+      $purchasedItems = Mage::getResourceModel('downloadable/link_purchased_item_collection')
+            ->addFieldToFilter('order_item_id', $childItem->getId());
+        // Load it from database
+        foreach ($purchasedItems as $item){
+            $link_url=$this->getUrl('downloadable/download/link/', array('id' => $item->getLinkHash(), '_secure' => true));                    
+        }
+      }
+  }
+  else{
+      var_dump($_item);
+      die();
+  }
+   
+   
+   $sku=$this->getSku($_item);
+   $simple_product = Mage::getModel('catalog/product')->loadByAttribute('sku', $sku);
     // Dump x
     
-    
     $links=Mage::getModel('downloadable/product_type')->getLinks( $simple_product )  ;
-    $link_url="#";
-    foreach($links as $link){
-        $link_url=Mage::getBaseUrl().$link->getLinkUrl();
-    }
-                    
+                      
    
  ?>
 <tr>
