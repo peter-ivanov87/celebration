@@ -31,7 +31,8 @@
  * @package     Mage_Downloadable
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Action
+include_once('Mage/Downloadable/controllers/DownloadController.php');
+class Europesoft_Downloadable_DownloadController extends Mage_Core_Controller_Front_Action
 {
 
     /**
@@ -155,6 +156,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
      */
     public function linkAction()
     {
+      
         $id = $this->getRequest()->getParam('id', 0);
         
         $linkPurchasedItem = Mage::getModel('downloadable/link_purchased_item')->load($id, 'link_hash');
@@ -234,6 +236,7 @@ class Mage_Downloadable_DownloadController extends Mage_Core_Controller_Front_Ac
                 Mage::helper('downloadable')->__('An error occurred while getting the requested content. Please contact the store owner.')
             );
         }
+      
         return $this->_redirect('*/customer/products');
     }
 

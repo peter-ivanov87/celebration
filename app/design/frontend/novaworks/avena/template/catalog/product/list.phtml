@@ -245,7 +245,7 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
 					
 					<?php if($quick_view): ?>
 					<div class="quickview-box">
-						<a class="quickview_small" href="<?php echo $this->getUrl('ajax/index/quickview',array('product_id'=>$_product->getId()));?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
+						<a class="" href="<?php echo $_product->getProductUrl() ?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
 					</div>
 					<?php endif;?>
 					

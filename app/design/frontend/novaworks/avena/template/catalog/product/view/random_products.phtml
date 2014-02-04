@@ -14,7 +14,7 @@
        
        $_product= Mage::getModel('catalog/product')->load($_productId);
     ?>
-    <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+    <li class="item<?php if(($i+1)%$_columnCount==0): ?> last<?php elseif($i%$_columnCount==0): ?> first<?php endif; ?>">
         <div class="nova-product-images">
                   <?php include('view/labels.phtml')  ?> 
                  <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
@@ -56,7 +56,7 @@
 
                             <?php if($quick_view): ?>
                             <div class="quickview-box">
-                                    <a class="quickview_small" href="<?php echo $this->getUrl('ajax/index/quickview',array('product_id'=>$_product->getId()));?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
+                                    <a class="" href="<?php echo $_product->getProductUrl() ?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
                             </div>
                             <?php endif;?>
 

@@ -56,6 +56,7 @@
         	<div class="product-img-box span6">
 	            <?php echo $this->getChildHtml('media') ?>
 	        </div>
+           
 	        <div class="product-shop span6">
 	            <div class="product-name">
 	                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
@@ -173,8 +174,7 @@
 			    
 				</div>
 				
-			
-			    
+	
 			    <!-- We guarantee --> 
             	<div class="row-fluid detail-product-page">
 			    	<?php if ($block_detail_product_page_2 = $this->getLayout()->createBlock('cms/block')->setBlockId('block_detail_product_page_2')->toHtml()): ?>

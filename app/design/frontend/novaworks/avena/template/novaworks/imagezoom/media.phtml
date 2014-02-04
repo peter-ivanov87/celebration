@@ -249,29 +249,40 @@
 </div>
 <?php if (count($this->getGalleryImages()) > 0 || (isset($_childProducts) && count($_childProducts) > 0) ): ?>
 <div class="more-views">
-<div class="itemslider-thumbnails">
-    <ul class="slides">
-    <?php foreach ($this->getGalleryImages() as $_image): ?>
-        <li class="thumb-list-item">
-            <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>" class="cloud-zoom-gallery colorbox-group cboxElement" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
-				rel="useZoom: 'image-zoom', smallImage: '<?php  echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($main_image_product_width,$main_image_product_height) ?>'" >
-				<img src="<?php  echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($thumb_image_product_width,$thumb_image_product_height) ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
-			</a>
-        </li>
-    <?php endforeach; ?>
-	<?php if (isset($_childProducts) && count($_childProducts) > 0):?>
-		<?php $cnt = 0; ?>
-		<?php foreach ($img_arr as $img): ?>
-        <li class="add item-<?php echo $img['id']; ?>">
-            <a href="<?php echo $img['big_image']; ?>" class="cloud-zoom-gallery colorbox-group cboxElement" title="<?php echo $img['label'] ?>"
-				rel="useZoom: 'image-zoom', smallImage: '<?php  echo $img['small_image']; ?>'" >
-				<img src="<?php  echo $img['thumb']; ?>" alt="<?php echo $img['label'] ?>" />
-			</a>
-        </li>	
-		<?php $cnt++; ?>	
-		<?php endforeach; ?>
-	<?php endif; ?>
-    </ul>
-</div>	
+    <div class="itemslider-thumbnails">
+        <ul class="slides">
+        <?php foreach ($this->getGalleryImages() as $_image): ?>
+            <li class="thumb-list-item">
+                <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>" class="cloud-zoom-gallery colorbox-group cboxElement" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
+                                    rel="useZoom: 'image-zoom', smallImage: '<?php  echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($main_image_product_width,$main_image_product_height) ?>'" >
+                                    <img src="<?php  echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($thumb_image_product_width,$thumb_image_product_height) ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
+                            </a>
+            </li>
+        <?php endforeach; ?>
+            <?php if (isset($_childProducts) && count($_childProducts) > 0):?>
+                    <?php $cnt = 0; ?>
+                    <?php foreach ($img_arr as $img): ?>
+            <li class="add item-<?php echo $img['id']; ?>">
+                <a href="<?php echo $img['big_image']; ?>" class="cloud-zoom-gallery colorbox-group cboxElement" title="<?php echo $img['label'] ?>"
+                                    rel="useZoom: 'image-zoom', smallImage: '<?php  echo $img['small_image']; ?>'" >
+                                    <img src="<?php  echo $img['thumb']; ?>" alt="<?php echo $img['label'] ?>" />
+                            </a>
+            </li>	
+                    <?php $cnt++; ?>	
+                    <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+    </div>	
 </div>
+<?php   
+   $sample_file_link = Mage::getModel('catalog/product')->load($_product->getId())->getData('sample_file_link');
+   if ($sample_file_link!=""){
+?>
+    <div class="sample">
+        
+        <span><a href="<?php echo Mage::getBaseUrl().$sample_file_link;?>">Check for sample document now</a></span>
+    </div>
+<?php 
+   }
+?>
 <?php endif; ?>

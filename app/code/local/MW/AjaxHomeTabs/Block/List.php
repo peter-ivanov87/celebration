@@ -226,17 +226,18 @@ class MW_AjaxHomeTabs_Block_List extends Mage_Catalog_Block_Product_List
 	// get Top best sell
 	 public function topBestSell($limit){
 
-             $storeId = Mage::app()->getStore()->getId();
+          /*   $storeId = Mage::app()->getStore()->getId();
             $_productCollection = Mage::getResourceModel('reports/product_collection')
                               ->addAttributeToSelect('*')
                               ->addAttributeToFilter('type_id', 'configurable')
                               ->addOrderedQty()
                             ->setPageSize($limit);
+            
             $productId=array();
             
             foreach($_productCollection->getItems() as $key=>$object){
                 $_product=Mage::getModel('catalog/product')->load($object->getId());                
-                
+                echo ($_product->getId()."->");
                 if ($_product->getId()) { //valid ID
                     
                    $productId[]=$object->getId();
@@ -250,38 +251,45 @@ class MW_AjaxHomeTabs_Block_List extends Mage_Catalog_Block_Product_List
               /*if(!isset($parentProducts[$parents[0]]))
                   $parentProducts[$parents[0]]=0;
               $parentProducts[$parents[0]] += (int)$product->ordered_qty;*/
-            }
+       //     }
         
-            return $_productCollection;
+         //   return $_productCollection;
             
             
             
             
-		/* $collection = Mage::getResourceModel('sales/report_bestsellers_collection')
+		$collection = Mage::getResourceModel('sales/report_bestsellers_collection')
             ->setModel('catalog/product')
             ->addStoreFilter(Mage::app()->getStore()->getId())
             ->setPageSize($limit)
         ;        
                  
-        $productId=array();
-                foreach ($collection as $object){			        
-                                $configurableProduct = Mage::getModel('catalog/product_type_configurable');
-                        $parentIdArray = $configurableProduct->getParentIdsByChild($object->getProductId());
+        $productIds=array();
+        foreach ($collection as $object){			        
+                        
+                $configurableProduct = Mage::getModel('catalog/product_type_configurable');
+                $parentIdArray = $configurableProduct->getParentIdsByChild($object->getProductId());
 
-                            //if simple product belong to configurable product
-                            if (!empty($parentIdArray))
-                            {
-                                $parentProduct = Mage::getModel('catalog/product')->load($parentIdArray[0]);
-                            if($parentProduct->getTypeId() == 'configurable' )
-                                {
-                                         $productId[]=$parentProduct->getEntityId();
-                                         continue;
-                                };
-                                }       
-                         $productId[]=$object->getProductId();
-                };	     
-
-		return $collection;	*/ 	
+                    //if simple product belong to configurable product
+                    if (!empty($parentIdArray))
+                    {
+                        $parentProduct = Mage::getModel('catalog/product')->load($parentIdArray[0]);
+                         if($parentProduct->getTypeId() == 'configurable' )
+                        {
+                            if (in_array($parentProduct->getEntityId(),$productIds)==false ){
+                                 $productIds[]=$parentProduct->getEntityId();
+                            }
+                                 continue;
+                        };
+                        
+                   }       
+                 $productIds[]=$object->getProductId();
+        };	     
+        
+        $best_seller_collection = Mage::getModel('catalog/product')->getCollection()
+                 ->addAttributeToSelect('*')
+                ->addAttributeToFilter('entity_id', array('in' => $productIds));
+		return $best_seller_collection;	
 	 }
 	 
 	/* Retrieve data

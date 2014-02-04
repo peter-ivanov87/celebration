@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <EuropeSoft_Downloadable>
+      <active>true</active>
+      <codePool>local</codePool>
+    </EuropeSoft_Downloadable>
+  </modules>
+</config>
