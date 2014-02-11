@@ -47,9 +47,12 @@
     <?php endif; ?>
     <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
 <?php
-$toolbar = $this->getChild('product_list')->getToolbarBlock();
-$toolbar->setCollection($this->getChild('product_list')->getLoadedProductCollection());
-echo $toolbar->toHtml();
+    $child = $_category->getChildren();
+    if (($child==null) || ($child=="")){  //show tool bar only for lowest-level category
+        $toolbar = $this->getChild('product_list')->getToolbarBlock();
+        $toolbar->setCollection($this->getChild('product_list')->getLoadedProductCollection());
+        echo $toolbar->toHtml();
+    }
 ?>
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
