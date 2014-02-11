@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplace Flash Magazine
+ *
+ * @category    Mageplace
+ * @package     Mageplace_Flashmagazine
+ * @copyright   Copyright (c) 2010 Mageplace. (http://www.mageplace.com)
+ * @license     http://www.mageplace.com/disclaimer.html
+ */
+-->
+<layout version="1.0.0">
+	<default>
+		<reference name="product.info">
+			<block type="flashmagazine/catalog_product_view_magazine" name="product.info.flashmagazine" template="flashmagazine/catalog/product/view/magazine.phtml"/>
+		</reference>
+	</default>
+
+	<flashmagazine_magazine_view>
+		<reference name="content">
+			<block type="flashmagazine/frontend_magazine" name="flashmagazine.magazine" template="flashmagazine/magazine/view.phtml"/>
+		</reference>
+		<reference name="head">
+			<action method="addJs"><script>flashmagazine/swfobject.js</script></action>
+		</reference>
+	</flashmagazine_magazine_view>
+
+	<flashmagazine_magazine_popup>
+		<reference name="root">
+			<action method="setTemplate"><template>page/popup.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="flashmagazine/frontend_magazine" name="flashmagazine.magazine" template="flashmagazine/magazine/view.phtml"/>
+		</reference>
+		<reference name="head">
+			<action method="addJs"><script>flashmagazine/swfobject.js</script></action>
+		</reference>
+	</flashmagazine_magazine_popup>
+</layout>

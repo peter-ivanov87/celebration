@@ -113,6 +113,7 @@
 	padding: 1em 2.2em;
 	border-top: 0;
 	overflow: auto;
+	
 }
 .ui-autocomplete {
 	position: absolute;
@@ -783,8 +784,8 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1.1em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px;
 }
 .ui-widget .ui-widget {
 	font-size: 1em;
@@ -793,8 +794,8 @@ body .ui-tooltip {
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1em;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px;
 }
 .ui-widget-content {
 	border: 1px solid #aaaaaa;

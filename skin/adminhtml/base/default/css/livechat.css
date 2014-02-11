@@ -1,0 +1,24 @@
+#livechat { min-height: 150px; background: url(../images/logo.png) no-repeat 100% 0; }
+
+
+#livechat .installed_ok { padding: 0.5em; background: #e1fdc5; border: 1px solid #6ac611; }
+#livechat h3 { margin-top: 2em; font-size: 150%; }
+#livechat h3.first { margin-top: 0; }
+#livechat table { border-collapse: collapse; }
+#livechat th,
+#livechat td { padding: 5px 10px 5px 0; }
+#livechat th { text-align: right; }
+#livechat textarea { width: 600px; height: 250px; }
+
+#livechat .help { font-size: 90%; margin-left: 5px; }
+#livechat .asterisk { color: red; }
+#livechat .input-text { width: 200px; }
+
+#livechat .space { margin-top: 2em; }
+
+.awesome, .awesome:visited { background: #222 url(../images/awesome_button_overlay.png) repeat-x; display: inline-block; padding: 5px 10px 6px; color: #fff; text-decoration: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5); -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5); text-shadow: 0 -1px 1px rgba(0,0,0,0.25); border-bottom: 1px solid rgba(0,0,0,0.25); position: relative; cursor: pointer; }
+.awesome:hover { background-color: #111; color: #fff; }
+.awesome:active { top: 1px; }
+.awesome, .awesome:visited { font-size: 13px; font-weight: bold; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
+.red.awesome, .red.awesome:visited			{ background-color: #e33100; }
+.red.awesome:hover							{ background-color: #872300; }

@@ -199,16 +199,26 @@ class Europesoft_Downloadable_DownloadController extends Mage_Core_Controller_Fr
         ) {
             $resource = '';
             $resourceType = '';
+            
             if ($linkPurchasedItem->getLinkType() == Mage_Downloadable_Helper_Download::LINK_TYPE_URL) {
                 //$resource = $linkPurchasedItem->getLinkUrl();
-                 $resource=Mage::getBaseUrl().$linkPurchasedItem->getLinkUrl();
+            /*     $resource=Mage::getBaseUrl().$linkPurchasedItem->getLinkUrl();
                  
-                $resourceType = Mage_Downloadable_Helper_Download::LINK_TYPE_URL;
+                $resourceType = Mage_Downloadable_Helper_Download::LINK_TYPE_URL;*/
+               // echo Mage::getBaseDir()."/".$linkPurchasedItem->getLinkUrl();
+                //die();
+                $resource = Mage::helper('downloadable/file')->getFilePath(
+                      Mage::getBaseDir(), $linkPurchasedItem->getLinkUrl()
+                );
+                $resourceType = Mage_Downloadable_Helper_Download::LINK_TYPE_FILE;
+                
             } elseif ($linkPurchasedItem->getLinkType() == Mage_Downloadable_Helper_Download::LINK_TYPE_FILE) {
                 $resource = Mage::helper('downloadable/file')->getFilePath(
                     Mage_Downloadable_Model_Link::getBasePath(), $linkPurchasedItem->getLinkFile()
                 );
                 $resourceType = Mage_Downloadable_Helper_Download::LINK_TYPE_FILE;
+             //    echo Mage_Downloadable_Model_Link::getBasePath()."/".$linkPurchasedItem->getLinkFile();
+             //   die();
             }
             try {
                 $this->_processDownload($resource, $resourceType);

@@ -1,0 +1,47 @@
+<?php
+/**
+ * Mageplace Flash Magazine
+ *
+ * @category    Mageplace
+ * @package     Mageplace_Flashmagazine
+ * @copyright   Copyright (c) 2010 Mageplace. (http://www.mageplace.com)
+ * @license     http://www.mageplace.com/disclaimer.html
+ */
+
+?>
+
+<?php $_magazine = $this->getMagazine(); ?>
+
+<?php if(!$_magazine->getIsPopupView()): ?>
+<div class="page-title magazine-title">
+	<h1><?php echo $_magazine->getName(); ?></h1>
+</div>
+<?php endif; ?>
+
+<div id="flashcontent<?php echo $_magazine->getId(); ?>" style=" width:<?php echo $this->getWidth();?>; height:<?php echo $this->getHeight();?>; ">
+Install Flash Player
+<a href="http://www.macromedia.com/go/getflash/">Player</a>
+</div>
+<script type="text/javascript" language="javascript">
+
+
+	var so=new SWFObject("<?php echo $this->getSwfUrl(); ?>","flashcontentembed<?php echo $_magazine->getId(); ?>","100%","100%","8");
+	so.addVariable("cfgUrl", "<?php echo $this->getCfgUrl();?>");
+	so.addVariable("langUrl", "<?php echo $this->getLangUrl();?>");
+	so.addVariable("paramUrl", "<?php echo $this->getParamUrl();?>");
+	so.addVariable("basePath", "<?php echo $this->getBaseUrl();?>");
+	so.addVariable("componentRelativePath", "<?php echo $this->getRelativeUrl();?>");
+
+	so.addParam("wmode","window");
+	so.addParam("allowFullScreen","true");
+	so.addParam("allowScriptAccess","always");
+
+	so.write("flashcontent<?php echo $_magazine->getId(); ?>");
+	document.getElementsByTagName('body')[0].style.padding = 0;
+	document.getElementsByTagName('body')[0].style.margin = 0;
+	document.getElementsByTagName('body')[0].style.width = '100%';
+	document.getElementsByTagName('body')[0].style.height = '100%';
+	document.getElementsByTagName('html')[0].style.width = '100%';
+	document.getElementsByTagName('html')[0].style.height = '100%';
+
+</script>

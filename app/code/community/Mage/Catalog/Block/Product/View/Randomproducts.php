@@ -53,13 +53,30 @@ class Mage_Catalog_Block_Product_View_Randomproducts extends Mage_Catalog_Block_
      */
     public function getRandomProductIds($product)
     {
-        
+       
         $productId=$product->getId();
         
         $categoryIds=$product->getCategoryIds();
+        
+           
         if (sizeof($categoryIds)==0)
             return null;
-        $categoryId=$categoryIds[0];
+        
+        //get lowest category id
+        $lowestCategoryLevel=0;
+        $lowestCategoryId=0;
+        foreach ($categoryIds as $categoryId){
+          $_category = Mage::getModel('catalog/category')->load($categoryId);
+          if ($_category->getLevel()>$lowestCategoryLevel){
+              $lowestCategoryLevel=$_category->getLevel();
+              $lowestCategoryId=$categoryId;
+              
+          }
+        }      
+               
+       // $categoryId=$categoryIds[0];
+        $categoryId=$lowestCategoryId;
+        
         $category = Mage::getModel('catalog/category')->load($categoryId);    
         
         $collection = Mage::getResourceModel('catalog/product_collection')

@@ -54,7 +54,27 @@
             ?>
             <div class="nova-product-images">
                 <?php include('view/labels.phtml')  ?> 
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                 <?php 
+                            $_product->setDoNotUseCategoryId(false);
+                            $categoryIds = $_product->getCategoryIds();
+                            //if you are sure that the product is in one category and only one skip the next lines. If not, you can get the id of the lowest level like you do
+                            $cats_collection = Mage::getModel('catalog/category')->getCollection()
+                                    ->addAttributeToFilter('entity_id', $categoryIds)
+                                    ->addAttributeToFilter('is_active', 1);
+                            // I filter the categories by their level, so they always go cat/sub-cat/sub-sub-cat 
+                            $cats_collection->getSelect()->order('level DESC')->limit(1);
+                            //no register the category so it can be used in the product url:
+                            $registeredCategory = Mage::registry('current_category');
+                            Mage::unregister('current_category');//use this to avoid registry errors
+                            Mage::register('current_category', $cats_collection->getFirstItem());
+                            $url = $_product->getProductUrl();//this is the product url.
+                            
+                            Mage::unregister('current_category');//reset the registry to previous state.
+                            if (registeredCategory){
+                                Mage::register('current_category', registeredCategory);
+                            }
+                  ?>
+                <a href="<?php echo $url; ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                        <?php 
                         if($image_product_hover) { ?>
                         <div class="front">
@@ -162,7 +182,27 @@
                 
                     <div class="nova-product-images">
                         <?php include('view/labels.phtml')  ?> 
-                     <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                         <?php 
+                            $_product->setDoNotUseCategoryId(false);
+                            $categoryIds = $_product->getCategoryIds();
+                            //if you are sure that the product is in one category and only one skip the next lines. If not, you can get the id of the lowest level like you do
+                            $cats_collection = Mage::getModel('catalog/category')->getCollection()
+                                    ->addAttributeToFilter('entity_id', $categoryIds)
+                                    ->addAttributeToFilter('is_active', 1);
+                            // I filter the categories by their level, so they always go cat/sub-cat/sub-sub-cat 
+                            $cats_collection->getSelect()->order('level DESC')->limit(1);
+                            //no register the category so it can be used in the product url:
+                            $registeredCategory = Mage::registry('current_category');
+                            Mage::unregister('current_category');//use this to avoid registry errors
+                            Mage::register('current_category', $cats_collection->getFirstItem());
+                            $url = $_product->getProductUrl();//this is the product url.
+                            
+                            Mage::unregister('current_category');//reset the registry to previous state.
+                            if (registeredCategory){
+                                Mage::register('current_category', registeredCategory);
+                            }
+                  ?>
+                     <a href="<?php echo $url ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                        <?php 
                         if($image_product_hover) { ?>
                         <div class="front">

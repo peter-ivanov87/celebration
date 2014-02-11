@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<widgets>
+	<flashmagazine_magazine_link type="flashmagazine/frontend_widget_magazine_link" translate="name description" module="flashmagazine">
+		<name>Flash Flipping Book Link</name>
+		<description>Link to a Specified Flash Flipping Book</description>
+		<parameters>
+			<id_path translate="label">
+				<visible>1</visible>
+				<required>1</required>
+				<label>Flash Flipping Book</label>
+				<type>label</type>
+				<helper_block>
+					<type>flashmagazine/adminhtml_magazine_widget_chooser</type>
+					<data>
+						<button translate="open">
+							<open>Select Flash Flipping Book...</open>
+						</button>
+					</data>
+				</helper_block>
+				<sort_order>100</sort_order>
+			</id_path>
+			<anchor_text translate="label desctiption">
+				<visible>1</visible>
+				<label>Anchor Custom Text</label>
+				<description>If empty, the Flash Flipping Book Name will be used</description>
+				<type>text</type>
+			</anchor_text>
+			<title translate="label">
+				<visible>1</visible>
+				<label>Anchor Custom Title</label>
+				<type>text</type>
+			</title>
+			<template translate="label">
+				<label>Template</label>
+				<visible>1</visible>
+				<type>select</type>
+				<value>flashmagazine/magazine/widget/link/link_block.phtml</value>
+				<values>
+					<default translate="label">
+						<value>flashmagazine/magazine/widget/link/link_block.phtml</value>
+						<label>Flash Flipping Book Link Block Template</label>
+					</default>
+					<link_inline translate="label">
+						<value>flashmagazine/magazine/widget/link/link_inline.phtml</value>
+						<label>Flash Flipping Book Link Inline Template</label>
+					</link_inline>
+					<link_image translate="label">
+						<value>flashmagazine/magazine/widget/link/link_image.phtml</value>
+						<label>Flash Flipping Book Link Image Template</label>
+					</link_image>
+				</values>
+			</template>
+		</parameters>
+	</flashmagazine_magazine_link>
+
+</widgets>

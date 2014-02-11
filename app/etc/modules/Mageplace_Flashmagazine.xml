@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/* DISCLAIMER
+ *
+ * @category    Mageplace
+ * @package     Mageplace_Flashmagazine
+ * @copyright   Copyright (c) 2010 Mageplace. (http://www.mageplace.com)
+ * @license     http://www.mageplace.com/disclaimer.html  
+ */
+-->
+<config>
+    <modules>
+        <Mageplace_Flashmagazine>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mageplace_Flashmagazine>
+    </modules>
+</config>

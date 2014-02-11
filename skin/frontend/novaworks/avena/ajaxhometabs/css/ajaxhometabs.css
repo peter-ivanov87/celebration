@@ -3,15 +3,15 @@
   text-align:left;
 }
 #ajaxmenu #ajaxnav li a {
-  color:#a0a0a0;
-  display:block;
-  float:left;
-  border:none;
-  text-decoration:none;
-  transition-duration:200ms;
-  -moz-transition-duration:200ms;
-  -webkit-transition-duration:200ms;
-  -o-transition-duration:200ms;
+	color:#BDBDBD;
+	display:block;
+	float:left;
+	border:none;
+	text-decoration:none;
+	transition-duration:200ms;
+	-moz-transition-duration:200ms;
+	-webkit-transition-duration:200ms;
+	-o-transition-duration:200ms;
 }
 /*#ajaxmenu #ajaxnav li a:hover {
   text-decoration:none;
@@ -44,7 +44,7 @@
 #ajaxmenu #ajaxnav li ul a span { white-space:normal; }
 #ajaxmenu #ajaxnav > li {
 	display:inline-block;
-        border-bottom: 3px solid rgb(244,244,244);
+       
 }
 #ajaxmenu #ajaxnav > li > a {
 	color:#333;

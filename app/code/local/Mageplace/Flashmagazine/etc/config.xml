@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Mageplace_Flashmagazine>
+			<version>1.2.0.1</version>
+		</Mageplace_Flashmagazine>
+	</modules>
+	
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<flashmagazine before="Mage_Adminhtml">Mageplace_Flashmagazine_Adminhtml</flashmagazine>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+	<frontend>
+		<routers>
+			<flashmagazine>
+				<use>standard</use>
+				<args>
+					<module>Mageplace_Flashmagazine</module>
+					<frontName>flashmagazine</frontName>
+				</args>
+			</flashmagazine>
+		</routers>
+		<translate>
+			<modules>
+				<Mageplace_Flashmagazine>
+					<files>
+						<default>Mageplace_Flashmagazine.csv</default>
+					</files>
+				</Mageplace_Flashmagazine>
+			</modules>
+		</translate>
+		<layout>
+			<updates>
+				<flashmagazine>
+					<file>flashmagazine.xml</file>
+				</flashmagazine>
+			</updates>
+		</layout>
+	</frontend>
+	
+	<global>
+		<helpers>
+			<flashmagazine>
+				<class>Mageplace_Flashmagazine_Helper</class>
+			</flashmagazine>
+		</helpers>
+		
+		<blocks>
+			<flashmagazine>
+				<class>Mageplace_Flashmagazine_Block</class>
+			</flashmagazine>
+			<adminhtml>
+				<rewrite>
+					<catalog_product_edit_tabs>Mageplace_Flashmagazine_Block_Adminhtml_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+				</rewrite>
+			</adminhtml>
+			<catalog>
+				<rewrite>
+					<product_view_media>Mageplace_Flashmagazine_Block_Catalog_Product_View_Media</product_view_media>
+				</rewrite>
+			</catalog>
+		</blocks>
+		
+		<models>
+			<flashmagazine>
+				<class>Mageplace_Flashmagazine_Model</class>
+				<resourceModel>flashmagazine_mysql4</resourceModel>
+			</flashmagazine>
+			<flashmagazine_mysql4>
+				<class>Mageplace_Flashmagazine_Model_Mysql4</class>
+				<entities>
+					<category>
+						<table>flashmagazine_category</table>
+					</category>
+					<template>
+						<table>flashmagazine_template</table>
+					</template>
+					<template_type>
+						<table>flashmagazine_template_type</table>
+					</template_type>
+					<resolution>
+						<table>flashmagazine_resolution</table>
+					</resolution>
+					<magazine>
+						<table>flashmagazine_magazine</table>
+					</magazine>
+					<magazine_store>
+						<table>flashmagazine_magazine_store</table>
+					</magazine_store>
+					<page>
+						<table>flashmagazine_page</table>
+					</page>
+					<product_magazine>
+						<table>flashmagazine_product_magazine</table>
+					</product_magazine>
+				</entities>
+			</flashmagazine_mysql4>
+		</models>
+		
+		
+		<resources>
+			<flashmagazine_setup>
+				<setup>
+					<module>Mageplace_Flashmagazine</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</flashmagazine_setup>
+			<flashmagazine_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</flashmagazine_write>
+			<flashmagazine_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</flashmagazine_read>
+		</resources>
+	</global>
+
+	<adminhtml>
+		<events>
+			<controller_action_predispatch>
+                <observers>
+					<flashmagazine>
+						<type>singelton</type>
+                        <class>flashmagazine/feed</class>
+                        <method>check</method>
+					</flashmagazine>
+                </observers>
+            </controller_action_predispatch>
+		</events>
+	
+	
+	
+		<translate>
+			<modules>
+				<Mageplace_Flashmagazine>
+					<files>
+						<default>Mageplace_Flashmagazine.csv</default>
+					</files>
+				</Mageplace_Flashmagazine>
+			</modules>
+		</translate>
+	</adminhtml>
+
+	<layout>
+		<updates>
+			<flashmagazine>
+				<file>flashmagazine.xml</file>
+			</flashmagazine>
+		</updates>
+	</layout>
+	
+	<default>
+		<flashmagazine>
+			<filesystem>
+				<flashmagazine>{{media_dir}}/flashmagazine</flashmagazine>
+				<images>{{flashmagazine_dir}}/images</images>
+				<pdf>{{flashmagazine_dir}}/pdf</pdf>
+				<sound>{{flashmagazine_dir}}/sounds</sound>
+				<system>{{flashmagazine_dir}}/system</system>
+				<flash>{{system_dir}}/flash</flash>
+				<video>{{flashmagazine_dir}}/video</video>
+				<template_type>{{system_dir}}/template_type</template_type>
+				<image>{{images_dir}}/author_images</image>
+				<page>{{images_dir}}/page_images</page>
+				<thumb>{{images_dir}}/thumb</thumb>
+				<logo>{{images_dir}}/logo</logo>
+				<tmp>{{flashmagazine_dir}}/tmp</tmp>
+			</filesystem>
+			
+            <feed>
+                <url>www.mageplace.com/index.php?option=com_extensionfeed&amp;view=feed&amp;extension=flippingbook&amp;format=feed</url>
+                <use_https>0</use_https>
+                <check_frequency>24</check_frequency>
+                <enabled>1</enabled>
+            </feed>
+                
+		</flashmagazine>
+	</default>
+</config>

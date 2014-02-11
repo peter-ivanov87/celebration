@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<menu>
+		<flashmagazine translate="title" module="flashmagazine">
+			<title>Flash Flipping Book</title>
+			<sort_order>60</sort_order>
+			<children>
+				<category translate="title" module="flashmagazine">
+					<title>Manage Categories</title>
+					<action>adminhtml/flashmagazine_category</action>
+				</category>
+			</children>
+			<children>
+				<magazine translate="title" module="flashmagazine">
+					<title>Manage Books</title>
+					<action>adminhtml/flashmagazine_magazine</action>
+				</magazine>
+			</children>
+			<children>
+				<page translate="title" module="flashmagazine">
+					<title>Manage Pages</title>
+					<action>adminhtml/flashmagazine_page</action>
+				</page>
+			</children>
+			<children>
+				<multiupload translate="title" module="flashmagazine">
+					<title>Multiupload</title>
+					<action>adminhtml/flashmagazine_multiupload</action>
+				</multiupload>
+			</children>
+			<children>
+				<template translate="title" module="flashmagazine">
+					<title>Manage Templates</title>
+					<action>adminhtml/flashmagazine_template</action>
+				</template>
+			</children>
+			<children>
+				<resolution translate="title" module="flashmagazine">
+					<title>Manage Resolutions</title>
+					<action>adminhtml/flashmagazine_resolution</action>
+				</resolution>
+			</children>
+		</flashmagazine>
+	</menu>
+
+	<acl>
+		<resources>
+			<all>
+				<title>Allow everything</title>
+			</all>
+      		<admin>
+				<children>
+					<flashmagazine translate="title">
+						<title>Flash Flipping Book</title>
+						<sort_order>10</sort_order>
+						<children>
+							<category translate="title">
+								<title>Manage Categories</title>
+								<sort_order>0</sort_order>
+							</category>
+						</children>
+						<children>
+							<magazine translate="title">
+								<title>Manage Books</title>
+								<sort_order>1</sort_order>
+							</magazine>
+						</children>
+						<children>
+							<page translate="title">
+								<title>Manage Pages</title>
+								<sort_order>2</sort_order>
+							</page>
+						</children>
+						<children>
+							<multiupload translate="title">
+								<title>Multiupload</title>
+								<sort_order>3</sort_order>
+							</multiupload>
+						</children>
+						<children>
+							<template translate="title">
+								<title>Manage Templates</title>
+								<sort_order>4</sort_order>
+							</template>
+						</children>
+						<children>
+							<resolution translate="title">
+								<title>Manage Resolutions</title>
+								<sort_order>5</sort_order>
+							</resolution>
+						</children>
+						<children>
+							<attach_magazine translate="title">
+								<title>Attach/Detach books to a product</title>
+								<sort_order>7</sort_order>
+							</attach_magazine>
+						</children>
+					</flashmagazine>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

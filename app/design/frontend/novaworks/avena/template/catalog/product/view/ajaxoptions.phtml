@@ -38,7 +38,7 @@
         </div>
         <div class="clearer"></div>
         <?php if ($_product->isSaleable() && $this->hasOptions() && $this->getChildChildHtml('container2', '', true, true)):?>
-            <div id="container2">
+            <div id="container2" style="margin-bottom: 30px;">
                 <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
             </div>
             
@@ -106,9 +106,9 @@
 <script type="text/javascript">
 jQuery(document).ready(function (){
    jQuery(window).bind('load', function () {
-        var y = jQuery('.ajax-index-options').height()+100;
+        var y = jQuery('.ajax-index-options').height()+280;
         parent.jQuery.fn.colorbox.resize({
-				   width: "402px",
+				   width: "412px",
 				   height: y
 				}); 
     });

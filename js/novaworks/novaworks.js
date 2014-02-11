@@ -134,9 +134,9 @@ jQuery(function() {
 		jQuery(this).colorbox({
 			iframe:true,
 			opacity:	0.8,
-			width:"402",
+			width:"345",
 			close:"<i class=\"icon-cancel-1\"></i>",
-			height:"200"
+			height:"480"
 		});
 	});	
    jQuery('.quickview_small').live('mouseenter', function(){
@@ -177,6 +177,7 @@ function setAjaxData(data,iframe){
 		}
 }
 function ajaxcart(url,id) {
+    
  url += 'isAjax/1';
  url = url.replace("checkout/cart","ajax/index");
  jQuery("#quick-act-"+id+" .add_to_cart_small").html("<i class=\"icon-spin2 animate-spin\"></i>");

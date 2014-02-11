@@ -56,7 +56,8 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
             <div class="span3">
 	            <div class="products-list-inner">
 	            	<?php include('view/labels.phtml')  ?>
-	            	<div class="nova-product-images">            
+	            	<div class="nova-product-images">     
+                           
 		            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
 		                          <?php 
 		                if($image_product_hover) { ?>

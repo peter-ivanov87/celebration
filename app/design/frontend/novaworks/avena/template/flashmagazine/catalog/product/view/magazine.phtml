@@ -1,0 +1,33 @@
+<?php
+/**
+ * Mageplace Flash Magazine
+ *
+ * @category    Mageplace
+ * @package     Mageplace_Flashmagazine
+ * @copyright   Copyright (c) 2010 Mageplace. (http://www.mageplace.com)
+ * @license     http://www.mageplace.com/disclaimer.html
+ */
+
+?>
+<?php
+$_product = $this->getProduct();
+?>
+<?php if (count($this->getMagazines()) > 0): ?>
+<div class="more-views">
+	<h2><?php echo $this->__('Flash Flipping Books') ?></h2>
+	<ul>
+	<?php foreach ($this->getMagazines() as $_magazine): ?>
+		<li>
+			<?php if($_magazine->getMagazinePopup()): ?>
+			<a href="#" onclick="popWin('<?php echo $this->getMagazineUrl($_magazine) ?>', 'flashmagazine', 'width=<?php echo $this->getPopupWidth($_magazine);?>,height=<?php echo $this->getPopupHeight($_magazine);?>'); return false;" title="<?php echo $this->htmlEscape($_magazine->getName()) ?>">
+			<?php else: ?>
+			<a href="<?php echo $this->getMagazineUrl($_magazine) ?>" title="<?php echo $this->htmlEscape($_magazine->getName()) ?>">
+			<?php endif; ?>
+				<img src="<?php echo $_magazine->getThumbUrl(); ?>" width="56" height="56" alt="<?php echo $this->htmlEscape($_magazine->getName()) ?>" />
+			</a>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+</div>
+
+<?php endif; ?>

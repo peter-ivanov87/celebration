@@ -274,15 +274,5 @@
         </ul>
     </div>	
 </div>
-<?php   
-   $sample_file_link = Mage::getModel('catalog/product')->load($_product->getId())->getData('sample_file_link');
-   if ($sample_file_link!=""){
-?>
-    <div class="sample">
-        
-        <span><a href="<?php echo Mage::getBaseUrl().$sample_file_link;?>">Check for sample document now</a></span>
-    </div>
-<?php 
-   }
-?>
+
 <?php endif; ?>
