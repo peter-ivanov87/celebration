@@ -4487,26 +4487,16 @@ font: 20px/20px 'BebasRegular',Helvetica,sans-serif;
 .gift-message-row { background:#f2efe9; }
 .gift-message-row .btn-close { float:right; width:16px; height:16px; background:url(../images/btn_gm-close.gif) 0 0 no-repeat; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 
-/* Checkout Agreements */
-.checkout-agreements {
-	padding:0 60px 20px;
-	overflow: scroll;
-}
-.checkout-agreements li { margin:0 0 20px; overflow: scroll;}
-.checkout-agreements .agree { margin-top: 5px; overflow: scroll;}
-.checkout-agreements .agree input.checkbox { margin-right:6px;overflow: scroll; }
-.checkout-agreements .agree label { font-weight:bold; overflow: scroll;}
-.opc .checkout-agreements { padding:20px 0px;border-top-color: #e5e5e5;
-	border-right-color: #e5e5e5;
-	border-bottom-color: #e5e5e5;
-	border-left-color: #e5e5e5;overflow: scroll; }
 
-.checkout-agreements .agreement-content {
-	max-height:250px;
-	overflow:scroll;
-	padding-right:0px;
-	
-}
+/* Checkout Agreements */
+.checkout-agreements { padding:0 60px 20px; }
+.checkout-agreements li { margin:0 0 20px; }
+.checkout-agreements .agree { margin-top: 5px; }
+.checkout-agreements .agree input.checkbox { margin-right:6px; vertical-align: bottom }
+.checkout-agreements .agree label { font-weight:bold; display: inline;}
+.opc .checkout-agreements { padding:20px 0px; }
+
+.checkout-agreements .agreement-content { max-height:250px; overflow:auto; padding-right:30px; margin-bottom: 10px;}
 
 /* Centinel */
 .centinel {}

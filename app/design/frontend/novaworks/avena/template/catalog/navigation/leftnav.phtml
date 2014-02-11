@@ -1,6 +1,6 @@
-<div class="block left-categories">
-    <?php
-        $currentCat = Mage::registry('current_category');
+<!--<div class="block left-categories"> -->
+    <?php 
+       /* $currentCat = Mage::registry('current_category');
         echo '<div class="block-title"><span>'.$currentCat->getName().'</span></div>';
         
         if ( $currentCat->getParentId() == Mage::app()->getStore()->getRootCategoryId() ){
@@ -10,7 +10,7 @@
         }
         $subCategories = explode(',', $loadCategory->getChildren());  
         if(count($subCategories) > 1){
-            echo '<div class="block-content left-categories-container">';
+          echo '<div class="block-content left-categories-container">';
             echo '<ul>';
             foreach ( $subCategories as $subCategoryId ){
                 $cat = Mage::getModel('catalog/category')->load($subCategoryId);
@@ -20,6 +20,6 @@
             }
             echo '</ul>';
             echo '</div>';
-        }
+        }*/
     ?>
-</div>
+<!-- </div>-->
