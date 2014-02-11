@@ -1,0 +1,39 @@
+<script type="text/javascript">	
+
+  OptionConfigurable.Data = <?php echo $this->getDataJson() ?>;
+
+  OptionConfigurable.Config = {	
+    defaultOption      : '<?php echo Mage::helper('catalog')->__('-- Please Select --') ?>',
+    hasRequiredOptions : <?php echo $this->hasRequiredOptions() ?>,
+    requiredFieldsText : '<p class="required"><?php echo Mage::helper('catalog')->__('* Required Fields') ?></p>',
+    requiredOptionText : '<?php echo $this->jsQuoteEscape( Mage::helper('catalog')->__('This is a required option') )?>',
+    hasCustomOptions   : <?php echo $this->hasCustomOptions() ?>,            
+    inPreconfigured    : <?php echo $this->getInPreconfigured() ?>,
+    isConfigurable     : <?php echo $this->isConfigurable() ?>,
+    useCalendar        : <?php echo (int) Mage::getStoreConfig('catalog/custom_options/use_calendar'); ?>, 
+       
+    mainImageId : 'image', // Id of the Product main image tag <img id="image"
+    
+    spacer     : '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>',	
+    imageTitle : '<?php echo $this->jsQuoteEscape($this->__('Click to Enlarge')) ?>',
+    imagePopup : 'popWin({{url}}, \'gallery\', \'width=300,height=300,left=50,top=50,location=no,status=yes,scrollbars=yes,resizable=yes\');',
+
+    imageDirUrl       : '<?php echo $this->getProductBaseMediaUrl() ?>',
+    thumbnailDirUrl   : '<?php echo $this->getThumbnailDirUrl() ?>',
+    pickerImageDirUrl : '<?php echo $this->getPickerImageDirUrl() ?>',    
+    placeholderUrl    : '<?php echo $this->getPlaceholderUrl() ?>',	
+    
+    descriptionToolTip :  '<div class="truncated" {{style}} id="optionconfigurable_description_{{t}}_{{optionId}}">' +
+                          '<img src="<?php echo Mage::getDesign()->getSkinUrl('pektsekye/optionconfigurable/info_icon.gif') ?>"  />' +	
+                          '		<div class="truncated_full_value">' +
+                          '			<dl class="item-options">' +
+                          '				<dd id="optionconfigurable_description_dd_{{t}}_{{optionId}}">{{description}}<\/dd>' +
+                          '		  <\/dl>' +
+                          '		<\/div>' +
+                          '<\/div>'                              
+  };
+  
+  var optionConfigurable = new OptionConfigurable.Main();	
+
+
+</script>

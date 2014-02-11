@@ -1,0 +1,12 @@
+<?php
+/**
+ * Free Lunch Labs
+ * Author: Charles Drew
+ * Email: charles@freelunchlabs.com
+ *
+ */
+
+?>
+<?php if (Mage::helper('newslettercheckbox')->isEnabled() && $this->hideIfSubscribed() && $this->showToUser()): ?>
+    <li class="control newslettercheckbox"><input type="checkbox" class="checkbox" name="billing[subscribed]" value="1" title="<?php echo Mage::helper('newslettercheckbox')->getCheckboxLabel(); ?>" id="billing:subscribed"<?php echo (Mage::helper('newslettercheckbox')->isCheckedByDefault()) ? ' checked="checked"' : '' ?> /><label for="billing:subscribed"><?php echo Mage::helper('newslettercheckbox')->getCheckboxLabel(); ?></label></li>
+<?php endif ?>

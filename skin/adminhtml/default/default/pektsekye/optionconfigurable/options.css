@@ -1,0 +1,31 @@
+
+.optionconfigurable-import-options {margin-bottom:10px;margin-top:10px;}
+
+.optionconfigurable-row-cell-parent-highlighted {background-color:LightSkyBlue;}
+.optionconfigurable-row-cell-children-highlighted {background-color:LightGreen;}
+
+
+.optionconfigurable-container {width:934px;}
+.optionconfigurable-highlight_link_visible {cursor:pointer;}
+.optionconfigurable-highlight_link_hidden {display:none;}
+.optionconfigurable-highlight_link_selected {cursor:pointer;color:red;}
+
+.optionconfigurable-option-title {width:180px;margin-left:5px;margin-top:2px;}
+
+.optionconfigurable-select {width:100%;}
+.optionconfigurable-value {border-top: 1px dashed #C0C0C0;}
+.optionconfigurable-value-container-price {width:45px;margin-left:10px;}
+.optionconfigurable-value-container-children {width:300px;margin-left:10px;}
+.optionconfigurable-value-container-highlight {margin-left:10px;}
+.optionconfigurable-value-container-default {margin-right:10px;}
+
+.optionconfigurable-children {cursor:pointer;}
+
+.optionconfigurable-options-value-container-title{width:270px;}
+.optionconfigurable-optionimages-value-container-title{width:370px;}
+.optionconfigurable-value-container-image{width:145px;margin-left:10px;margin-top:2px;}
+.optionconfigurable-value-container-description{width:148px;margin-top:2px;}
+
+.optionconfigurable-layout-select {margin-right:2px;}
+.optionconfigurable-textarea {width:130px;}
+.optionconfigurable-showhide-link{ color:red; cursor:pointer;vertical-align:top;}

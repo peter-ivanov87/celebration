@@ -1,0 +1,62 @@
+<input type="hidden" id="optionconfigurable_instance_loaded" value="">
+<script type="text/javascript">	
+//<![CDATA[
+
+  OptionConfigurable.Data = <?php echo $this->getDataJson() ?>;
+  
+  OptionConfigurable.Config = {	
+    defaultOption          : '<?php echo Mage::helper('catalog')->__('-- Please Select --') ?>',
+    requiredOptionText     : '<?php echo $this->jsQuoteEscape( Mage::helper('catalog')->__('This is a required option') )?>',
+    fieldIsNotCompleteText : '<?php echo $this->jsQuoteEscape( Mage::helper('catalog')->__('Field is not complete') )?>',            
+    inPreconfigured        : <?php echo $this->getInPreconfigured() ?>,
+    isConfigurable         : <?php echo $this->isConfigurable() ?>,        
+    isEditOrderPage        : true,
+    useCalendar        : <?php echo (int) Mage::getStoreConfig('catalog/custom_options/use_calendar'); ?>,     
+    
+    mainImageId : 'image', // Id of the Product main image tag <img id="image"
+    
+    spacer     : '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>',	
+    imageTitle : '<?php echo $this->jsQuoteEscape($this->__('Click to Enlarge')) ?>',
+    imagePopup : 'popWin({{url}}, \'gallery\', \'width=300,height=300,left=50,top=50,location=no,status=yes,scrollbars=yes,resizable=yes\');',
+
+    imageDirUrl       : '<?php echo $this->getProductBaseMediaUrl() ?>',
+    thumbnailDirUrl   : '<?php echo $this->getThumbnailDirUrl() ?>',
+    pickerImageDirUrl : '<?php echo $this->getPickerImageDirUrl() ?>',    
+    placeholderUrl    : '<?php echo Mage::getDesign()->getSkinUrl('pektsekye/optionconfigurable/small_image.jpg') ?>',	
+    
+    descriptionToolTip :  '<div class="truncated" {{style}} id="optionconfigurable_description_{{t}}_{{optionId}}">' +
+                          '<img src="<?php echo Mage::getDesign()->getSkinUrl('pektsekye/optionconfigurable/info_icon.gif') ?>"  />' +	
+                          '		<div class="truncated_full_value">' +
+                          '			<dl class="item-options">' +
+                          '				<dd id="optionconfigurable_description_dd_{{t}}_{{optionId}}">{{description}}<\/dd>' +
+                          '		  <\/dl>' +
+                          '		<\/div>' +
+                          '<\/div>'      
+  };
+  
+  var el = $('optionconfigurable_instance_loaded');
+  if (el.value == ""){
+    optionConfigurable = new OptionConfigurable.Main();
+    el.value = 1;  
+  } else {
+    optionConfigurable.reloadElements();
+  }
+
+
+
+  $$('.truncated').each(function(element){
+      Event.observe(element, 'mouseover', function(){
+          if (element.down('div.truncated_full_value')) {
+              element.down('div.truncated_full_value').addClassName('show')
+          }
+      });
+      Event.observe(element, 'mouseout', function(){
+          if (element.down('div.truncated_full_value')) {
+              element.down('div.truncated_full_value').removeClassName('show')
+          }
+      });
+
+  });  
+
+//]]>
+</script>

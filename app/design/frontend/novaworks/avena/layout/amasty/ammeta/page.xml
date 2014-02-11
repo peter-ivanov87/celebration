@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="ammeta/page_html_othermeta"  />
+        </reference>
+        <reference name="product_list">
+            <block type="ammeta/page_html_innertext" name="ammeta.innertext" after="-" />
+        </reference>
+    </default>
+
+    <catalog_category_layered>
+        <reference name="content">
+            <block type="ammeta/catalog_category_afterproduct" name="ammeta.afterproduct" after="product_list" output="toHtml"/>
+        </reference>
+    </catalog_category_layered>
+
+    <catalog_category_default>
+        <reference name="content">
+            <block type="ammeta/catalog_category_afterproduct" name="ammeta.afterproduct" after="product_list" output="toHtml"/>
+        </reference>
+    </catalog_category_default>
+
+</layout>

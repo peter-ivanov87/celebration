@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<layout>	
+
+    <adminhtml_catalog_product_configurable>
+        <reference name="head"> 		  
+          <action method="addCss"><name>pektsekye/optionconfigurable/options.css</name></action>		  
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/main.js</script></action>
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/images.js</script></action> 				                                    
+        </reference>    
+        <reference name="product_tabs">
+            <action method="addTab"><name>optionconfigurable</name><block>optionconfigurable/oc_options</block></action>
+            <action method="addTab"><name>optionconfigurable_images</name><block>optionconfigurable/oc_optionimages</block></action>               
+        </reference>
+    </adminhtml_catalog_product_configurable>
+
+    <adminhtml_catalog_product_simple>
+        <reference name="head"> 		  
+          <action method="addCss"><name>pektsekye/optionconfigurable/options.css</name></action>		  
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/main.js</script></action>
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/images.js</script></action> 			                                    
+        </reference>    
+        <reference name="product_tabs">
+            <action method="addTab"><name>optionconfigurable</name><block>optionconfigurable/oc_options</block></action>
+            <action method="addTab"><name>optionconfigurable_images</name><block>optionconfigurable/oc_optionimages</block></action>            
+        </reference>
+    </adminhtml_catalog_product_simple>
+
+    <adminhtml_catalog_product_virtual>
+        <reference name="head"> 		  
+          <action method="addCss"><name>pektsekye/optionconfigurable/options.css</name></action>		  
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/main.js</script></action>
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/images.js</script></action> 			                                     
+        </reference>    
+        <reference name="product_tabs">
+            <action method="addTab"><name>optionconfigurable</name><block>optionconfigurable/oc_options</block></action>
+            <action method="addTab"><name>optionconfigurable_images</name><block>optionconfigurable/oc_optionimages</block></action>            
+        </reference>
+    </adminhtml_catalog_product_virtual>
+
+    <adminhtml_catalog_product_downloadable>
+        <reference name="head"> 		  
+          <action method="addCss"><name>pektsekye/optionconfigurable/options.css</name></action>		     
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/main.js</script></action>
+			    <action method="addJs"><script>pektsekye/optionconfigurable/product_edit/images.js</script></action> 			                                             
+        </reference>    
+        <reference name="product_tabs">
+            <action method="addTab"><name>optionconfigurable</name><block>optionconfigurable/oc_options</block></action>
+            <action method="addTab"><name>optionconfigurable_images</name><block>optionconfigurable/oc_optionimages</block></action>            
+        </reference>
+    </adminhtml_catalog_product_downloadable>
+    
+  <adminhtml_sales_order_create_index>
+		<reference name="head">
+      <action method="addCss"><name>pektsekye/optionconfigurable/configure.css</name></action>
+			<action method="addJs"><script>pektsekye/optionconfigurable/images.js</script></action>      		 		
+			<action method="addJs"><script>pektsekye/optionconfigurable/main.js</script></action>			
+		</reference>    
+  </adminhtml_sales_order_create_index>
+
+  <ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>    
+    <reference name="product.composite.fieldset">    
+      <block type="optionconfigurable/product_view_js" name="optionconfigurable" template="optionconfigurable/catalog/product/composite/configure/js.phtml" />                
+    </reference>	        
+  </ADMINHTML_CATALOG_PRODUCT_COMPOSITE_CONFIGURE>	
+           
+</layout>

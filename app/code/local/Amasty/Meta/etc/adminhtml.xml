@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2008-2012 Amasty (http://www.amasty.com)
+* @package Amasty_Meta
+*/
+-->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <amseotoolkit>
+                    <children>
+                        <ammeta translate="title" module="ammeta">
+                            <title>Meta Tags Templates</title>
+                            <sort_order>888</sort_order>
+                            <children>
+                                <meta_category translate="title" module="ammeta">
+                                    <title>Meta Tags by Category</title>
+                                    <action>ammeta/adminhtml_config</action>
+                                    <sort_order>10</sort_order>
+                                </meta_category>
+                                <meta_сustom translate="title" module="ammeta">
+                                    <title>Meta Tags by URL</title>
+                                    <action>ammeta/adminhtml_custom</action>
+                                    <sort_order>20</sort_order>
+                                </meta_сustom>
+                            </children>
+                        </ammeta>
+                    </children>
+                </amseotoolkit>
+            </children>
+        </cms>
+    </menu>
+
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <amseotoolkit>
+                                <children>
+                                    <ammeta>
+                                        <title>Meta Tags Templates</title>
+                                        <children>
+                                            <meta_category>
+                                                <title>Meta Tags by Catagory</title>
+                                            </meta_category>
+                                        </children>
+                                    </ammeta>
+                                </children>
+                            </amseotoolkit>
+                        </children>
+                    </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <ammeta translate="title" module="ammeta">
+                                        <title>Meta Tags Templates</title>
+                                    </ammeta>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+    <translate>
+        <modules>
+            <Amasty_Meta>
+                <files>
+                    <default>Amasty_Meta.csv</default>
+                </files>
+            </Amasty_Meta>
+        </modules>
+    </translate>
+
+</config> 

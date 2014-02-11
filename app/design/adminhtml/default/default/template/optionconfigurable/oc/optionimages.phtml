@@ -1,0 +1,144 @@
+
+
+<div class="entry-edit">
+
+    <div class="entry-edit-head">
+        <h4><?php echo $this->isConfigurable() ? $this->__('Images and Description of Associated Products and Custom Options') : $this->__('Images and Description of Custom Options'); ?></h4>
+    </div>
+
+<?php if ($this->hasCustomOptions() || ($this->isConfigurable() && $this->hasAttributes())): ?>
+  <fieldset>
+    <ul class="super-attributes optionconfigurable-container">
+    <?php foreach ($this->getOptions() as $option): ?> 
+      <li class="attribute" style="position: relative; " id="oc_optionimages_<?php echo $option['type'] ?>_<?php echo $option['id'] ?>">
+        <div class="left optionconfigurable-option-title">
+            <strong><?php  echo $option['title'] ?></strong>
+        </div>
+        <div class="values-container right">
+          <table>
+          <tr> 
+          <td>                    
+          <?php  echo Mage::helper('catalog')->__('Note') ?>:
+          </td>           
+          <td width="155">                       
+            <input type="text" id="optionconfigurable_<?php echo $option['type'].'_'.$option['id']; ?>_note" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option'; ?>][<?php echo $option['id'] ?>][note]" class="input-text" value="<?php echo $this->htmlEscape($option['note']) ?>" <?php echo $this->getNoteDisabled($option); ?>/>
+            <span  <?php echo $this->getShowTextArea($option) ?> title="<?php echo $this->getClickToEditText() ?>" id="optionconfigurable_<?php echo $option['type'].'_'.$option['id']; ?>_note_show" class="optionconfigurable-showhide-link" <?php echo $this->getNoteShowHidden($option) ?>>e</span>  
+            <span onclick="optionConfigurableImage.hideTextArea(this);" title="<?php echo $this->__('Click to hide') ?>" id="optionconfigurable_<?php echo $option['type'].'_'.$option['id']; ?>_note_hide" class="optionconfigurable-showhide-link" style="display:none;">h</span>                   
+            <?php echo $this->getNoteScopeHtml($option); ?>  
+          </td>           
+          <td>                
+          <?php if (count($option['values']) > 0): ?> 
+            <?php echo $this->__('Layout') ?>:
+            <?php echo $this->getLayoutSelect($option); ?>  &nbsp;&nbsp;        
+            <?php echo $this->__('Popup') ?>:                    
+            <input type="checkbox" id="optionconfigurable_<?php echo $option['type'].'_'.$option['id']; ?>_popup" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option'; ?>][<?php echo $option['id'] ?>][popup]"  <?php echo $option['popup'] == 1 ? 'checked="checked"' : ''; ?>  <?php echo in_array($option['layout'], array('swap','picker','pickerswap')) ? 'disabled="disabled"' : ''; ?> value="1"/>  
+          <?php endif; ?>                
+          <?php if ($option['type'] == 'o'): ?>
+            <input type="hidden" name="product[optionconfigurable_option][<?php echo $option['id'] ?>][previous_order]" class="input-text" value="<?php echo $option['sort_order'] ?>"/>
+          <?php endif; ?> 
+          </td>          
+          </tr>
+          </table>           
+          <?php if (count($option['values']) > 0): ?>        
+            <ul class="attribute-values">  
+              <li class="attribute-value optionconfigurable-value">
+                <div class="left optionconfigurable-optionimages-value-container-title">
+                   <strong><?php echo Mage::helper('catalog')->__('Title') ?></strong>
+                </div>
+                <div class="attribute-values-container-main">
+                  <div class="attribute-values-container left optionconfigurable-value-container-price">
+                    <strong><?php echo Mage::helper('catalog')->__('Price') ?></strong>
+                  </div>              
+                  <div class="attribute-values-container left optionconfigurable-value-container-image">
+                    <strong><?php echo $this->__('Image') ?></strong>                                       
+                  </div>
+                  <div class="attribute-values-container left">
+                    <strong><?php echo $this->__('Description') ?></strong>                                
+                  </div>
+                  <div class="attribute-values-container right optionconfigurable-value-container-default">                               
+                  </div>                  
+                </div>
+              </li>       
+            <?php foreach ($option['values'] as $value): ?>                                
+              <li class="attribute-value optionconfigurable-value">
+                <div id="oc_value_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_cell" class="left optionconfigurable-optionimages-value-container-title">
+                  <?php  echo $value['title'] ?> 
+                </div>
+                <div class="attribute-values-container-main">
+                  <div class="attribute-values-container left optionconfigurable-value-container-price">
+                    <?php  echo $value['price'] ?>&nbsp;
+                  </div>              
+                  <div id="optionconfigurable_image_cell_<?php echo $option['type'].'_'.$value['id'] ?>" class="attribute-values-container left optionconfigurable-value-container-image"  > 
+                   <div class="files" style="width:135px;">
+                       <div  id="<?php echo $option['type'].'_'.$value['id'] ?>_uploader_place-holder" onmouseover="optionConfigurableImage.loadUploader('<?php echo $option['type'].'_'.$value['id'] ?>')">
+                          <span><?php echo $value['image'] != '' ? $this->__('Roll Over for Preview') : $this->__('Roll Over for Uploader'); ?></span>
+                       </div>         
+                       <div id="<?php echo $option['type'].'_'.$value['id'] ?>_uploader_row" style="display:none"  class="hide_uploader_row">            
+                          <div class="row" >
+                             <input type="hidden" id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file_save" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'aoption' : 'value'; ?>][<?php echo $value['id'] ?>][image_json]" value="<?php echo $this->htmlEscape($value['image_json']); ?>" /> 
+                             <div id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file" class="uploader">
+                                <div id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file-old" class="file-row-info">
+                                  <img src="<?php echo $this->getSkinUrl('images/spacer.gif')?>" id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file_img" width="40" style="display:none;" alt="" />                                      
+                                </div>
+                                <div id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file-new" class="file-row-info new-file"></div>
+                                <div class="buttons">
+                                   <div id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file-install-flash" style="display:none">
+                                      <?php echo Mage::helper('media')->__('This content requires last version of Adobe Flash Player. <a href="%s">Get Flash</a>', 'http://www.adobe.com/go/getflash/') ?>
+                                   </div>
+                                </div>
+                             </div>
+                             <img src="<?php echo $this->getSkinUrl('pektsekye/optionconfigurable/delete_image.gif')?>" id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file_delete" alt="<?php echo Mage::helper('catalog')->__('Delete') ?>" onclick="optionConfigurableImage.deleteImage('<?php echo $option['type'].'_'.$value['id']; ?>')" class="optionconfigurable-delete-image"  style="display:none"/>                                   
+                             <div id="optionconfigurable_link_<?php echo $option['type'].'_'.$value['id'] ?>_file_save_advice"></div>                                                
+                          </div>
+                       </div>
+                    </div>                             
+                    <input type="hidden" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'aoption' : 'value'; ?>][<?php echo $value['id'] ?>][image]" value="<?php echo $value['image']; ?>" />  
+                  </div>
+                  <div id="optionconfigurable_description_cell_<?php echo $option['type'].'_'.$value['id'] ?>" class="attribute-values-container left optionconfigurable-value-container-description" >                                 
+                    <input type="text" id="optionconfigurable_<?php echo $option['type'].'_'.$value['id']; ?>_description" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'aoption' : 'value'; ?>][<?php echo $value['id'] ?>][description]" class="input-text" value="<?php echo $this->htmlEscape($value['description']) ?>" <?php echo $this->getDescriptionDisabled($value); ?>/>
+                    <span  <?php echo $this->getShowTextArea($option, $value) ?> title="<?php echo $this->getClickToEditText() ?>" id="optionconfigurable_<?php echo $option['type'].'_'.$value['id']; ?>_description_show" class="optionconfigurable-showhide-link" <?php echo $this->getDescriptionShowHidden($value) ?>>e</span>  
+                    <span onclick="optionConfigurableImage.hideTextArea(this);" title="<?php echo $this->__('Click to hide') ?>" id="optionconfigurable_<?php echo $option['type'].'_'.$value['id']; ?>_description_hide" class="optionconfigurable-showhide-link" style="display:none;">h</span>            
+                      <?php echo $this->getDescriptionScopeHtml($option, $value); ?>                                                                                          
+                  </div>                  
+                  <div class="attribute-values-container right optionconfigurable-value-container-default">                      
+                  </div>                    
+                </div>
+              </li>
+            <?php endforeach; ?> 
+            </ul>
+          <?php endif; ?>        
+        </div>
+      </li>
+    <?php endforeach; ?>
+    </ul>
+  </fieldset>
+                                    
+  <script type="text/javascript">
+  //<![CDATA[
+  
+  OptionConfigurableImage.Config = { 
+     expiredMessage     : '<?php echo $this->jsQuoteEscape($this->__('Your session has been expired. Please, reload the page and upload images if necessary')) ?>',  
+     uploaderConfig   : <?php echo $this->getConfigJson(); ?>,  
+     uploaderUrl : '<?php echo Mage::getBlockSingleton('adminhtml/media_uploader')->getUploaderUrl('media/uploaderSingle.swf'); ?>',
+     uploaderTemplate :   '<div class="no-display" id="[[idName]]-template">' +
+                        '   <div id="{{id}}" class="file-row file-row-narrow">' +
+                        '      <span class="file-info">' +
+                        '         <span class="file-info-name">{{name}}</span>' +
+                        '                  ' +
+                        '         <span class="file-info-size">({{size}})</span>' +
+                        '      </span>' +
+                        '      <span class="progress-text"></span>' +
+                        '      <div class="clear"></div>' +
+                        '   </div>' +
+                        '</div>' +
+                        '<div class="no-display" id="[[idName]]-template-progress">' +
+                        '   {{percent}}% {{uploaded}} / {{total}}' +
+                        '</div>'
+
+  };
+  
+  optionConfigurableImage = new OptionConfigurableImage.Main();
+   
+  //]]> 
+  </script>
+<?php endif; ?>

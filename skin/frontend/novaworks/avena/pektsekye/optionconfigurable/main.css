@@ -1,0 +1,246 @@
+
+/* OptionBundle Picker Image*/
+.optionconfigurable-picker-unselected {border:1px solid white; margin-right:2px;}
+.optionconfigurable-picker-selected {border:1px solid black; margin-right:2px;}
+
+
+/* 
+
+Narrow Layout Group Section
+
+It is used when "Display product options in : Product Info Column" is selected on the edit product page in Magento admin panel.
+(when options container id=product-options-wrapper has width < 590 )
+*/
+
+
+/* OptionBundle Above */
+dd.optionconfigurable-narrow-above {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-above img.optionconfigurable-image {float:left; width:100px; height:100px; margin:8px 0 0 0;}
+dd.optionconfigurable-narrow-above select {margin:8px 0 10px 0;}
+dd.optionconfigurable-narrow-above ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-above .description {width:180px; float:right;font-size:10px; display:block; margin:8px 0 0 0; font-weight:normal; font-style:normal; }
+dd.optionconfigurable-narrow-above .spacer{height:1px; clear:both;}
+
+/* OptionBundle Above Checkbox */
+dd.optionconfigurable-narrow-above-checkbox  {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-above-checkbox img.optionconfigurable-image {width:100px; height:100px; margin:8px 0 0 0;}
+dd.optionconfigurable-narrow-above-checkbox ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-above-checkbox .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-narrow-above-checkbox .truncated {display:inline;}
+dd.optionconfigurable-narrow-above-checkbox .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Before Select*/
+dd.optionconfigurable-narrow-before-select {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-before-select img.optionconfigurable-image {float:left; width:100px; height:100px; vertical-align:middle; margin:10px 10px 10px 0;}
+dd.optionconfigurable-narrow-before-select select {float:left; width:175px; margin-top:50px;}
+dd.optionconfigurable-narrow-before-select .truncated {float:left; width:14px; margin:8px 100px 0 0;}
+dd.optionconfigurable-narrow-before-select .spacer{height:1px; clear:both;}
+
+/* OptionBundle Before Radio*/
+dd.optionconfigurable-narrow-before-radio {padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-before-radio img.optionconfigurable-image {width:100px; height:100px; float:left; vertical-align:middle; margin:10px 10px 10px 0;}
+dd.optionconfigurable-narrow-before-radio ul.options-list {list-style-type:none; float:left; margin:10px 0 10px 0;}
+dd.optionconfigurable-narrow-before-radio .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-narrow-before-radio .truncated {display:inline;}
+dd.optionconfigurable-narrow-before-radio .spacer{height:1px; clear:both;}
+dd.optionconfigurable-narrow-before-radio .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Below */
+dd.optionconfigurable-narrow-below {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-below img.optionconfigurable-image {float:left; width:100px; height:100px; margin:0 0 4px 0;}
+dd.optionconfigurable-narrow-below select {margin:4px 0 10px 0;}
+dd.optionconfigurable-narrow-below ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-below .description {width:180px; float:right;font-size:10px; display:block; margin:0; font-weight:normal; font-style:normal; }
+dd.optionconfigurable-narrow-below .spacer{height:1px; clear:both;}
+
+/* OptionBundle Below Checkbox */
+dd.optionconfigurable-narrow-below-checkbox {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-below-checkbox img.optionconfigurable-image {width:100px; height:100px; margin:0 0 4px 0;}
+dd.optionconfigurable-narrow-below-checkbox ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-below-checkbox .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-narrow-below-checkbox .truncated {display:inline;}
+dd.optionconfigurable-narrow-below-checkbox .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Swap Select*/
+dd.optionconfigurable-narrow-swap-select {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-swap-select select {margin:8px 0 10px 0;}
+dd.optionconfigurable-narrow-swap-select .description {font-size:10px; margin:0 0 8px 0; font-weight:normal; font-style:normal; }
+
+/* OptionBundle Swap Radio*/
+dd.optionconfigurable-narrow-swap-radio {padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-swap-radio ul.options-list {float:left; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-swap-radio .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-narrow-swap-radio .truncated {display:inline;}
+dd.optionconfigurable-narrow-swap-radio .spacer{height:1px; clear:both;}
+dd.optionconfigurable-narrow-swap-radio .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Picker */
+dd.optionconfigurable-narrow-picker {width:290px; padding:0; margin:5px 0 10px 0;}
+dd.optionconfigurable-narrow-picker select {margin:2px 0 10px 0;}
+dd.optionconfigurable-narrow-picker .description {font-size:10px; margin:0 0 8px 0; font-weight:normal; font-style:normal; }
+
+
+/* OptionBundle Note */
+.optionconfigurable-narrow-note {font-size:12px;}
+
+
+/* OptionBundle Grid */
+dd.optionconfigurable-narrow-grid {padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-grid ul.options-list {list-style-type:none; padding:10px 0 0 0; margin:0;}
+dd.optionconfigurable-narrow-grid ul.options-list li {width:135px; height:145px; float:left; margin-right:10px; line-height:normal; padding:0}
+dd.optionconfigurable-narrow-grid ul.options-list input.radio { float:none; margin:0; position: relative; left: 8px;}
+dd.optionconfigurable-narrow-grid ul.options-list input.checkbox { float:none; margin:0; position: relative; left: 8px;}
+dd.optionconfigurable-narrow-grid ul.options-list .label {text-align:center; margin:3px 0 0 0; display:block; }
+dd.optionconfigurable-narrow-grid ul.options-list label { font-weight:normal; }
+dd.optionconfigurable-narrow-grid .optionconfigurable-image {width:100px; height:100px; vertical-align:middle;}
+dd.optionconfigurable-narrow-grid ul.validation-failed { padding:10px 0 0 0; }
+dd.optionconfigurable-narrow-grid .spacer{height:1px; clear:both;}
+dd.optionconfigurable-narrow-grid .truncated { position: relative; top: 30px; right: 7px;display:inline;}
+dd.optionconfigurable-narrow-grid .truncated img {vertical-align:middle;}
+dd.optionconfigurable-narrow-grid .truncated .show dl { top:-60px; left:0; }
+
+
+/* OptionBundle List */
+dd.optionconfigurable-narrow-list {padding:0; margin:0 0 10px 0; border:none;}
+dd.optionconfigurable-narrow-list ul.options-list {list-style-type:none; padding-top:10px; margin:0; }
+dd.optionconfigurable-narrow-list ul.options-list li {margin-bottom:10px; border:1px solid #e4e4e4; line-height:normal; padding:0; }
+dd.optionconfigurable-narrow-list img {float:left; width:100px; height:100px; margin:10px 10px 5px 10px;}
+dd.optionconfigurable-narrow-list li.none img {width:100px; height:15px; margin:9px 10px 8px 10px;}
+dd.optionconfigurable-narrow-list ul.options-list input.radio {float:right; margin:0;}
+dd.optionconfigurable-narrow-list ul.options-list input.checkbox {float:right; margin:0;}
+dd.optionconfigurable-narrow-list ul.validation-failed { padding:0; }
+dd.optionconfigurable-narrow-list .content {display:block; width:160px; float:right; padding: 10px 10px 5px 0;}
+dd.optionconfigurable-narrow-list .price-notice {padding:0;}
+dd.optionconfigurable-narrow-list .description {min-height:60px; font-size:10px; margin:4px 0px 5px 10px;}
+dd.optionconfigurable-narrow-list .spacer{height: 1px; clear: both;}
+
+
+
+
+
+
+
+/* 
+
+Wide Layout Group Section
+
+It is used when "Display product options in : Block after Info Column" is selected on the edit product page in Magento admin panel.
+(when options container id=product-options-wrapper has width > 590 )
+*/
+
+
+
+/* OptionBundle Above */
+dd.optionconfigurable-wide-above {width:590px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-above img.optionconfigurable-image {float:left; width:100px; height:100px; margin:8px 0 0 0;}
+dd.optionconfigurable-wide-above select {margin:8px 0 10px 0;}
+dd.optionconfigurable-wide-above ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-wide-above .description {width:480px; float:right;font-size:10px; display:block; margin:8px 0 0 0; font-weight:normal; font-style:normal; }
+dd.optionconfigurable-wide-above .spacer{height:1px; clear:both;}
+
+/* OptionBundle Above Checkbox */
+dd.optionconfigurable-wide-above-checkbox {width:590px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-above-checkbox img.optionconfigurable-image {width:100px; height:100px; margin:8px 0 0 0;}
+dd.optionconfigurable-wide-above-checkbox ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-wide-above-checkbox .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-wide-above-checkbox .truncated {display:inline;}
+dd.optionconfigurable-wide-above-checkbox .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Before Select*/
+dd.optionconfigurable-wide-before-select {width:590px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-before-select img.optionconfigurable-image {float:left; width:100px; height:100px; vertical-align:middle; margin:10px 10px 10px 0;}
+dd.optionconfigurable-wide-before-select select {float:left; width:474px; margin-top:50px;}
+dd.optionconfigurable-wide-before-select .truncated {float:left; width:14px; margin:8px 100px 0 0;}
+dd.optionconfigurable-wide-before-select .spacer{height:1px; clear:both;}
+
+/* OptionBundle Before Radio*/
+dd.optionconfigurable-wide-before-radio {padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-before-radio img.optionconfigurable-image {width:100px; height:100px; float:left; vertical-align:middle; margin:10px 10px 10px 0;}
+dd.optionconfigurable-wide-before-radio ul.options-list {list-style-type:none; float:left; margin:10px 0 10px 0;}
+dd.optionconfigurable-wide-before-radio .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-wide-before-radio .truncated {display:inline;}
+dd.optionconfigurable-wide-before-radio .spacer{height:1px; clear:both;}
+dd.optionconfigurable-wide-before-radio .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Below */
+dd.optionconfigurable-wide-below {width:590px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-below img.optionconfigurable-image {float:left; width:100px; height:100px; margin:0 0 4px 0;}
+dd.optionconfigurable-wide-below select {margin:4px 0 10px 0;}
+dd.optionconfigurable-wide-below ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-wide-below .description {width:480px; float:right;font-size:10px; display:block; margin:0; font-weight:normal; font-style:normal; }
+dd.optionconfigurable-wide-below .spacer{height:1px; clear:both;}
+
+/* OptionBundle Below Checkbox */
+dd.optionconfigurable-wide-below-checkbox {width:590px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-below-checkbox img.optionconfigurable-image {width:100px; height:100px; margin:0 0 4px 0;}
+dd.optionconfigurable-wide-below-checkbox ul.options-list {margin:0 0 10px 0;}
+dd.optionconfigurable-wide-below-checkbox .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-wide-below-checkbox .truncated {display:inline;}
+dd.optionconfigurable-wide-below-checkbox .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Swap Select*/
+dd.optionconfigurable-wide-swap-select {width:590px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-swap-select select {margin:8px 0 10px 0;}
+dd.optionconfigurable-wide-swap-select .description {font-size:10px; margin:0 0 8px 0; font-weight:normal; font-style:normal; }
+
+/* OptionBundle Swap Radio*/
+dd.optionconfigurable-wide-swap-radio {padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-swap-radio ul.options-list {float:left; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-swap-radio .truncated .optionconfigurable-icon {vertical-align:middle; margin:0 0 1px 4px;}
+dd.optionconfigurable-wide-swap-radio .truncated {display:inline;}
+dd.optionconfigurable-wide-swap-radio .spacer{height:1px; clear:both;}
+dd.optionconfigurable-wide-swap-radio .price-notice {margin-right:4px;}
+
+
+/* OptionBundle Picker */
+dd.optionconfigurable-wide-picker {width:590px; padding:0; margin:5px 0 10px 0;}
+dd.optionconfigurable-wide-picker select {margin:2px 0 10px 0;}
+dd.optionconfigurable-wide-picker .description {font-size:10px; margin:0 0 8px 0; font-weight:normal; font-style:normal; }
+
+
+/* OptionBundle Note */
+.optionconfigurable-wide-note {font-size:12px;}
+
+
+/* OptionBundle Grid */
+dd.optionconfigurable-wide-grid {padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-wide-grid ul.options-list {list-style-type:none; padding:10px 0 0 0; margin:0;}
+dd.optionconfigurable-wide-grid ul.options-list li {width:139px; height:145px; float:left; margin-right:10px; line-height:normal; padding:0}
+dd.optionconfigurable-wide-grid ul.options-list input.radio { float:none; margin:0; position: relative; left: 8px;}
+dd.optionconfigurable-wide-grid ul.options-list input.checkbox { float:none; margin:0; position: relative; left: 8px;}
+dd.optionconfigurable-wide-grid ul.options-list .label {text-align:center; margin:3px 0 0 0; display:block; }
+dd.optionconfigurable-wide-grid ul.options-list label { font-weight:normal; }
+dd.optionconfigurable-wide-grid .optionconfigurable-image {width:100px; height:100px; vertical-align:middle;}
+dd.optionconfigurable-wide-grid ul.validation-failed { padding:10px 0 0 0; }
+dd.optionconfigurable-wide-grid .spacer{height:1px; clear:both;}
+dd.optionconfigurable-wide-grid .truncated { position: relative; top: 30px; right: 7px;display:inline;}
+dd.optionconfigurable-wide-grid .truncated img {vertical-align:middle;}
+dd.optionconfigurable-wide-grid .truncated .show dl { top:-60px; left:0; }
+
+
+/* OptionBundle List */
+dd.optionconfigurable-wide-list {padding:0; margin:0 0 10px 0; border:none;}
+dd.optionconfigurable-wide-list ul.options-list {list-style-type:none; padding-top:10px; margin:0; }
+dd.optionconfigurable-wide-list ul.options-list li {margin-bottom:10px; border:1px solid #e4e4e4; line-height:normal; padding:0; }
+dd.optionconfigurable-wide-list img {float:left; width:100px; height:100px; margin:9px 10px 8px 10px;}
+dd.optionconfigurable-wide-list li.none img {width:100px; height:15px; margin:10px 10px 5px 10px;}
+dd.optionconfigurable-wide-list ul.options-list input.radio {float:right; margin:0;}
+dd.optionconfigurable-wide-list ul.options-list input.checkbox {float:right; margin:0;}
+dd.optionconfigurable-wide-list ul.validation-failed { padding:0; }
+dd.optionconfigurable-wide-list .content {display:block; width:465px; float:right; padding: 10px 10px 5px 0;}
+dd.optionconfigurable-wide-list .price-notice {padding:0;}
+dd.optionconfigurable-wide-list .description {min-height:60px; font-size:10px; margin:4px 0px 5px 10px;}
+dd.optionconfigurable-wide-list .spacer{height: 1px; clear: both;}
+
+
+
+
+
+

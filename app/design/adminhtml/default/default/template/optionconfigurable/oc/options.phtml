@@ -1,0 +1,143 @@
+
+
+<div class="entry-edit">
+
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Super Product Attributes and Custom Options relations') ?></h4>
+    </div>
+    
+<?php if (!$this->hasCustomOptions() || ($this->isConfigurable() && !$this->hasAttributes())): ?>
+  <div class="optionconfigurable-import-options">
+    <?php 
+      if (!$this->hasCustomOptions() && $this->isConfigurable() && !$this->hasAttributes()){  
+        echo $this->__('Import from Product (SKU):'); 
+      } elseif(!$this->hasCustomOptions()) {
+        echo $this->__('Import Custom Options from Product (SKU):');       
+      } else {
+        echo $this->__('Import Associated Products from Product (SKU):');       
+      }  
+    ?>
+    <input class="input-text" type="text" name="product[optionconfigurable_import_sku]" value="">&nbsp;&nbsp;
+    <?php if (!$this->hasCustomOptions() && $this->isConfigurable() && !$this->hasAttributes()): ?>    
+      <input type="checkbox" name="product[optionconfigurable_import_custom_options]" id="optionconfigurable_import_cutom_options" checked="checked" value="1">
+      <label for="optionconfigurable_import_cutom_options"><?php echo $this->__('Custom Options') ;?></label>,&nbsp;&nbsp;
+      <?php echo $this->__('Associated Products:') ;?>&nbsp;
+      <input type="radio" name="product[optionconfigurable_import_attribute_options]" id="optionconfigurable_select_associated" checked="checked" value="select">
+      <label for="optionconfigurable_select_associated"><?php echo $this->__('Select the same') ;?></label>&nbsp;
+      <input type="radio" name="product[optionconfigurable_import_attribute_options]" id="optionconfigurable_duplicate_associated" value="create">
+      <label for="optionconfigurable_duplicate_associated"><?php echo $this->__('Create new') ;?></label>&nbsp;
+      <input type="radio" name="product[optionconfigurable_import_attribute_options]" id="optionconfigurable_noaction_associated" value="no">
+      <label for="optionconfigurable_noaction_associated"><?php echo $this->__('No') ;?></label>&nbsp;                      
+    <?php elseif($this->isConfigurable() && !$this->hasAttributes()):?>
+      <input type="radio" name="product[optionconfigurable_import_attribute_options]" id="optionconfigurable_select_associated" checked="checked" value="select">
+      <label for="optionconfigurable_select_associated"><?php echo $this->__('Select the same') ;?></label>&nbsp;
+      <input type="radio" name="product[optionconfigurable_import_attribute_options]" id="optionconfigurable_duplicate_associated" value="create">
+      <label for="optionconfigurable_duplicate_associated"><?php echo $this->__('Create new') ;?></label>&nbsp;
+    <?php endif; ?>                          
+  </div>
+<?php endif; ?>
+<?php if ($this->hasCustomOptions() || ($this->isConfigurable() && $this->hasAttributes())): ?>
+  <fieldset>
+    <ul id="configurable_attributes" class="super-attributes optionconfigurable-container">
+    <?php foreach ($this->getOptions() as $option): ?> 
+      <li class="attribute" id="configurable__attribute_0" style="position: relative; ">
+        <div id="oc_option_<?php echo $option['type'] ?>_<?php echo $option['id'] ?>_cell" class="left optionconfigurable-option-title">
+            <strong><?php  echo $option['title'] ?></strong>
+        </div>
+        <div class="values-container right">
+          <?php  echo Mage::helper('catalog')->__('Sort Order') ?>:
+            <input type="text" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option'; ?>][<?php echo $option['id'] ?>][order]" class="input-text" value="<?php echo $option['sort_order'] ?>"/>
+            <?php if ($option['type'] == 'o'): ?>
+              <input type="hidden" name="product[optionconfigurable_option][<?php echo $option['id'] ?>][previous_order]" class="input-text" value="<?php echo $option['sort_order'] ?>"/>
+            <?php endif; ?>            
+          <?php if ($option['type'] == 'a' && $option['not_selected_value_id'] != -1): ?>        
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="product[optionconfigurable_attribute][<?php echo $option['id'] ?>][required]" id="optionconfigurable_required_<?php echo $option['id'] ?>" <?php echo $option['required'] == 1 ? 'checked="checked"' : ''; ?> value="1"> 
+            <label for="optionconfigurable_required_<?php echo $option['id'] ?>"><?php  echo $this->__('Required') ?></label>
+          <?php endif; ?>               
+          <?php if (count($option['values']) == 0): ?>                  
+            <span onclick="optionConfigurable.highlightAction('<?php echo $option['type'] ?>',<?php echo $option['id'] ?>,null,'parent');" id="oc_option_<?php echo $option['type'] ?>_<?php echo $option['id'] ?>_highlight_parent_link" style="margin-left:375px;" class="optionconfigurable-highlight_link_<?php echo $option['has_parent'] ? 'visible' : 'hidden'; ?>"><?php echo $this->__('Parent') ?></span>         
+          <?php endif; ?>
+          <?php if (count($option['values']) > 0): ?>        
+            <ul class="attribute-values">  
+              <li class="attribute-value" id="configurable__attribute_0_1">
+                <div class="attribute-value-label-container left">
+                   <strong><?php echo Mage::helper('catalog')->__('Title') ?></strong>
+                </div>
+                <div class="attribute-values-container-main">
+                  <div class="attribute-values-container left optionconfigurable-value-container-price">
+                    <strong><?php echo Mage::helper('catalog')->__('Price') ?></strong>
+                  </div>              
+                  <div class="attribute-values-container left optionconfigurable-value-container-children">
+                    <strong><?php echo $this->__('Select Children') ?></strong>
+                  </div>
+                  <div class="attribute-values-container left optionconfigurable-value-container-highlight">
+                    <strong><?php echo $this->__('Highlight') ?></strong>             
+                  </div>
+                  <div class="attribute-values-container right optionconfigurable-value-container-default">
+                    <?php if (isset($option['selection_type'])): ?>  
+                      <?php if ($option['selection_type'] == 'single'): ?>   
+                        <input type="radio" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option';?>][<?php echo $option['id'] ?>][default]" <?php echo $option['default'] == '' ? 'checked="checked"' : ''; ?>  title="<?php echo $this->__('Selected By Default') ?>" value=""/>                                                           
+                      <?php else: ?>                               
+                        <input onclick="optionConfigurable.checkAll(this,'<?php echo $option['type'] ?>',<?php echo $option['id'] ?>)" type="checkbox" name="optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option';?>_<?php echo $option['id'] ?>_sd" title="<?php echo $this->__('Selected By Default') ?>" value=""/> 
+                      <?php endif; ?> 
+                    <?php endif; ?>                                 
+                  </div>                  
+                </div>
+              </li>       
+            <?php foreach ($option['values'] as $value): ?>                                
+              <li class="attribute-value optionconfigurable-value" id="configurable__attribute_0_1">
+                <div id="oc_value_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_cell" class="attribute-value-label-container left">
+                  <?php  echo $value['title'] ?> 
+                </div>
+                <div class="attribute-values-container-main">
+                  <div class="attribute-values-container left optionconfigurable-value-container-price">
+                    <?php  echo $value['price'] ?>&nbsp;
+                  </div>              
+                  <div class="attribute-values-container left optionconfigurable-value-container-children">             
+                   <select id="oc_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_children_detailed_select"  style="display:none;" class="optionconfigurable-select"></select>                    
+                   <select onchange="optionConfigurable.onChildrenSelectChange('<?php echo $option['type'] ?>',<?php echo $value['id'] ?>)" onblur="optionConfigurable.updateChildren('<?php echo $option['type'] ?>',<?php echo $value['id'] ?>,'short');" class="optionconfigurable-select" id="oc_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_children_short_select"  style="display:none;" multiple ><option value=""></option></select>                           
+                    <span id="oc_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_show_link" >
+                      <span onclick="optionConfigurable.showSelect('<?php echo $option['type'] ?>',<?php echo $option['id'] ?>,<?php echo $value['id'] ?>,'detailed');" title="<?php echo $this->__('Click to select certain values') ?>" class="optionconfigurable-children"><?php  echo $this->__('By Values') ?></span>&nbsp;&nbsp;|&nbsp;
+                      <span onclick="optionConfigurable.showSelect('<?php echo $option['type'] ?>',<?php echo $option['id'] ?>,<?php echo $value['id'] ?>,'short');" title="<?php echo $this->__('Click to select entire option with all its values') ?>" class="optionconfigurable-children"><?php  echo $this->__('By Options') ?></span>
+                    </span>
+                  </div>
+                  <div class="attribute-values-container left optionconfigurable-value-container-highlight">                 
+                    <span onclick="optionConfigurable.highlightAction('<?php echo $option['type'] ?>',<?php echo $option['id'] ?>,<?php echo $value['id'] ?>,'parent');" id="oc_value_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_highlight_parent_link"  class="optionconfigurable-highlight_link_<?php echo $value['has_parent'] ? 'visible' : 'hidden'; ?>"><?php echo $this->__('Parent') ?>&nbsp;</span>                                                          
+                    <span onclick="optionConfigurable.highlightAction('<?php echo $option['type'] ?>',<?php echo $option['id'] ?>,<?php echo $value['id'] ?>,'children');" id="oc_value_<?php echo $option['type'] ?>_<?php echo $value['id'] ?>_highlight_children_link" class="optionconfigurable-highlight_link_<?php echo $value['has_children'] ? 'visible' : 'hidden'; ?>"><?php echo $this->__('Children') ?></span>                       
+                  </div>                  
+                  <div class="attribute-values-container right optionconfigurable-value-container-default">
+                    <?php if (isset($option['selection_type'])): ?>  
+                      <?php if ($option['selection_type'] == 'single'): ?>                  
+                        <input type="radio" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option';?>][<?php echo $option['id'] ?>][default]" <?php echo $option['default'] == $value['id'] ? 'checked="checked"' : ''; ?>  title="<?php echo $this->__('Selected By Default') ?>" value="<?php echo $value['id'] ?>"/>       
+                      <?php else: ?>                                             
+                        <input type="checkbox" id="optionconfigurable_<?php echo $option['type'];?>_<?php echo $value['id'] ?>_sd" name="product[optionconfigurable_<?php echo $option['type'] == 'a' ? 'attribute' : 'option';?>][<?php echo $option['id'] ?>][default][]" <?php echo in_array($value['id'], explode(',', $option['default'])) ? 'checked="checked"' : ''; ?>  title="<?php echo $this->__('Selected By Default') ?>" value="<?php echo $value['id'] ?>"/>                         
+                      <?php endif; ?>
+                    <?php endif; ?>                        
+                  </div>                    
+                </div>
+              </li>
+            <?php endforeach; ?> 
+            </ul>
+          <?php endif; ?>        
+        </div>
+      </li>
+    <?php endforeach; ?>
+    </ul>
+  </fieldset>
+  
+  <input type="hidden" name="product[optionconfigurable_relation]" id="optionconfigurable_relation_field" class="optionconfigurable-relation-field" value="<?php echo $this->htmlEscape($this->getRelationsJson()) ?>" />
+  <script type="text/javascript">
+  //<![CDATA[
+  
+  OptionConfigurable.Config = {   
+  
+    childrenDetailedSelect : '<select onchange="optionConfigurable.onChildrenSelectChange(\'{{option_type}}\', {{value_id}})" onblur="optionConfigurable.updateChildren(\'{{option_type}}\', {{value_id}}, \'detailed\')" class="optionconfigurable-select" id="oc_{{option_type}}_{{value_id}}_children_detailed_select" multiple size="{{size}}"><option value=""></option>{{options}}</select>',
+    
+  };
+  
+  optionConfigurable = new OptionConfigurable.Main(<?php echo $this->getDataJson() ?>);
+   
+  //]]> 
+  </script>
+<?php endif; ?>

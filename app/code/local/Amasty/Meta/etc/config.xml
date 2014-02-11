@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2008-2012 Amasty (http://www.amasty.com)
+* @package Amasty_Meta
+*/
+-->
+<config>
+
+    <modules>
+        <Amasty_Meta>
+            <version>1.2.5</version>
+        </Amasty_Meta>
+    </modules>
+
+    <global>
+        <models>
+            <ammeta>
+                <class>Amasty_Meta_Model</class>
+                <resourceModel>ammeta_mysql4</resourceModel>
+            </ammeta>
+            <ammeta_mysql4>
+                <class>Amasty_Meta_Model_Mysql4</class>
+                <entities>
+                    <config>
+                        <table>am_meta_config</table>
+                    </config>
+                </entities>
+            </ammeta_mysql4>
+        </models>
+        <resources>
+            <ammeta_setup>
+                <setup>
+                    <module>Amasty_Meta</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ammeta_setup>
+
+            <ammeta_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ammeta_write>
+
+            <ammeta_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ammeta_read>
+        </resources>
+
+        <blocks>
+            <ammeta>
+                <class>Amasty_Meta_Block</class>
+            </ammeta>
+            <page>
+                <rewrite>
+                    <html_head>Amasty_Meta_Block_Page_Html_Head</html_head>
+                </rewrite>
+            </page>
+        </blocks>
+
+        <helpers>
+            <ammeta>
+                <class>Amasty_Meta_Helper</class>
+            </ammeta>
+        </helpers>
+
+    </global>
+
+    <frontend>
+        <events>
+            <catalog_controller_category_init_after>
+                <observers>
+                    <ammeta>
+                        <type>singleton</type>
+                        <class>ammeta/observer</class>
+                        <method>setCategoryData</method>
+                    </ammeta>
+                </observers>
+            </catalog_controller_category_init_after>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <ammeta>
+                        <type>singleton</type>
+                        <class>ammeta/observer</class>
+                        <method>pageBlockObserverBefore</method>
+                    </ammeta>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <ammeta>
+                        <type>singleton</type>
+                        <class>ammeta/observer</class>
+                        <method>pageBlockObserverAfter</method>
+                    </ammeta>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+
+        <layout>
+            <updates>
+                <ammeta>
+                    <file>amasty/ammeta/page.xml</file>
+                </ammeta>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <ammeta>
+                <use>admin</use>
+                <args>
+                    <module>Amasty_Meta</module>
+                    <frontName>ammeta</frontName>
+                </args>
+            </ammeta>
+        </routers>
+    </admin>
+
+    <default>
+        <ammeta>
+            <general>
+                <max_meta_title>250</max_meta_title>
+                <max_meta_description>500</max_meta_description>
+            </general>
+            <product>
+                <enabled>1</enabled>
+                <description><![CDATA[Best {name} in {website} {short_description}]]></description>
+                <title><![CDATA[Buy {name} {color}, from {manufacturer|brand} for {price} only in {website}.]]></title>
+                <keywords></keywords>
+                <full_description><![CDATA[Full: Buy {name} [by {manufacturer|brand}] [of {color} color] [for only {price}] [in {categories}] at [{store},] {website}.]]></full_description>
+                <short_description> <![CDATA[Short: Buy {name} [by {manufacturer|brand}] [of {color} color] [for only {price}] [in {categories}] at [{store},] {website}.]]></short_description>
+            </product>
+            <cat>
+                <enabled>1</enabled>
+                <keywords></keywords>
+                <meta_title><![CDATA[Buy cheap{category} from {website}]]></meta_title>
+                <sub_meta_title><![CDATA[Buy cheap {meta_parent_category} and {category} [by {manufacturer|brand}]from {website}]]></sub_meta_title>
+            </cat>
+        </ammeta>
+    </default>
+</config>

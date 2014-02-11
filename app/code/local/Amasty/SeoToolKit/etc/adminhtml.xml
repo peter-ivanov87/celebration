@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (c) 2010 Amasty (http://www.amasty.com) 
+-->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <amseotoolkit translate="title" module="amseotoolkit">
+                    <title>SEO ToolKit</title>
+                    <sort_order>990</sort_order>
+                    <children>
+                        <settings translate="title" module="amseotoolkit">
+                            <title>Settings</title>
+                            <action>adminhtml/system_config/edit/section/amseotoolkit</action>
+                            <sort_order>990</sort_order>
+                        </settings>
+                    </children>
+                </amseotoolkit>
+            </children>
+        </cms>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <amseotoolkit translate="title" module="amseotoolkit">
+                                <title>SEO ToolKit</title>
+                                <sort_order>990</sort_order>
+                                <children>
+                                    <settings translate="title" module="amseotoolkit">
+                                        <title>Settings</title>
+                                    </settings>
+                                </children>
+                            </amseotoolkit>
+                        </children>
+                    </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <amseotoolkit translate="title" module="amseotoolkit">
+                                        <title>SEO ToolKit</title>
+                                    </amseotoolkit>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+    <translate>
+        <modules>
+            <Amasty_SeoToolKit>
+                <files>
+                    <default>Amasty_SeoToolKit.csv</default>
+                </files>
+            </Amasty_SeoToolKit>
+        </modules>
+    </translate>
+
+</config> 

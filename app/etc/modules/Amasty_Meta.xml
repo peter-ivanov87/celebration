@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Amasty_Meta>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Amasty_SeoToolKit />
+            </depends>
+        </Amasty_Meta>
+    </modules>
+</config>

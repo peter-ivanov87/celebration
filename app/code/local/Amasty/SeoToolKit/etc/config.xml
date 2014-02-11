@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Amasty_SeoToolKit>
+            <version>1.0.0</version>
+        </Amasty_SeoToolKit>
+    </modules>
+
+    <global>
+        <blocks>
+            <amseotoolkit>
+                <class>Amasty_SeoToolKit_Block</class>
+            </amseotoolkit>
+        </blocks>
+
+        <helpers>
+            <amseotoolkit>
+                <class>Amasty_SeoToolKit_Helper</class>
+            </amseotoolkit>
+            <catalog>
+                <rewrite>
+                    <product_url_rewrite>Amasty_SeoToolKit_Helper_Product_Url_Rewrite</product_url_rewrite>
+                </rewrite>
+            </catalog>
+        </helpers>
+
+        <models>
+            <amseotoolkit>
+                <class>Amasty_SeoToolKit_Model</class>
+                <resourceModel>amseotoolkit_resource</resourceModel>
+            </amseotoolkit>
+            <catalog_resource>
+                <rewrite>
+                    <product_collection>Amasty_SeoToolKit_Model_Resource_Product_Collection</product_collection>
+                </rewrite>
+            </catalog_resource>
+            <reports_resource>
+                <rewrite>
+                    <product_index_viewed_collection>Amasty_SeoToolKit_Model_Resource_Reports_Product_Index_Viewed_Collection</product_index_viewed_collection>
+                </rewrite>
+            </reports_resource>
+            <sitemap_resource>
+                <rewrite>
+                    <catalog_product>Amasty_SeoToolKit_Model_Resource_Sitemap_Catalog_Product</catalog_product>
+                </rewrite>
+            </sitemap_resource>
+        </models>
+
+        <events>
+            <!-- <cms_page_render>
+                 <observers>
+                     <amasty_amseotoolkit_model_observer>
+                         <type>singleton</type>
+                         <class>amseotoolkit/observer</class>
+                         <method>redirect301</method>
+                     </amasty_amseotoolkit_model_observer>
+                 </observers>
+             </cms_page_render>-->
+            <controller_front_init_before>
+                <observers>
+                    <amasty_amseotoolkit_model_observer>
+                        <type>singleton</type>
+                        <class>amseotoolkit/observer</class>
+                        <method>redirect301</method>
+                    </amasty_amseotoolkit_model_observer>
+                </observers>
+            </controller_front_init_before>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <amasty_amseotoolkit_model_observer>
+                        <type>singleton</type>
+                        <class>amseotoolkit/observer</class>
+                        <method>addUrlRewriteToSitemap</method>
+                    </amasty_amseotoolkit_model_observer>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+        </events>
+    </global>
+
+    <default>
+        <amseotoolkit>
+            <general>
+                <product_url_type>0</product_url_type>
+            </general>
+        </amseotoolkit>
+    </default>
+</config>
