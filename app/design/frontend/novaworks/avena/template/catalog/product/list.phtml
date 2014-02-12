@@ -277,14 +277,26 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
 		<?php endforeach ?>
     <?php endif; ?>
     <?php
-        $_category  = Mage::registry('current_category');//$this->getCurrentCategory();
-        $child = $_category->getChildren();
-        if (($child==null) || ($child=="")){  //show tool bar only for lowest-level category
+        $_controllerName=Mage::app()->getRequest()->getControllerName();
+        if ($_controllerName=='result'){
     ?>
-        <div class="toolbar-bottom">
+         <div class="toolbar-bottom">
             <?php echo $this->getToolbarHtml() ?>
         </div>
     <?php
+        }
+        else{
+            
+        
+            $_category  = Mage::registry('current_category');//$this->getCurrentCategory();
+            $child = $_category->getChildren();
+            if (($child==null) || ($child=="")){  //show tool bar only for lowest-level category
+    ?>
+                <div class="toolbar-bottom">
+                    <?php echo $this->getToolbarHtml() ?>
+                </div>
+    <?php
+            }
         }
     ?>
     

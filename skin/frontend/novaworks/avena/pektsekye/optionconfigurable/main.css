@@ -14,7 +14,7 @@ It is used when "Display product options in : Product Info Column" is selected o
 
 
 /* OptionBundle Above */
-dd.optionconfigurable-narrow-above {width:290px; padding:0; margin:0 0 10px 0;}
+dd.optionconfigurable-narrow-above { padding:0; margin:0 0 10px 0;}
 dd.optionconfigurable-narrow-above img.optionconfigurable-image {float:left; width:100px; height:100px; margin:8px 0 0 0;}
 dd.optionconfigurable-narrow-above select {margin:8px 0 10px 0;}
 dd.optionconfigurable-narrow-above ul.options-list {margin:0 0 10px 0;}
