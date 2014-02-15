@@ -8,5 +8,8 @@
 
 ?>
 <?php if (Mage::helper('newslettercheckbox')->isEnabled() && $this->hideIfSubscribed() && $this->showToUser()): ?>
-    <li class="control newslettercheckbox"><input type="checkbox" class="checkbox" name="billing[subscribed]" value="1" title="<?php echo Mage::helper('newslettercheckbox')->getCheckboxLabel(); ?>" id="billing:subscribed"<?php echo (Mage::helper('newslettercheckbox')->isCheckedByDefault()) ? ' checked="checked"' : '' ?> /><label for="billing:subscribed"><?php echo Mage::helper('newslettercheckbox')->getCheckboxLabel(); ?></label></li>
+    <li class="control newslettercheckbox">
+        <div><input type="checkbox" class="checkbox" name="billing[subscribed]" value="1" title="<?php echo Mage::helper('newslettercheckbox')->getCheckboxLabel(); ?>" id="billing:subscribed"<?php echo (Mage::helper('newslettercheckbox')->isCheckedByDefault()) ? ' checked="checked"' : '' ?> /><label for="billing:subscribed" style="display: inline;
+vertical-align: bottom;"><?php echo Mage::helper('newslettercheckbox')->getCheckboxLabel(); ?></label></div>
+    </li>
 <?php endif ?>

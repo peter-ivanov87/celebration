@@ -2,7 +2,7 @@
     <ul class="products-grid2">
     <?php
         $_categories=$this->getCurrentChildCategories();
-        if($_categories->count()):
+        if(sizeof($_categories)):
         $categorycount = 0;
         foreach ($_categories as $_category):
         if($_category->getIsActive()):

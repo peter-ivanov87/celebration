@@ -41,10 +41,5 @@
         <?php endif;?>
     <?php endforeach; ?>
 </ul>
-  <select class="dropdown-phone"> 
-    <option value=""><?php echo $this->__('Select')?></option> 
-   <?php foreach($_links as $_link): ?>
-    <option value="<?php echo $_link->getUrl() ?>"><?php echo $_link->getTitle() ?></option> 
-    <?php endforeach; ?>
-  </select> 
+ 
 <?php endif; ?>

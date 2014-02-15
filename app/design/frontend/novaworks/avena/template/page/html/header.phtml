@@ -31,6 +31,18 @@
 <div class="nv-container">
 	<div class="header-container">
 		<div class="row-fluid header">
+                    <div class="header-bottom-left">
+                        <div class="dropdown top-dropdown my-setting">
+                            <?php echo $this->getChildHtml('topLinks') ?>
+                            
+                        </div>
+                        <?php echo $this->getChildHtml('top_cart_sidebar') ?>
+                        <div class="i-top-right">
+                                <p class="welcome-msg"><?php echo $this->getWelcome() ?> <?php echo $this->getAdditionalHtml() ?></p>
+                        </div>
+                        
+                    </div>
+                    <div clear="both"></div>
 			<div class="span3-logo">
 				<?php if ($this->getIsHomePage()):?>
 	    			<h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
@@ -38,23 +50,21 @@
 	    			<h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
 	    		<?php endif?>
 			</div>
-			<div class="span9">
-				<div class="i-top-right">
-					<p class="welcome-msg"><?php echo $this->getWelcome() ?> <?php echo $this->getAdditionalHtml() ?></p>
-				</div>
+			<!--<div class="span9">
+				
 				<div class="clear"></div>
 				<div class="header-center-right">
-					<?php echo $this->getChildHtml('top_cart_sidebar') ?>
+					
 					<?php echo $this->getChildHtml('currency') ?>
 					<?php echo $this->getChildHtml('store_language') ?>
 				</div>
-				<div class="clear"></div>
+				
 				<div class="header-bottom-right">
 					<div class="dropdown top-dropdown my-setting">
 						<?php echo $this->getChildHtml('topLinks') ?>
 					</div>
-				</div>
-			</div>
+				</div> 
+			</div>-->
 		</div>
 	</div>
 	<div class="nav-container">
