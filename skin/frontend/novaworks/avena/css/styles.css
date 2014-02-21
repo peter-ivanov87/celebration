@@ -1393,8 +1393,7 @@ tr.summary-details-excluded { font-style:italic; }
 	
 }
 .header .logo img {
-	margin-top: 10px;
-	margin-left: 200px;
+	margin-top: 5px;
 }
 .header .logo strong { font-size:0; line-height:0; text-indent:-999em; overflow: hidden; }
 
@@ -1415,17 +1414,17 @@ tr.summary-details-excluded { font-style:italic; }
 }
 
 .header .mini-cart .block-content {
-    background-color: #FFFFFF;
-    border: 1px solid #D4D4D4 !important;
-    display: none;
-    max-width: 224px;
-    padding: 10px;
-    position: absolute;
-    right: 0;
-    text-align: left;
-    top: 38px;
-    width: 100%;
-    z-index: 3000;
+	background-color: #FFFFFF;
+	border: 1px solid #D4D4D4 !important;
+	display: none;
+	max-width: 224px;
+	padding: 10px;
+	position: absolute;
+	right: -80;
+	text-align: left;
+	top: 38px;
+	width: 100%;
+	z-index: 3000;
 }
 
 .header-container .shopping-cart a {
@@ -2175,6 +2174,7 @@ a.slider-arrows:hover { background-color:#9b0e11;}
 }
 .block .block-content ul li a {
 	padding-left: 20px;
+	letter-spacing: 0.7px;
 }
 .block .block-content ul li a:hover {
 	color: #4bb8a1;
@@ -4427,7 +4427,7 @@ font: 20px/20px 'BebasRegular',Helvetica,sans-serif;
 .truncated .truncated_full_value { position:relative; z-index:999; }
 .truncated .truncated_full_value .item-options { position:absolute; top:-99999em; left:-99999em; z-index:999; width:250px; padding:8px; border:1px solid #ddd; background-color:#f6f6f6; }
 .truncated .truncated_full_value .item-options > p { font-weight:bold; text-transform:uppercase; }
-.truncated .show .item-options { top:-20px; left:50%; }
+.truncated .show .item-options { top:-20px; left:0%; } //left : 50%
 .col-left .truncated .show .item-options { left:15px; top:7px; }
 .col-right .truncated .show .item-options { left:-240px; top:7px; }
 /* ======================================================================================= */
@@ -4560,7 +4560,7 @@ font: 20px/20px 'BebasRegular',Helvetica,sans-serif;
 	-moz-border-radius: 40px;
 	border-radius: 40px;
 }
-.opc .step-title h2 { float:left; margin:8px 0 0; font-size:1.3333em; line-height:1.6em; }
+.opc .step-title h2 { float:left; margin:8px 0 0; font-size:1.3333em; line-height:1.6em; letter-spacing: 1px; }
 .opc .step-title a { display:none; float:right; margin-top:6px; }
 
 .opc .section.allow { cursor:pointer; }
@@ -4583,11 +4583,17 @@ font: 20px/20px 'BebasRegular',Helvetica,sans-serif;
 #opc-login h3 { margin-top:10px; }
 #opc-login h3 {
 	background:none;
-    font-weight: normal;
-    font-size: 13px;
-    text-transform: uppercase;
-    padding: 0px 0px 7px 0px;
-    border-bottom: 1px solid #DDDDDD;
+	font-weight: normal;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 13px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #DDDDDD;
 }
 #opc-login h4 { font-family: Arial, sans-serif; font-size:1em; font-weight:bold; margin:0; }
 #opc-login .form-list { margin:15px 0 15px; }

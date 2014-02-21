@@ -79,14 +79,12 @@ $code = $tmhOAuth->request('GET', $tmhOAuth->url('1.1/statuses/user_timeline'), 
 				</div>
                             
 			</div>
-                        <?php 
-                            print $this->getLayout()->createBlock("newsletter/subscribe")->setTemplate("newsletter/subscribe.phtml")->toHtml();
-                        ?>
+                     
                         
 					
 			<div class="span3 rss">
 				<?php if($fb_url):?>
-					<h4>RSS</h4>
+					<h4>Custom Space</h4>
 					<div id="fb-root">
                                             
                                             <?php 
@@ -101,6 +99,9 @@ $code = $tmhOAuth->request('GET', $tmhOAuth->url('1.1/statuses/user_timeline'), 
 					</div>
 				<?php endif?>		
 			</div>
+                       <?php 
+                            print $this->getLayout()->createBlock("newsletter/subscribe")->setTemplate("newsletter/subscribe.phtml")->toHtml();
+                        ?>
 		</div>
 	</div>
 </div>

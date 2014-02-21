@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * Magento
  *
@@ -120,6 +120,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      */
     public function loginAction()
     {
+        
         if ($this->_getSession()->isLoggedIn()) {
             $this->_redirect('*/*/');
             return;
@@ -136,6 +137,12 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      */
     public function loginPostAction()
     {
+        
+        if (!$this->_validateFormKey()) {
+            $this->_redirect('*/*/');
+            return;
+        }
+        
         if ($this->_getSession()->isLoggedIn()) {
             $this->_redirect('*/*/');
             return;
@@ -144,6 +151,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
 
         if ($this->getRequest()->isPost()) {
             $login = $this->getRequest()->getPost('login');
+            
             if (!empty($login['username']) && !empty($login['password'])) {
                 try {
                     $session->login($login['username'], $login['password']);
@@ -158,7 +166,6 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
                             break;
                         case Mage_Customer_Model_Customer::EXCEPTION_INVALID_EMAIL_OR_PASSWORD:
                             $message = $e->getMessage();
-                            
                             break;
                         default:
                             $message = $e->getMessage();
@@ -560,8 +567,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     {
         $session = $this->_getSession();
         if ($session->isLoggedIn()) {
-            $this->_redirect('*/*/');
-            return;
+            $this->_getSession()->logout()->regenerateSessionId();
         }
         try {
             $id      = $this->getRequest()->getParam('id', false);

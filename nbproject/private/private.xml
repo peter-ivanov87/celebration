@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/page/html/header.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/page/html/topmenu.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/page/template/links.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/skin/frontend/novaworks/avena/css/styles.css</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/code/core/Mage/Customer/controllers/AccountController.php</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/novaworks/facebookconnect/login.phtml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/base/default/template/core/messages.phtml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/layout/facebookconnect.xml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/layout/checkout.xml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/layout/page.xml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/code/core/Mage/Customer/Block/Form/Login.php</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/code/core/Mage/Checkout/Block/Onepage/Login.php</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/catalogsearch/form.mini.phtml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/newsletter/subscribe.phtml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/page/html/footer.phtml</file>
         </group>
     </open-files>
 </project-private>
