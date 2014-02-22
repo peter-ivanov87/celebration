@@ -211,7 +211,7 @@ class MW_AjaxHomeTabs_Block_List extends Mage_Catalog_Block_Product_List
 					->getCollection()
 					->addAttributeToSelect('*')
 					->addAttributeToFilter('visibility',$visibility)
-					->setOrder('created_at','DESC')
+					->setOrder('updated_at','DESC')
 					->addStoreFilter($this->getStore())
 					->addMinimalPrice()
 					->addFinalPrice()

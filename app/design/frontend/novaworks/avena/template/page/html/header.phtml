@@ -43,13 +43,14 @@
                         
                     </div>
                     <div clear="both"></div>
-			<div class="span3-logo">
-				<?php if ($this->getIsHomePage()):?>
-	    			<h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-	    		<?php else:?>
-	    			<h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-	    		<?php endif?>
-			</div>
+                    <div class="span3-logo">
+                            
+                            <h1 class="logo">
+                                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+                            </h1>
+                    
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('sub_logo')->toHtml() ?>
+                    </div>
 			<!--<div class="span9">
 				
 				<div class="clear"></div>

@@ -1,0 +1,113 @@
+<?php
+/**
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+ */
+?>
+
+
+<?php 
+// for title
+$c_category = Mage::registry('current_category');
+if($c_category)
+{
+	$category_details = false;
+	if($c_category->parent_id>2){
+		$category_details = true;
+		$f_category = Mage::getModel("catalog/category")->load($c_category->parent_id);
+		$title = $f_category->getMetaTitle();
+	}else{
+		$title = $c_category->getMetaTitle();
+	}
+
+	if(!empty($title) && $this->canShowBlock()){
+		echo '<div id="main_top">';	
+		echo $title;
+		echo '</div>';
+	}else{
+		$category_details = false;
+	}
+
+?>
+
+
+
+<?php if($this->canShowBlock()){ ?>
+	
+	<div class="widget_info_img">
+		<?php if($category_details){	
+			$_imgHtml   = '';
+			if ($_imgUrl = $c_category->getImageUrl()) {
+				$_imgHtml = '<img src="'.$_imgUrl.'" alt="'.$this->htmlEscape($c_category->getName()).'" title="'.$this->htmlEscape($c_category->getName()).'" />';
+			}?>
+			
+			<div class="img_sidebar">
+				<?php echo $_imgHtml; ?>
+			</div>
+			<h3 class="gfont"><?php echo $c_category->getName() ?></h3>
+			<?php  if($_description=$c_category->getDescription()){ ?> <p><?php echo $_description ?></p> <?php } ?>	
+		<?php } ?>	
+	</div>
+	
+	<div class="widget_filter">	
+		<h2><?php echo strtoupper($this->__('Filters')) ?></h2>
+		
+		<?php $_filters = $this->getFilters() ?>
+		<?php foreach ($_filters as $_filter): ?>
+		<?php if($_filter->getItemsCount() && $_filter->getName()!='Category'): ?>
+		
+		<div class="list">
+			<a href="#" class="toggler "><?php echo $this->__($_filter->getName()) ?></a>
+			<ul class="pills">
+				<?php echo $_filter->getHtml() ?>
+			</ul>
+		</div>
+		
+		<?php endif; ?>
+		<?php endforeach; ?>
+	</div>		
+	
+<?php }else{		
+			$_helper = Mage::helper('catalog/category');
+			$subcategories = $f_category->getChildrenCategories();
+			if($subcategories)
+			{
+				?>
+					
+				<div class="static_menu">
+					<h2>DISCIPLINE</h2>
+					<div class="list static_menu">
+						<?php foreach ($subcategories as $cat): ?>										
+							<a href="<?php echo $_helper->getCategoryUrl($cat); ?>"><?php echo $cat->getName(); ?></a>
+						<?php endforeach;?>
+					</div>
+				</div>		
+<?php
+			}
+		}
+	
+	}else{
+	?>
+		<div class="widget_filter">	
+			<h2><?php echo strtoupper($this->__('Filters')) ?></h2>
+			
+			<?php $_filters = $this->getFilters() ?>
+			<?php foreach ($_filters as $_filter): ?>
+			<?php if($_filter->getItemsCount() && $_filter->getName()!='Category'): ?>
+			
+			<div class="list">
+				<a href="#" class="toggler "><?php echo $this->__($_filter->getName()) ?></a>
+				<ul class="pills">
+					<?php echo $_filter->getHtml() ?>
+				</ul>
+			</div>
+			
+			<?php endif; ?>
+			<?php endforeach; ?>
+		</div>
+<?	
+}
+?>
+
+
