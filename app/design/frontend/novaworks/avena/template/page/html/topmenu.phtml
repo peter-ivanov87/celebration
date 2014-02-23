@@ -40,13 +40,22 @@ $menu_stay_on_top		=	Mage::getStoreConfig('themeoptions_general/general_options/
 
 ?>
 <?php $_menu = $this->getHtml('level-top') ?>
-<?php if($_menu): ?>
+
 <div id="<?php echo $menu_type ?>" class="nav-container<?php if($menu_stay_on_top): echo " stay-top"; endif;?>">
 	<div class="nav-inner hidden-tablet hidden-phone">
     <ul id="nav">
     	<!-- <li class="menu-logo"><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>"><img src="<?php echo $this->getSkinUrl('images/logo-small.png')?>" /></a></li> -->
     	<li class="home<?php if ($is_home):?> active<?php endif;?>"><a href="<?php echo $this->getUrl('')?>"><span><?php echo $this->__('Home') ?></span></a></li>        
-        <?php echo $_menu ?>
+        <?php if($_menu): ?>
+            <?php echo $_menu ?>
+        <?php endif ?>
+         <?php if (($online_store_menu = $this->getLayout()->createBlock('cms/block')->setBlockId('online_store_menu')->toHtml()) && $menu_type == 'wide-menu'): ?>
+        <li class="nav-custom-link level0 level-top parent"><a class="level-top" href="#"><span><?php echo Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('online_store_menu')->getTitle(); ?></span></a>
+            
+                            <?php echo $online_store_menu;?>
+            
+        </li>
+        <?php endif;?>
         <?php if (($block_custom_menu = $this->getLayout()->createBlock('cms/block')->setBlockId('block_custom_menu')->toHtml()) && $menu_type == 'wide-menu'): ?>
         <li class="nav-custom-link level0 level-top parent"><a class="level-top" href="#"><span><?php echo Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('block_custom_menu')->getTitle(); ?></span></a>
             <ul class="level0">
@@ -93,4 +102,3 @@ $menu_stay_on_top		=	Mage::getStoreConfig('themeoptions_general/general_options/
 		});
 	}); 
 </script>
-<?php endif ?>
