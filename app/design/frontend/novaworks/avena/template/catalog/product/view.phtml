@@ -30,7 +30,8 @@
  * @see Mage_Catalog_Block_Product_View
  * @see Mage_Review_Block_Product_View
  */
- $ajax_cart		 						= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+ $ajax_cart= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
+ 
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
@@ -187,9 +188,13 @@
 			</div> 
         </div>   
         <!-- Product Description Tabs -->
-		<div class="row-fluid product-collateral">
-	        <?php echo $this->getChildHtml('info_tabs') ?>
-	    </div>
+        <div class="row-fluid product-collateral">
+            <?php echo $this->getChildHtml('info_tabs') ?>
+        </div>
+        <div class="row-fluid product-collateral">
+            <?php echo $this->getChildHtml('recent') ?>
+           
+        </div>
 	    <!-- End -->
     </form>
     <script type="text/javascript">

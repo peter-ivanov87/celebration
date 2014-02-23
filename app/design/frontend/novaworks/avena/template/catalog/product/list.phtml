@@ -93,9 +93,7 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
 		                <div class="f-fix">
 		                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
 		                	<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
-							<?php if($ajax_cart):?> 
-							<div id='productname<?php echo $_product->getId()?>' style='display:none'><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
-							<?php endif; ?>
+							
 							<?php if($rating_wishlist_compare): ?>
 							<?php if($_product->getRatingSummary()): ?>
 							<?php echo $this->getReviewsSummaryHtml($_product) ?>
@@ -115,19 +113,6 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
 		            <div class="span4 act-box">	   
 		            	<?php echo $this->getPriceHtml($_product, true) ?>
 		            	<div class="clear"></div>           
-		                <?php if($_product->isSaleable()): ?>
-		                <?php if($ajax_cart):?>  
-		                	<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
-		                    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="ajaxcart('<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-		                    <?php } else { ?>
-		                    <a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='btn-cart button ajaxcart_colorbox' id='colorbox<?php echo $_product->getId()?>'><?php echo $this->__('Add to Cart') ?></a>
-		                     <?php }  ?>
-		                     <?php else:?>
-		                     	<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-		                     <?php endif; ?>
-		                <?php else: ?>
-		                    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-		                <?php endif; ?>
 		                
 		                <?php if($rating_wishlist_compare): ?>  
 						<ul class="add-to-links">
@@ -249,23 +234,6 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
 						<a class="" href="<?php echo $_product->getProductUrl() ?>" data-id="<?php echo $_product->getId()?>"><?php echo $this->__('View')?></a> 
 					</div>
 					<?php endif;?>
-					
-					<?php if($ajax_cart):?> 	
-					<?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ): ?>
-					<div class="add-to-cart">
-				 		<a rel="tooltip" class="add_to_cart_small" onclick="ajaxcart(' <?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>','<?php echo $_product->getId()?>');"><?php echo $this->__('Add to Cart')?></a> 
-					</div>
-					<?php else:?>
-					<div class="add-to-cart">	
-						<a class="ajaxcart_colorbox add_to_cart_small" href="<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>"><?php echo $this->__('Add to Cart')?></a> 
-					</div>
-				 	<?php endif; ?> 
-					<?php else:?>
-					<div class="add-to-cart">
-						<a rel="tooltip" class="add_to_cart_small" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>');"><?php echo $this->__('Add to Cart')?></a> 
-					</div>
-					<?php endif; ?> 
-					
 				</div>
             </div>
 			

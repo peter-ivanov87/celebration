@@ -2782,7 +2782,8 @@ border-color: #d8d8d8;
 }
 
 .quickview-box {
-	float: left;
+	margin-left: auto;
+        margin-right: auto;
 	line-height: 30px;
 	opacity: 0;
 	text-align: center;

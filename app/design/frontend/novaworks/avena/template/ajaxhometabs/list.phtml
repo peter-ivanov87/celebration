@@ -247,22 +247,7 @@
                             </div>
                             <?php endif;?>
 
-                            <?php if($ajax_cart):?> 	
-                            <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ): ?>
-                            <div class="add-to-cart">
-                                    <a rel="tooltip" class="add_to_cart_small" onclick="ajaxcart(' <?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>','<?php echo $_product->getId()?>');"><?php echo $this->__('Add to Cart')?></a> 
-                            </div>
-                            <?php else:?>
-                            <div class="add-to-cart">	
-                                    <a class="ajaxcart_colorbox add_to_cart_small" href="<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>"><?php echo $this->__('Add to Cart')?></a> 
-                            </div>
-                            <?php endif; ?> 
-                            <?php else:?>
-                            <div class="add-to-cart">
-                                    <a rel="tooltip" class="add_to_cart_small" onclick="setLocation('<?php echo $this->helper('checkout/cart')->getAddUrl($_product) ?>');"><?php echo $this->__('Add to Cart')?></a> 
-                            </div>
-                            <?php endif; ?> 
-
+                       
                     </div>
               </div>
             </li>
