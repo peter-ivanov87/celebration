@@ -2908,7 +2908,7 @@ h3.product-name a,.product-name a {
     height: 14px;
 }
 .price-product-box {
-    margin-top: 10px;
+    margin-top: 5px;
     max-width: 90px;
     min-height: 25px;
     width: 100%;
@@ -2917,6 +2917,7 @@ h3.product-name a,.product-name a {
 }
 .rating-product-box {
     float: right;
+    display: none;
     margin-top: 15px;
     max-width: 70px;
     width: 100%;
@@ -7092,6 +7093,11 @@ a.youtube, a.inline { }
     float: right;
     
     position: absolute;
-    right: 30px;
+    right: 20px;
     bottom: 0px
+}
+
+.optionimages{
+    margin-top: 5px;
+    padding-left: 20px
 }

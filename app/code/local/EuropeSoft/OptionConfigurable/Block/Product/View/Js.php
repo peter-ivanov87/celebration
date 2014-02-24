@@ -1,5 +1,5 @@
 <?php
-class Pektsekye_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_Block_Product_View_Options
+class EuropeSoft_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_Block_Product_View_Options
 { 
 
     protected $_options;
@@ -7,90 +7,44 @@ class Pektsekye_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_B
     protected $_attributes;
     protected $thumbnailDirUrl = '';		
     protected $pickerImageDirUrl = '';      
+    protected $product;
     
+    public function getProduct(){
+        return  $this->product;
+    }
     
-    public function getDataJson()
+    public function getImages($_product)
     {                 
-      $data = array(
-        'sortedOIds'         => array(),      
-        'isRequired'         => array('a' => array(), 'o' => array()),
-        'checkedIds'         => array('a' => array(), 'o' => array()),
-        'notDepVIdsByOId'    => array('a' => array(), 'o' => array()),
-        'vIdsByOId'          => array('a' => array(), 'o' => array()),
-        'hasNotSelected'     => array(),
-        'attributesAffected' => false
-      );     	
+        $this->product=$_product;
+        $data = array(
 
-      $rData = Mage::getModel('optionconfigurable/relation')->getRelationData($this->getProduct());      
-
-      $outOfStockVIds = array();
-      
-      $position = 1;      
+        );     	
+        
+      unset($this->_options);
       foreach($this->getOptions() as $option){
         $t = $option['type'];
-        $id = $option['id'];
-
-        if ($t == 'a'){        
-          if (isset($option['hasNotSelected']))        
-            $data['hasNotSelected'][$id] = 1;        
-        
-          if ($option['hasDefault'] || $option['original_position'] != $position)
-            $data['attributesAffected'] = true;                    
-          $position++;
-          $outOfStockVIds = array_merge($outOfStockVIds, $option['out_of_stock_value_ids']);           
-        }
- 
-        if ($option['required'] == 1)
-          $data['isRequired'][$t][$id] = 1;                  
-        
-        if (isset($option['checkedIds']))
-          $data['checkedIds'][$t][$id] = $option['checkedIds'];
-
-        $data['layout'][$t][$id] = $option['layout'];
-        $data['note'][$t][$id]   = $option['note'];
-        $data['popup'][$t][$id]  = (bool) $option['popup'] == 1;
-          
-        $firstValueId = null;     
+     
         foreach($option['values'] as $value){
         
-          $this->prepareImages($value['image']);
-          	
-          $valueId = $value['id'];
-                  
-          $hasParent = isset($rData['pVIdsByVId'][$t][$valueId]) || isset($rData['pVIdsByOId'][$t][$id]);
-          $hasChildren = isset($rData['cVIdsByVId'][$t][$valueId]) || isset($rData['cOIdsByVId'][$t][$valueId]);            
+          
+          ///$this->thumbnailDirUrl = str_replace($image, '', $thumbnailUrl);					
+          //$this->pickerImageDirUrl	
+          if ($value['image']!=""){
+              $this->prepareImages($value['image']);
+              $data[$value['id']]['origin']=Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."catalog/product".$value['image'];
+              $data[$value['id']]['picker']=$this->pickerImageDirUrl.$value['image'];
+          }
+         // $valueId = $value['id'];
+          
+          //$data['image'][$t][$valueId] = $value['image'];
 
-          if (!$hasParent)
-            $data['notDepVIdsByOId'][$t][$id][] = $valueId;
-   
-          $data['image'][$t][$valueId] = $value['image'];
-          $data['description'][$t][$valueId] = $value['description'];   
-           
-          if ($t == 'a' && ($hasParent || $hasChildren))
-            $data['attributesAffected'] = true;
-            
-          if ($firstValueId == null)  
-            $firstValueId = $valueId;                                                 
         }
         
-        $data['vIdsByOId'][$t][$id] = $option['value_ids'];   
-        $data['sortedOIds'][] = array('type' => $t, 'id' => $id, 'optionType' => $option['option_type']);                
-      }
 
-      $keys = array('optionIds','oIdByVId','cOIdsByVId','cOIdsByOId','cVIdsByVId'); 
-      foreach($keys as $key)
-        $data[$key] = $rData[$key];
-  
-      foreach($data['cVIdsByVId'] as $t => $a){
-        foreach($a as $vid => $aa){      
-          if (isset($aa['a'])){
-            $inStockVIds = array_diff($data['cVIdsByVId'][$t][$vid]['a'], $outOfStockVIds);
-            $data['cVIdsByVId'][$t][$vid]['a'] = array_values($inStockVIds);
-          }
-        }        
       }
-  
-      return Zend_Json::encode($data);                              
+      unset($this->product);
+      
+      return $data; 
     }
 
 
@@ -98,14 +52,14 @@ class Pektsekye_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_B
     public function getOptions()
     {
       if (!isset($this->_options)){
-
+          
         $options = array();
         
         $hasOrder = false;
         $filter = Mage::getModel('core/email_template_filter');  
                 
         $options = array();    
-                                                         
+                         
         if ($this->getProduct()->isConfigurable()){
                 
           $position = 1;      
@@ -319,7 +273,8 @@ class Pektsekye_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_B
 
 
     public function _getAttributes()
-    { 			
+    { 	
+        unset($this->_attributes);
       if (!isset($this->_attributes))
         $this->_attributes = $this->getProduct()->getTypeInstance(true)->getConfigurableAttributesAsArray($this->getProduct());
 						
