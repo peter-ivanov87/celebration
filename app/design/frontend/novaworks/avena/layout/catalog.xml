@@ -47,7 +47,7 @@ Default layout, loads most of the pages
         <!-- Mage_Catalog -->
         
         <reference name="left">
-         
+             
         </reference>
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="catalog" ifconfig="catalog/seo/site_map"><label>Site Map</label><url helper="catalog/map/getCategoryUrl" /><title>Site Map</title></action>
@@ -67,7 +67,8 @@ Category default layout
             
         </reference>        
         <reference name="left">
-        		<block type="catalog/leftnavigation" name="catalog.leftcat" before="-" template="catalog/navigation/leftnav.phtml"/>
+            
+            <block type="catalog/leftnavigation" name="catalog.leftcat" before="-" template="catalog/navigation/leftnav.phtml"/>
             <block type="catalog/navigation" name="catalog.leftnav" after="catalog.leftcat" template="catalog/navigation/left.phtml"/>
             
         </reference>
@@ -111,8 +112,9 @@ Category layered navigation layout
         </reference>         
 
         <reference name="left">
-        	 	<block type="catalog/leftnavigation" name="catalog.leftcat" before="-" template="catalog/navigation/leftnav.phtml"/>
+            <block type="catalog/leftnavigation" name="catalog.leftcat" before="-" template="catalog/navigation/leftnav.phtml"/>
             <block type="catalog/layer_view" name="catalog.leftnav" after="catalog.leftcat"  template="catalog/layer/view.phtml"/>
+         
         </reference>
         <reference name="content">
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">

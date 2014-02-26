@@ -3,18 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/page/html/topmenu.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/layout/page.xml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/menu.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/catalog/product/view/type/options/configurable.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/code/local/Pektsekye/OptionConfigurable/Block/Product/View/Js.php</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/optionconfigurable/product/view/js.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/code/local/Pektsekye/OptionConfigurable/Block/Oc/Optionimages.php</file>
-            <file>file:/C:/newxampp/htdocs/celebration/js/pektsekye/optionconfigurable/images.js</file>
-            <file>file:/C:/newxampp/htdocs/celebration/js/pektsekye/optionconfigurable/main.js</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/swatches/customoptions/product/view/options/images.phtml</file>
             <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/catalog/product/list.phtml</file>
-            <file>file:/C:/newxampp/htdocs/celebration/app/code/local/EuropeSoft/OptionConfigurable/Block/Product/View/Js.php</file>
+            <file>file:/C:/newxampp/htdocs/celebration/app/design/frontend/novaworks/avena/template/ajaxhometabs/list.phtml</file>
+            <file>file:/C:/newxampp/htdocs/celebration/skin/frontend/novaworks/avena/css/styles.css</file>
         </group>
     </open-files>
 </project-private>
