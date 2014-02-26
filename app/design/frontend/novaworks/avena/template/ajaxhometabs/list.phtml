@@ -215,7 +215,7 @@
                          foreach ($_gallery as $_image ):
                          ?>
                          <div class="product-img-additional back">
-                         <img src="<?php echo $this -> helper('catalog/image') -> init($_product, 'thumbnail', $_image -> getFile()) -> resize($thumb_width, $thumb_height);?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                         <img style="height:221px;" src="<?php echo $this -> helper('catalog/image') -> init($_product, 'thumbnail', $_image -> getFile()) -> resize($thumb_width, $thumb_height);?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
                          </div>
                          <?php
                                         break;
@@ -244,7 +244,7 @@
                  <div class="optionimages" >
                     <?php 
 
-                        $optionImages=$cpBlock->getImages($t);
+                        $optionImages=$cpBlock->getImages($t,$thumb_width,$thumb_height);
 
                         foreach ($optionImages as $image){
                     ?>

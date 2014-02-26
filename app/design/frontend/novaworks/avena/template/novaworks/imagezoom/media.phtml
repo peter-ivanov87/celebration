@@ -242,7 +242,7 @@
 ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image'); ?>" class="cloud-zoom" id="image-zoom" rel="<?php echo $this->helper('imagezoom')->getZoomConfig(); ?>">
 	<?php
-        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($main_image_product_width,$main_image_product_height).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+        $_img = '<img height="375" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($main_image_product_width,$main_image_product_height).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
         echo $_helper->productAttribute($_product, $_img, 'image');
     ?>
 	</a>

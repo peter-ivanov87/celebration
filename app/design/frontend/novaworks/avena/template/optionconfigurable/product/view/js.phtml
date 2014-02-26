@@ -13,7 +13,7 @@
     useCalendar        : <?php echo (int) Mage::getStoreConfig('catalog/custom_options/use_calendar'); ?>, 
        
     mainImageId : 'image', // Id of the Product main image tag <img id="image"
-    
+    mainImageLinkId : 'image-zoom',    
     spacer     : '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>',	
     imageTitle : '<?php echo $this->jsQuoteEscape($this->__('Click to Enlarge')) ?>',
     imagePopup : 'popWin({{url}}, \'gallery\', \'width=300,height=300,left=50,top=50,location=no,status=yes,scrollbars=yes,resizable=yes\');',

@@ -13,13 +13,13 @@ class EuropeSoft_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_
         return  $this->product;
     }
     
-    public function getImages($_product)
+    public function getImages($_product,$thumb_width,$thumb_height)
     {                 
         $this->product=$_product;
         $data = array(
 
         );     	
-        
+     
       unset($this->_options);
       foreach($this->getOptions() as $option){
         $t = $option['type'];
@@ -31,7 +31,8 @@ class EuropeSoft_OptionConfigurable_Block_Product_View_Js extends  Mage_Catalog_
           //$this->pickerImageDirUrl	
           if ($value['image']!=""){
               $this->prepareImages($value['image']);
-              $data[$value['id']]['origin']=Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."catalog/product".$value['image'];
+           
+               $data[$value['id']]['origin']=Mage::helper('catalog/image')->init($_product, 'small_image',$value['image'])->resize($thumb_width,$thumb_height)->__toString();
               $data[$value['id']]['picker']=$this->pickerImageDirUrl.$value['image'];
           }
          // $valueId = $value['id'];

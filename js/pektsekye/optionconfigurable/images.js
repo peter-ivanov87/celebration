@@ -24,7 +24,7 @@ OptionConfigurable.Images = Class.create({
 		      this.mainImage = img;
 		  }      
     }
-    
+		this.mainImageLinkHref = $(this.mainImageLinkId) ? $(this.mainImageLinkId).href : this.placeholderUrl;    
 		this.mainImageSrc = this.mainImage.src;
 		this.descriptionTemplate = new Template(this.descriptionToolTip, this.templatePattern);		
 		this.imagePopupTemplate = new Template(this.imagePopup, this.templatePattern);
@@ -408,7 +408,12 @@ OptionConfigurable.Images = Class.create({
 	showImage : function(t, optionId, valueId, type){
 		if (this.layout[t][optionId] != 'grid' && this.layout[t][optionId] != 'list'){
 			if (type == 'radio' || type == 'select-one') {
-				if (this.layout[t][optionId] == 'swap' || this.layout[t][optionId] == 'pickerswap'){	
+				if (this.layout[t][optionId] == 'swap' || this.layout[t][optionId] == 'pickerswap'){
+							
+					if ($(this.mainImageLinkId)){
+            $(this.mainImageLinkId).href = this.imageDirUrl + this.image[t][valueId];				
+				  }
+				  					
 					this.mainImage.src = this.v[t][valueId].image.src;					
 					this.resetZoom();
 					if (!this.previousSwapOptionIds[t][optionId]){
@@ -433,7 +438,7 @@ OptionConfigurable.Images = Class.create({
 	},	
 	
 	hideImage : function(t, optionId, valueId, type){
-		var po,src;
+		var po,src,linkHref;
 			
 		if (this.layout[t][optionId] != 'grid' && this.layout[t][optionId] != 'list'){
 			if (type == 'radio' || type == 'select-one') {
@@ -456,16 +461,22 @@ OptionConfigurable.Images = Class.create({
 					  var vId = this.o[ls.type][ls.id].value;
 					  if (vId){
 					    src = this.v[ls.type][vId].image.src; 
+					    linkHref = this.imageDirUrl + this.image[t][vId];					    
 					  } else {
-					    src = this.mainImageSrc;					  
+					    src = this.mainImageSrc;
+					    linkHref = this.mainImageLinkHref;						    					  
               this.previousSwapOptionIds = {b:[],o:[]};	
               this.previousSwapOptions = [];					  
 					  }  
 					} else {
-					  src = this.mainImageSrc;			
+					  src = this.mainImageSrc;	
+					  linkHref = this.mainImageLinkHref;						  		
 					}
 					 	
 					if (this.mainImage.src != src){	
+					  if ($(this.mainImageLinkId)){
+					    $(this.mainImageLinkId).href = linkHref;						  
+					  }							
 					  this.mainImage.src = src;				
 					  this.resetZoom();						
 					}									
@@ -674,6 +685,8 @@ OptionConfigurable.Images = Class.create({
       this.mainImage.style.width = 'auto';
       this.mainImage.style.height = 'auto';    
 		  new Product.Zoom(this.mainImage, 'track', 'handle', 'zoom_in', 'zoom_out', 'track_hint');
+		} else if ($(this.mainImageLinkId)){
+			jQuery('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
 		}
   },
 	

@@ -183,6 +183,7 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
 	                          <?php 
 	                if($image_product_hover) { 
                            // $style=" width : ".$thumb_width."px; height : ".$thumb_height."px;";
+                        
                             ?>
                                     <div class="front margin-image"><img id="<?php echo $_product->getId(); ?>" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($thumb_width,$thumb_height); ?>"  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></div>
 	                <?php
@@ -239,7 +240,7 @@ $thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/st
              <div class="optionimages">
                 <?php 
                    
-                    $optionImages=$cpBlock->getImages($t);
+                    $optionImages=$cpBlock->getImages($t,$thumb_width,$thumb_height);
                     
                     foreach ($optionImages as $image){
                 ?>
