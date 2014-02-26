@@ -7105,9 +7105,12 @@ a.youtube, a.inline { }
     text-align: center;
     display: block;
 }
+.nova-product-images img{
+   // height:221px;
+}
 
 .nova-product-images img{
-    height:221px;
+   // height:221px;
 }
 
 .recent h2{

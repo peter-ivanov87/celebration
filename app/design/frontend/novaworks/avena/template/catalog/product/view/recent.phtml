@@ -31,8 +31,8 @@
      $_helper = $this->helper('catalog/output');	
      $image_product_hover 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId); 
      $quick_view= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId); 
-     $thumb_width =  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
-$thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+     $thumb_width =  500; //Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height = 500;// Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
 ?>
 <?php if ($_products =  Mage::getSingleton('Mage_Reports_Block_Product_Viewed')->getItemsCollection()): ?>
 <div class="all-tabs recent">

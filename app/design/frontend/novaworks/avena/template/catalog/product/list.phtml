@@ -35,8 +35,8 @@
  $image_product_hover 		= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/image_product_hover', $storeId); 
  $ajax_cart		 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_cart', $storeId); 
  $quick_view	 			= Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/ajax_quickview', $storeId); 
-$thumb_width =  Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
-$thumb_height = Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
+$thumb_width = 500;// Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_width', $storeId);
+$thumb_height = 500;// Mage::getStoreConfig('themeoptions_general/prodcuts_list_page/standard_image_height', $storeId);
 ?>
 <?php
     $_productCollection=$this->getLoadedProductCollection();
